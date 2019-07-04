@@ -1,7 +1,7 @@
 package com.internousdev.jaguar.dto;
 
 public class DestinationInfoDTO {
-private int id;
+private String userId;
 private String familyName;
 private String firstName;
 private String familyNameKana;
@@ -10,65 +10,65 @@ private String email;
 private String telNumber;
 private String userAddress;
 
-public int setId(){
-	return id;
+public String getUserId(){
+	return userId;
 }
-public void getId(int id){
-	this.id=id;
+public void setUserId(String userId){
+	this.userId=userId;
 }
 
-public String setFamilyName(){
+public String getFamilyName(){
 	return familyName;
 }
-public void getFamilyName(String familyName){
+public void setFamilyName(String familyName){
 	this.familyName=familyName;
 }
 
 
-public String setFirstName(){
+public String getFirstName(){
 	return firstName;
 }
-public void getFirstName(String firstName){
+public void setFirstName(String firstName){
 	this.firstName=firstName;
 }
 
 
-public String setFamilyNameKana(){
+public String getFamilyNameKana(){
 	return familyNameKana;
 }
-public void getFamilyNameKana(String familyNameKana){
+public void setFamilyNameKana(String familyNameKana){
 	this.familyNameKana=familyNameKana;
 }
 
 
-public String setFirstNameKana(){
+public String getFirstNameKana(){
 	return firstNameKana;
 }
-public void getFirstNameKana(String firstNameKana){
+public void setFirstNameKana(String firstNameKana){
 	this.firstNameKana=firstNameKana;
 }
 
 
-public String setEmail(){
+public String getEmail(){
 	return email;
 }
-public void getEmail(String email){
+public void setEmail(String email){
 	this.email=email;
 }
 
 
-public String setTelNumber(){
+public String getTelNumber(){
 	return telNumber;
 }
-public void getTelNumber(String telNumber){
+public void setTelNumber(String telNumber){
 	this.telNumber=telNumber;
 }
 
 
-public String setUserAddress(){
+public String getUserAddress(){
 	return userAddress;
 }
-public void getUserAddress(String userAddress){
+public void setUserAddress(String userAddress){
 	this.userAddress=userAddress;
 }
 }
