@@ -84,7 +84,7 @@ public class UserInfoDAO {
 		boolean result = false;
 		
 		String sql = "select count(*) as count from user_info where user_id = ? and password = ?";
-//		countで行を数える
+//	countで行を数える。行数を返す
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -141,12 +141,13 @@ public class UserInfoDAO {
 		return userInfoDTO;
 	}
 	
+//	パスワードリセット
 	public int resetPassword(String userId, String password) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		int result = 0;
 		
-		String sql = "update user_info set password = ? update_date=now() where user_id = ?";
+		String sql = "update user_info set password = ?, update_date = now() where user_id = ?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -157,6 +158,48 @@ public class UserInfoDAO {
 		}try{
 			con.close();
 		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+//	ログイン認証
+	public int login(String userId, String password) {
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		int result = 0;
+		
+		String sql = "update user_info set logined = 1, update_date = now() where user_id = ? and password = ?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setString(2, password);
+			result = ps.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}try {
+			con.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+//	ログアウト
+	public int logout(String userId) {
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		int result = 0;
+		
+		String sql = "update user_info set logined = 0, update_date = now() where user_id = ?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+			result = ps.executeUpdate();
+		}catch (SQLException e){
+			e.printStackTrace();
+		}try {
+			con.close();
+		}catch(SQLException e){
 			e.printStackTrace();
 		}
 		return result;
