@@ -4,55 +4,62 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" type="text/css" href="./css/jaguar.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="./js/jaguar.js"></script>
-<title> Cart.jsp </title>
+<title>カート画面</title>
 </head>
 <body>
 
 <!-- 未完成 -->
+<!-- imgパス " / " テーブル次第 -->
+<!-- 画面実装 未調査 -->
 
-<h1 class="cart_title">カート情報</h1>
+<jsp:include page="header.jsp"><!-- header -->
 
 <!--- カート情報がある場合 --->
 <s:if test=" ユーザーIDもしくは仮ユーザーIDに紐づいたカート情報がある && ある分表示 ">
+<!-- 項目列 -->
+<table>
+	<thead>
+		<tr>
+			<th><!-- value="#" --></th>
+			<th>商品名</th>
+			<th>商品名ふりがな</th>
+			<th>商品画像</th>
+			<th>値段</th>
+			<th>発売会社名</th>
+			<th>発売年月日</th>
+			<th>購入個数</th>
+			<th>合計金額</th>
+		</tr>
+	</thead>
+<!-- /項目列 -->
 
-<div class="box">
-<ul class="cart_list">
-    <li class="left"><img src="color_blue.png" /></li>
-    <li class="right">
-        <ul class="cart_list_text">
-            <li>
-                <ul class="cart_list_text_top">
-                    <li class="left">
-                        <ul class="cart_list_text_top_left">
-                            <li><span class="cart_kana">あおいかみとうきょうとちよだくさん</span></li>
-                            <li><span class="cart_name">青い紙（東京都千代田区産）</span></li>
-                        </ul>
-                    </li>
-                    <li class="right"><span class="cart_price">¥ 1,000</span></li>
-                </ul>
-            </li>
-            <li><span class="cart_co">株式会社インターノウス</span></li>
-            <li>
-                <ul class="cart_list_text_bottom">
-                    <li class="left">数量 : 5個</li>
-                    <li class="right">合計金額 : ¥ 5000</li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-</ul>
-</div>
+<!-- カート内容 -->
+<tbody>
+	<s:iterator value="リスト">
+		<tr>
+			<!-- チェックボックス考察中 -->
+			<td><input type="checkbox" value='<s:property value="productId" />'></td>
+			<td><s:property value="productName" /></td>
+			<td><s:property value="productNameKana" /></td>
+			<td><img src='<s;property value="imageFilePath" /><s;property value="imageFilePath" />' ></td>
+			<td><s:property value="price" /></td>
+			<td><s:property value="releaseCompany" /></td>
+			<td><s:property value="releaseDate" /></td>
+			<td><s:property value="productCount" /></td>
+			<td><s:property value="subTotal" /></td>
+		</tr>
+	</s:iterator>
+</tbody>
+<!-- /カート内容 -->
+</table>
 
-<h1 class="cart_total_price">
-    カート合計金額 :<span class="cart_total_price"> ¥ 5000</span>
-</h1>
+<s:property value="totalPrice" /><!-- カート合計金額 -->
 
-<button onclick="" class="btn">決済画面</button> <!--- formでsubmitかなあ --->
+<!-- 決済ボタン -->
+<!-- 削除ボタン -->
 
 </s:if>
 
