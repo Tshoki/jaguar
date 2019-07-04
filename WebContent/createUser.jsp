@@ -1,99 +1,144 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" type="text/css" href="./css/jaguar.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="./js/jaguar.js"></script>
-<title> userCreate.jsp </title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./css/style.css">
+<script type="text/javascript" src="./js/header.js"></script>
+<title> createUser.jsp </title>
 </head>
 <body>
 
-<h1 class="cart_title">ユーザー登録</h1>
+<jsp:include page="header.jsp">
+
+<h1 class="cart_title">ユーザー情報入力画面</h1>
+
+<s:if test="familyNameErrorMessageList=!null && familyNameErrorMessageList.size()>0">
+	<s:iterator value="familyNameErrorMessageList">
+		<s:property />
+	</s:iterator>
+</s:if>
+
+<s:if test="firstNameErrorMessageList=!null && firstNameErrorMessageList.size()>0">
+	<s:iterator value="firstNameErrorMessageList">
+		<s:property />
+	</s:iterator>
+</s:if>
+
+<s:if test="familyNameKanaErrorMessageList=!null && familyNameKanaErrorMessageList.size()>0">
+	<s:iterator value="familyNameKanaErrorMessageList">
+		<s:property />
+	</s:iterator>
+</s:if>
+
+<s:if test="firstNameKanaErrorMessageList=!null && firstNameKanaErrorMessageList.size()>0">
+	<s:iterator value="firstNameKanaErrorMessageList">
+		<s:property />
+	</s:iterator>
+</s:if>
+
+<s:if test="emailErrorMessageList=!null && emailErrorMessageList.size()>0">
+	<s:iterator value="emailErrorMessageList">
+		<s:property />
+	</s:iterator>
+</s:if>
+
+<s:if test="userIdErrorMessageList=!null && userIdErrorMessageList.size()>0">
+	<s:iterator value="userIdErrorMessageList">
+		<s:property />
+	</s:iterator>
+</s:if>
+
+<s:if test="passwordErrorMessageList=!null && passwordErrorMessageList.size()>0">
+	<s:iterator value="passwordErrorMessageList">
+		<s:property />
+	</s:iterator>
+</s:if>
+
+<s:if test="isExistsUserErrorMessage=!null && isExistsUserErrorMessage.size()>0">
+	<s:iterator value="isExistsUserErrorMessage">
+		<s:property />
+	</s:iterator>
+</s:if>
+
 <div id="main">
 	<div>
-		<table>
 		<s:form action="CreateUserConfirmAction">
+			<table>
 			<tr>
+				<th>姓：</th>
 				<td>
-					<label>姓：</label>
-				</td>
-				<td>
-					<input type="text" name="familyName" value=""/>
+					<s:textfield name="familyName" value="session.familyName"/>
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					<label>名：</label>
+					<th>名：</th>
 				</td>
 				<td>
-					<input type="text" name="firstName" value=""/>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label>姓ふりがな：</label>
-				</td>
-				<td>
-					<input type="text" name="familyNameKane" value=""/>
+					<s:textfield name="firstName" value="session.firstName"/>
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					<label>名ふりがな：</label>
+					<th>姓ふりがな：</th>
 				</td>
 				<td>
-					<input type="text" name="firstNameKana" value=""/>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label>性別：</label>
-				</td>
-				<td>
-					<input type="radio" name="sex" value="男性" checked="checked"/>男性
-					<input type="radio" name="sex" value="女性"/>女性
+					<s:textfield name="familyNameKana" value="session.familyNameKana"/>
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					<label>メールアドレス：</label>
+					<th>名ふりがな：</th>
 				</td>
 				<td>
-					<input type="text" name="email" value=""/>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<label>ユーザーID：</label>
-				</td>
-				<td>
-					<input type="text" name="userId" value=""/>
+					<s:textfield name="firstNameKana" value="session.firstNameKana"/>
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					<label>パスワード</label>
+					<th>性別：</th>
 				</td>
 				<td>
-					<input type="text" name="password" value=""/>
+					<s:radio name="sex" list="session.sexList" value="session.sex"/>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<th>メールアドレス：</th>
+				</td>
+				<td>
+					<s:textfield name="email" value="session.email"/>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<th>ユーザーID：</th>
+				</td>
+				<td>
+					<s:textfield name="userId" value="session.userIdForCreateUser"/>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<th>パスワード：</th>
+				</td>
+				<td>
+					<s:password name="password" value="session.password"/>
 				</td>
 			</tr>
 			<s:submit value="確認"/>
-		</s:form>
 		</table>
+		</s:form>
 	</div>
 </div>
 </body>
