@@ -16,10 +16,13 @@
 		<s:if test="keywordsErrorMessageList!=null && keywordsErrorMessageList.size()>0">
 			<div class="error">
 				<div class="error-message">
-					<s:iterator value="keywordsErrorMessageList"><s:property /><br></s:iterator>
+					<s:iterator value="keywordsErrorMessageList">
+						<s:property /><br>
+					</s:iterator>
 				</div>
 			</div>
 		</s:if>
+
 		<s:elseif test="productInfoDTOList!=null && productInfoDTOList.size()>0">
 		<div id="product-list">
 			<s:iterator value="productInfoDTOList">
@@ -39,10 +42,11 @@
 			</s:iterator>
 		</div>
 		</s:elseif>
+
 		<s:else><!-- 商品情報が存在しない場合 -->
-		<div class="info">
-		検索結果がありません。<!--- 指定メッセージ --->
-		</div>
+			<div class="info">
+			検索結果がありません。<!--- 指定メッセージ --->
+			</div>
 		</s:else>
 	</div>
 </body>
