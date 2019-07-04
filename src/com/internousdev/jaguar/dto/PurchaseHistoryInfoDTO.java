@@ -1,6 +1,5 @@
 package com.internousdev.jaguar.dto;
 
-
 import java.util.Date;
 
 public class PurchaseHistoryInfoDTO {
