@@ -93,6 +93,4 @@ public class UserInfoDTO {
 		this.logined = logined;
 	}
 	
-	
-
 }
