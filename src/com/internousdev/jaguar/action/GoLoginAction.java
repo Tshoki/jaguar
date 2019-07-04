@@ -21,14 +21,14 @@ public class GoLoginAction extends ActionSupport implements SessionAware{
 
 		//sessionの仮IDが切れていたらセッションタイムアウト画面へ
 
-		if(!session.containsKey("仮ID")){
+		if(!session.containsKey("tempUserId")){
 
 			return "sessionTimeout";
 
 		}
 
 
-		session.remove("カート画面からフラグ");
+		session.remove("カート画面から来たフラグ");
 
 
 
