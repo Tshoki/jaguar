@@ -3,40 +3,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" type="text/css" href="./css/jaguar.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="./js/jaguar.js"></script>
-<title> productList.jsp </title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./css/jaguar.css">
+
+	<title> 商品一覧画面 </title>
 </head>
+
 <body>
-
-<h1 class="###">商品一覧画面</h1><%--CSS上下にボーダー --%>
-
-<!--- 検索結果がある場合 --->
-<s:if test="###商品情報が存在する場合を表示する機能">
-</s:if>
-
-
-
-<s:iterator value="###検索結果">
-###<if text="要素数/3==0;<br/>"><!-- 表示2個ごとに1段下げる -->
-<div class="###">
-<s:property value="productName"/>
-<s:property value="productNameKana"/>
-###<img src='<s:property value="imageFilePath"/><s:property value="imageFileName"/>'>
-<s:property value="price"/>
-</div>
-</s:iterator>
-
-
-
-<!-- 商品情報が存在しない場合 -->
-<s:else>
-「検索結果なし」<!--- 指定メッセージ --->
-</s:else>
-
+	<jsp:include page="header.jsp" /><!-- ヘッダーの埋め込み -->
+	<div id="contents">
+		<h1>商品一覧画面</h1>
+		<s:if test="keywordsErrorMessageList!=null && keywordsErrorMessageList.size()>0">
+			<div class="error">
+				<div class="error-message">
+					<s:iterator value="keywordsErrorMessageList"><s:property /><br></s:iterator>
+				</div>
+			</div>
+		</s:if>
+		<s:elseif test="productInfoDTOList!=null && productInfoDTOList.size()>0">
+		<div id="product-list">
+			<s:iterator value="productInfoDTOList">
+			<div class="product-list-box">
+				<ul>
+					<li>
+					<a href='<s:url action="ProductDetailsAction">
+						<s:param name="productId" value="%{productId}"/>
+						</s:url>'><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="item-image-box-200"/><br>
+						<s:property value="productName"/><br>
+						<s:property value="productNameKana"/><br>
+						<s:property value="price"/>円<br>
+					</a>
+				  </li>
+				</ul>
+			</div>
+			</s:iterator>
+		</div>
+		</s:elseif>
+		<s:else><!-- 商品情報が存在しない場合 -->
+		<div class="info">
+		検索結果がありません。<!--- 指定メッセージ --->
+		</div>
+		</s:else>
+	</div>
 </body>
 </html>
