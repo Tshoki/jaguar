@@ -3,20 +3,20 @@ package com.internousdev.jaguar.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.internousdev.jaguar.dto.DestinationInfoDTO;
 import com.internousdev.jaguar.util.DBConnector;
-import java.util.List;
-import java.util.ArrayList;
 
 public class DestinationInfoDAO {
 	DBConnector db=new DBConnector();
 	Connection con=db.getConnection();
-	public int insert(String userId, String familyName, String firstName, String familyNameKana, String firstNameKana, String email, String telNumber, String userAddress)throws SQLException{
-	int count=0;
+	public int insert(String userId, String familyName, String firstName, String familyNameKana, String firstNameKana, String email, String telNumber, String userAddress){
+	  int count=0;
 
-	String sql="INSERT INTO destination_info(id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address)"
-				+ "VALUES(?,?,?,?,?,?,?)";
+	  String sql="INSERT INTO destination_info(id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address)"
+				  + "VALUES(?,?,?,?,?,?,?)";
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
@@ -33,16 +33,18 @@ public class DestinationInfoDAO {
 
 		}catch(Exception e){
 			e.printStackTrace();
-		}finally{
+		}try{
 			con.close();
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 		return count;
 	}
-		public List<DestinationInfoDTO> getDestinationInfo(String userId)throws SQLException{
-			List<DestinationInfoDTO> destinationInfoDTO=new ArrayList<DestinationInfoDTO>();
-			String sql="SELECT id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address"
-					+ "FROM destination_info"
-					+ "WHERE userId";
+    public List<DestinationInfoDTO> getDestinationInfo(String userId){
+      List<DestinationInfoDTO> destinationInfoDTOList=new ArrayList<DestinationInfoDTO>();
+	  String sql="SELECT id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address"
+			      + "FROM destination_info"
+				  + "WHERE userId";
 		try{
 				PreparedStatement ps=con.prepareStatement(sql);
 				ps.setString(1, userId);
@@ -57,14 +59,33 @@ public class DestinationInfoDAO {
 				DID.setEmail(rs.getString("email"));
 				DID.setTelNumber(rs.getString("tel_number"));
 				DID.setUserAddress(rs.getString("user_address"));
-				destinationInfoDTO.add(DID);
+				destinationInfoDTOList.add(DID);
 
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-		}finally{
+		}try{
 			con.close();
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
-		return destinationInfoDTO;
+		return destinationInfoDTOList;
 	}
+
+    public int deleteDestination(int id){
+    	String sql="delete from destination_info where id=?";
+    	int count=0;
+    	try {
+    		PreparedStatement ps = con.prepareStatement(sql);
+    		ps.setInt(1, id);
+    		count=ps.executeUpdate();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}try{
+    		con.close();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	return count;
+    }
 }
