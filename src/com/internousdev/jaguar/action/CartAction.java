@@ -13,16 +13,26 @@ public class CartAction extends ActionSupport implements SessionAware{
 	CartInfoDAO dao = new CartInfoDAO();
 	CartInfoDTO dto = new CartInfoDTO();
 
+	private String userId;
+
 	private Map<String, Object> session;
 
 	public String execute(){
 
-		// タイムアウト処理
+		/* タイムアウト処理
 		if(){
 			return sessionTimeout;
 		}
+		*/
 
-		// カート情報全部持ってくるリスト
+		// ログインフラグを参照 に userId の 値 を 設定
+		if((Integer)(session.get("logined")) == 1){
+			userId = session.get("userId").toString();
+		}else{
+			userId = session.get("tempUserId").toString();
+		}
+
+
 		session.get(userId);
 		List = dao.getCartInfo(userId);
 
