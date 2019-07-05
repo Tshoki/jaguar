@@ -134,4 +134,140 @@ public class CartInfoDAO {
 	// userId productIdの商品のカートに入れた情報が存在するかどうかを判別する
 
 
+
+
+	//引数に入れたユーザーIDが商品IDを持っているかチェックするメソッド
+
+
+		public boolean isExistsSameProduct(String userId, int productId){
+
+			boolean result = false;
+
+			String sql = "select count(*) as count from  cart_info where user_id = ? and product_id = ?";
+
+
+			try{
+				PreparedStatement ps = con.prepareStatement(sql);
+
+				ps.setString(1, userId);
+				ps.setInt(2, productId);
+
+				ResultSet rs = ps.executeQuery();
+
+					while(rs.next()){
+
+						if(rs.getInt("count") > 0){
+
+							result = true;
+						}
+					}
+			}catch(SQLException e){
+				e.printStackTrace();
+			}try{
+				con.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
+
+
+
+
+
+		// 仮IDで追加した商品の個数を、ユーザーIDで追加した同じ商品の個数に追加するアップデートメソッド
+
+
+		public int updateProductCount(String userId, int productId, int productCount){
+
+			int count  = 0;
+
+			String sql = "update cart_info set product_count = (product_count + ?), update_date = now() where user_id = ? and product_id = ?";
+
+			try{
+				PreparedStatement ps = con.prepareStatement(sql);
+
+				ps.setInt(1, productCount);
+				ps.setString(2, userId);
+				ps.setInt(3, productId);
+
+				count = ps.executeUpdate();
+
+
+			}catch(SQLException e){
+				e.printStackTrace();
+			}try{
+				con.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+
+
+
+			return count;
+		}
+
+
+
+
+		// カート情報テーブルから、引数に入れたユーザーID、商品IDのデータを削除するメソッド
+
+
+		public int deleteCartInfo (String userId, int productId){
+
+			int count = 0;
+			String sql = "delete from cart_info where user_id = ? and product_id = ?";
+
+			try{
+				PreparedStatement ps = con.prepareStatement(sql);
+
+				ps.setString(1, userId);
+				ps.setInt(2, productId);
+
+				count = ps.executeUpdate();
+
+
+			}catch(SQLException e){
+				e.printStackTrace();
+			}try{
+				con.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			return count;
+
+		}
+
+
+
+
+
+	       //ある商品について、カート情報テーブルのuser_idを、仮IDからユーザーIDに更新するメソッド
+
+			public int updateUserId(String userId, String tempUserId, int productId) {
+
+
+				int count = 0;
+				String sql = "update cart_info set user_id = ? , update_date = now() where user_id = ? and product_id = ?";
+
+				try {
+					PreparedStatement ps = con.prepareStatement(sql);
+
+					ps.setString(1, userId);
+					ps.setString(2, tempUserId);
+					ps.setInt(3,productId);
+
+					count = ps.executeUpdate();
+
+				}catch(SQLException e){
+					e.printStackTrace();
+				}try{
+					con.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+				return count;
+		}
+
+
 }

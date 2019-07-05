@@ -5,7 +5,10 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.jaguar.dao.CartInfoDAO;
 import com.internousdev.jaguar.dao.UserInfoDAO;
+import com.internousdev.jaguar.dto.CartInfoDTO;
+import com.internousdev.jaguar.dto.UserInfoDTO;
 import com.internousdev.jaguar.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -20,13 +23,15 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private String userId;
 	private String password;
 
-	private boolean savedUserIdFlg;    //  login.jspでs:checkboxタグ name = "savedUserIdFlg"   チェックを入れるとsetter経由でtrueが入る
-
+	private boolean savedUserIdFlg;
 
 	private String isNotUserInfoMessage;
+
 	private List<String> userIdErrorMessageList;
 	private List<String> passwordErrorMessageList;
 
+	private List<CartInfoDTO> cartInfoDTOList;
+	private int totalPrice;
 
 
 	private Map<String,Object> session;
@@ -36,7 +41,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public String execute() {
 
-        //  まだログインしてないので、仮IDの存在の有無でタイムアウトのチェック
+        //  仮IDの存在の有無でタイムアウトのチェック
+
 		if(!session.containsKey("tempUserId")){
 
 			return "sessionTimeout";
@@ -44,25 +50,24 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 
+	    //登録完了画面から自動遷移した時用
+		
+		if(session.containsKey("userIdForCreateUser")){
 
-	    //登録完了画面から自動遷移した際、ここのフィールドのuserIdとpasswordに 登録時にsessionに入れたものを入れる
+			userId = session.get("userIdForCreateUser").toString();
+			password = session.get("password").toString();
 
-		if(session.containsKey("新規ユーザー登録からのユーザーID")){
-
-			userId = session.get("新規ユーザー登録からのユーザーID").toString();
-			password = session.get("新規ユーザー登録からのパスワード").toString();
-
-			//ユーザー登録時にIDとパスがセッションに入っているが、ここではもう必要ないのでセッションから削除
-			session.remove("新規ユーザー登録からのユーザーID");
-			session.remove("新規ユーザー登録からのパスワード");
+			//代入後は不要
+			session.remove("userIdForCreateUser");
+			session.remove("password");
 
 		}
 
 
 
-		// ユーザーIDの保存にチェックがついていた場合、「保存されたユーザーID」と、「保存している」という情報をセッションに保存する
+		// 保存チェック済でuserIdの保存
 
-		if(savedUserIdFlg){  // true ならチェック済
+		if(savedUserIdFlg){  
 
 			session.put("savedUserIdFlag",true);
 			session.put("savedUserId", userId);
@@ -74,10 +79,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 
-
-
-		String result = ERROR;  //ここから↓はERROR時（入力エラー時）の処理
-
+		// 入力エラー時の処理
+		
+		String result = ERROR; 
 
 
 		InputChecker ic = new InputChecker();
@@ -86,100 +90,248 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		passwordErrorMessageList = ic.doCheck("パスワード", password, 1, 16, true, false, false, true, false, false);
 
 
-
 		if(userIdErrorMessageList.size() > 0  ||
-			passwordErrorMessageList.size() > 0	){       //IDまたはパスに入力エラーがあれば
-
-
-			session.put("logined", 0);  //  セッションのログインフラグに0を
+			passwordErrorMessageList.size() > 0	){
+			
+			session.put("logined", 0);
 			return result;
-
 
 		}
 
 
-
-		// ここからログイン認証チェック
-
-
+		// ログイン認証チェック
 
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 
+		if(userInfoDAO.isExistsUserInfo(userId, password) &&   //ユーザー存在確認
+				userInfoDAO.login(userId, password) > 0) {     // ログイン認証
 
-		if(userInfoDAO.isExistsUserInfo(userId, password) &&   //ユーザーの存在確認メソッド
-				userInfoDAO.login(userId, password) > 0) {        // ログインフラグを掲げるメソッド    ログイン成功
+			
+			// 紐づけ
+			      
+			       CartInfoDAO cartInfoDAO = new CartInfoDAO();
+
+			       String tempUserId = session.get("tempUserId").toString(); 
+
+			       List<CartInfoDTO> cartInfoDTOListForTempUser = cartInfoDAO.getCartInfoDTOList(tempUserId);
 
 
 
+			       if(cartInfoDTOListForTempUser != null ) {
+
+			    	   boolean himoduke = LinkToCartInfo(tempUserId, cartInfoDTOListForTempUser);
+			    	   //  カート情報更新メソッドの詳細はこのクラスのもう一つのメソッドに  更新に成功すればtrue
+
+			    	   if(!himoduke){ 
+
+			    		   result = "DBError";
+			    	   }
+			       }
 
 
+			       if(session.containsKey("cartFlg")){
+
+		    		   result = "cart";
+
+		    		   session.remove("cartFlg");
+		    	   }
+			       else {
+
+		    	   result = SUCCESS;
+
+		    	   }
 
 
-		} else {//ログイン失敗
+			//セッションにユーザーIDとログインフラグを入れる 仮IDは削除
+
+			UserInfoDTO userInfoDTO =  userInfoDAO.getUserInfo(userId, password); // DBのユーザー情報を格納したDTOを作成
+
+			session.put("userId", userInfoDTO.getUserId());
+			session.put("logined", 1);
+
+			session.remove("tempUserId");
+
+
+		
+		} else {
 
 			isNotUserInfoMessage = "ユーザーIDまたはパスワードが異なります。";
 
 		}
-
-		// ログイン認証チェック終了
-
-
-
-
-
-
-
-
-
-
-
-
 
 		return result;
 	}
 
 
 
+	//  仮IDのカート情報をユーザーIDのカート情報に結びつけるメソッド
 
-	public String getUserId(){
+
+
+	public boolean LinkToCartInfo(String tempUserId, List<CartInfoDTO> cartInfoDTOListForTempUser){
+
+
+		boolean result = false;
+
+		int count = 0;
+
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+
+		for(CartInfoDTO dto : cartInfoDTOListForTempUser){
+
+
+			//仮IDのカート情報１件商品名 が ユーザーIDのカート情報リストに存在する場合
+
+			if(cartInfoDAO.isExistsSameProduct(userId,dto.getProductId())){
+
+			      count = count + cartInfoDAO.updateProductCount(userId, dto.getproductId(), dto.getproductCount());
+
+			      cartInfoDAO.deleteCartInfo(tempUserId, dto.getProductId());
+
+			}
+			
+			else {
+				
+				count = count + cartInfoDAO.updateUserId(userId, tempUserId, dto.getProductId());
+				
+			}
+
+
+		}
+
+
+		if(cartInfoDTOListForTempUser.size()   == count) {
+
+
+
+			//ユーザーIDのカート情報リスト（商品名、商品画像、購入個数など）
+
+			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+
+
+			// ユーザーIDのカート情報リストの合計金額
+
+			totalPrice = cartInfoDAO.getTotalPrice(userId);
+
+			// この２つは、カート画面に遷移した際、このアクションのフィールドから取得するため必要となる
+
+			result = true;
+
+		}
+
+
+		return result;
+
+	}
+
+
+
+
+
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId){
+
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
 
 
 
-	public String getPassword(){
+
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password){
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
 
 
 
+	public boolean isSavedUserIdFlg() {
+		return savedUserIdFlg;
+	}
 
-	public void setSavedUserIdFlg(boolean savedUserIdFlg){
+
+	public void setSavedUserIdFlg(boolean savedUserIdFlg) {
 		this.savedUserIdFlg = savedUserIdFlg;
 	}
 
 
 
-	public String getIsNotExistsErrorMessage(){
+
+	public String getIsNotUserInfoMessage() {
 		return isNotUserInfoMessage;
 	}
 
 
-	public Map<String,Object> getSession() {
+	public void setIsNotUserInfoMessage(String isNotUserInfoMessage) {
+		this.isNotUserInfoMessage = isNotUserInfoMessage;
+	}
+
+
+
+
+
+
+	public List<String> getUserIdErrorMessageList() {
+		return userIdErrorMessageList;
+	}
+
+	public void setUserIdErrorMessageList(List<String> userIdErrorMessageList) {
+		this.userIdErrorMessageList = userIdErrorMessageList;
+	}
+
+
+
+
+
+	public List<String> getPasswordErrorMessageList() {
+		return passwordErrorMessageList;
+	}
+
+
+	public void setPasswordErrorMessageList(List<String> passwordErrorMessageList) {
+		this.passwordErrorMessageList = passwordErrorMessageList;
+	}
+
+
+
+
+	public List<CartInfoDTO> getCartInfoDTOList() {
+		return cartInfoDTOList;
+	}
+
+
+	public void setCartInfoDTOList(List<CartInfoDTO> cartInfoDTOList) {
+		this.cartInfoDTOList = cartInfoDTOList;
+	}
+
+
+
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+
+
+
+	public Map<String, Object> getSession() {
 		return session;
 	}
 
-	public void setSession (Map<String, Object> session) {
+
+	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
 
