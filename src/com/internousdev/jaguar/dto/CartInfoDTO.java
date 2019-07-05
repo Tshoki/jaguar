@@ -2,9 +2,19 @@ package com.internousdev.jaguar.dto;
 
 public class CartInfoDTO {
 
-	private String userId;
-	private int productId;
-	private int productCount;
+	private String userId; // ユーザーID
+	private int productId; // 商品ID
+	private int productCount; // 個数（商品個数）
+
+	private String productName; // 商品名
+	private String productNameKana; // 商品名かな
+	private int price; // 価格（商品価格）
+	private String imageFilePath; // 画像ファイルパス
+	private String imageFileName; // 画像ファイル名
+	private String releaseDate; // 発売年月
+	private String releaseCompany; // 発売会社
+
+	private int subTotal; // 小計（商品*個数）
 
 
 	public String getUserId(){
@@ -24,6 +34,56 @@ public class CartInfoDTO {
 	}
 	public void setProductCount(int productCount){
 		this.productCount = productCount;
+	}
+
+	public String getProductName(){
+		return productName;
+	}
+	public void setProductName(String productName){
+		this.productName = productName;
+	}
+	public String getProductNameKana(){
+		return productNameKana;
+	}
+	public void setProductNameKana(String productNameKana){
+		this.productNameKana = productNameKana;
+	}
+	public int getPrice(){
+		return price;
+	}
+	public void setPrice(int price){
+		this.price = price;
+	}
+	public String getImageFilePath(){
+		return imageFilePath;
+	}
+	public void setImageFilePath(String imageFilePath){
+		this.imageFilePath = imageFilePath;
+	}
+	public String getImageFileName(){
+		return imageFileName;
+	}
+	public void setImageFileName(String imageFileName){
+		this.imageFileName = imageFileName;
+	}
+	public String getImageReleaseDate(){
+		return releaseDate;
+	}
+	public void setReleaseDate(String releaseDate){
+		this.releaseDate = releaseDate;
+	}
+	public String getReleaseCompany(){
+		return releaseCompany;
+	}
+	public void setReleaseCompany(String releaseCompany){
+		this.releaseCompany = releaseCompany;
+	}
+
+	public int getSubTotal(){
+		return subTotal;
+	}
+	public void setSubTotal(int subTotal){
+		this.subTotal = subTotal;
 	}
 
 }

@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<script type="text/javascript" src="./js/header.js"></script>
 <title>マイページ</title>
 </head>
 <body>
