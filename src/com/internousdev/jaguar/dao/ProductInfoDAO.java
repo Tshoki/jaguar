@@ -54,7 +54,7 @@ public class ProductInfoDAO {
 
 	/**
 	 * 商品IDを条件として商品情報を取り出す
-	 * @param productId 商品ID
+	 * @param int型 商品ID(productId)
 	 * @return ProductInfoDTO型 : 商品情報 (productInfoDTO)
 	 */
 	public ProductInfoDTO getProductInfoByProductId(int productId) {
@@ -101,8 +101,8 @@ public class ProductInfoDAO {
 	 * 関連商品を取得する。
 	 * @param int型 カテゴリーID(categoryId)
 	 * @param int型 商品ID(productId)
-	 * @param int型 limitOffset データを取得する開始位置
-	 * @param int型 limitRowCount データ取得件数
+	 * @param int型 データを取得する開始位置 (limitOffset)
+	 * @param int型 データ取得件数 (limitRowCount)
 	 * @return  List<ProductInfoDTO>型 : 関連商品情報 (productInfoDTOList)
 	 */
 	public List<ProductInfoDTO> getRelatedProductList(int categoryId, int productId, int limitOffset,int limitRowCount) {
@@ -166,7 +166,7 @@ public class ProductInfoDAO {
 
 		/**
 		 * ココは拡張for文でなくfor文でkeywordsListの要素数だけループ
-		 * ２ループ目以降はwhereじゃなくてorでもいける気がするけど、、、samplewebの流れでGO
+		 * ２ループ目以降はwhereじゃなくてorでもいける気がするけど、、、samplewebの流れで書く
 		 * ##########後で消す###########
 		 */
 		for (String keyword : keywordsList) { // 拡張for文 keywordsListの中身を一つずつ取り出す
@@ -215,7 +215,7 @@ public class ProductInfoDAO {
 	/**
 	 * カテゴリーIDとキーワードを条件に商品情報を取得する
 	 * @param String[]型 : キーワードの配列 (keywordsList)
-	 * @param Int型 : カテゴリーID(categoryId)
+	 * @param int型 : カテゴリーID(categoryId)
 	 * @return List<ProductInfoDTO>型 : 商品情報のList(productInfoDTOList)
 	 */
 	public List<ProductInfoDTO> getProductInfoListByCategoryIdAndKeyword(String[] keywordsList, int categoryId) {
