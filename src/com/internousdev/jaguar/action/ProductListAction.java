@@ -19,10 +19,10 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 	public String execute() {
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
-		productInfoDTOList = productInfoDAO.getProductInfoListAll();
+		productInfoDTOList = productInfoDAO.getProductInfoListAll(); //全商品情報を取得。
 
 		/**
-		 * カテゴリーリストはHomeActionで作成されて、sessionにいれているが、
+		 * HomeActionのコードと同じ。HomeActionでsessionにいれているが、
 		 * 消えてしまっている場合、ココで表示したいので作成
 		 */
 		if(!session.containsKey("mCategoryDTOList")) {
