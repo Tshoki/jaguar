@@ -2,6 +2,8 @@ package com.internousdev.jaguar.dto;
 
 public class UserInfoDTO {
 	
+//	user_infoテーブル値と対応するフィールド
+	
 	private int id;
 	private String userId;
 	private String password;
