@@ -8,7 +8,7 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 private Map<String, Object> session;
 private String backFlg;		//jspを1つ戻すときにvalue値が入る
 	public String execute(){
-		if(!session.containsKey("backFlg") && !session.containsKey("userId")){		//SessionTimeOut
+		if(!session.containsKey("tempUserId") && !session.containsKey("userId")){		//SessionTimeOut
 			return "sessionTimeOut";
 		}
 
@@ -17,9 +17,9 @@ private String backFlg;		//jspを1つ戻すときにvalue値が入る
 			session.remove("firstName");
 			session.remove("familyNameKana");
 			session.remove("firstNameKana");
-			session.remove("email");
-			session.remove("telNumber");
 			session.remove("userAddress");
+			session.remove("telNumber");
+			session.remove("email");
 		}
 		return SUCCESS;
 	}
