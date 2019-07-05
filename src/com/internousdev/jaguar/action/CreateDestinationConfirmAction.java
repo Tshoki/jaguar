@@ -25,7 +25,7 @@ private List<String> emailErrorMessageList;
 private Map<String, Object>session;
 public String execute(){
 	if(!session.containsKey("tempUserId") && !session.containsKey("userId")){		//SessionTimeOut
-		return "sessionTimeOut";
+		return "sessionTimeout";
 	}
 	String result=ERROR;
 	session.put("familyName", familyName);
