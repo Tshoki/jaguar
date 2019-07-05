@@ -19,9 +19,9 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 				session.get("firstName").toString(),
 				String.valueOf(session.get("familyNameKana")),
 				String.valueOf(session.get("firstNameKana")),
-				String.valueOf(session.get("email")),
+				String.valueOf(session.get("userAddress")),
 				String.valueOf(session.get("telNumber")),
-				session.get("userAddress").toString());
+				session.get("email").toString());
 		if(count>0){
 			result=SUCCESS;
 		}
@@ -29,9 +29,9 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		session.remove("firstName");
 		session.remove("familyNameKana");
 		session.remove("firstNameKana");
-		session.remove("email");
-		session.remove("telNumber");
 		session.remove("userAddress");
+		session.remove("telNumber");
+		session.remove("email");
 
 		return result;
 }
