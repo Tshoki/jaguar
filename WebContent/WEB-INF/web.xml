@@ -19,4 +19,21 @@
 <filter-name>struts2</filter-name>
 <url-pattern>/*</url-pattern>
 </filter-mapping>
+
+<!-- 404,500エラーのどちらのエラーが表示された場合でも、systemError.jspに遷移する。 -->
+<!-- 500エラーはサーバーが起動していない等、Webサーバーの不具合の際に発生 -->
+<error-page>
+  <error-code>404</error-code>
+  <location>/systemError.html</location>
+</error-page>
+
+<error-page>
+  <error-code>500</error-code>
+  <location>/systemError.html</location>
+</error-page>
+
+<!-- セッションタイムアウトの時間を変更したい場合はコメントを解除(デフォルトは30分) -->
+<!-- <session-config> -->
+<!-- <session-timeout>1</session-timeout> -->
+<!-- </session-config> -->
 </web-app>

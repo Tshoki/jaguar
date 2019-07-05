@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +30,16 @@
     <th>電話番号</th>
     <th>メールアドレス</th>
   </tr>
-  <s:iterator value="destinationInfoDTO">
+  <s:iterator value="destinationInfoDTO" status="st">
   <tr>
+    <!-- statusはList内の要素を指す。宛先Listのインデックス番号0番にはデフォルトでcheckをつけた状態にしておく。 -->
     <td>
-      <input type="radio" name="id" value="<s:property value="id"/>"/>
+      <s:if test="#st.index==0">
+        <input type="radio" name="id" checked="checked" value="<s:property value="id"/>"/>
+      </s:if>
+      <s:else>
+        <input type="radio" name="id" value="<s:property value="id"/>"/>
+      </s:else>
     </td>
     <td><s:property value="fimilyName"/></td>
     <td><s:property value="firstName"/></td>

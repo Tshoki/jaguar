@@ -5,16 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- 〜秒後に画面遷移の記述 -->
-<meta http-equiv="refresh" content=" 3; url='HomeAction'">
 <link rel="stylesheet" href="./css/style.css">
-<title>SettlementComplete画面</title>
+<title>Error画面</title>
 </head>
 <body>
 <jsp:include page="header.jsp">
 
 <div id="main">
-  <p>決済が完了しました。</p>
+  <h1>エラー</h1>
 </div>
 </body>
 </html>
