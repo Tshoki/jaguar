@@ -6,24 +6,25 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/jaguar.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="./js/jaguar.js"></script>
+<script type="text/javascript" src="./js/cart.js"></script>
 <title>カート画面</title>
 </head>
 <body>
 
 <!-- 未完成 -->
-<!-- imgパス " / " -->
+<!-- imgパス " / " データ次第 -->
 <!-- 画面実装 未調査 -->
 
 <jsp:include page="header.jsp"><!-- header -->
 
 <!--- カート情報がある場合 --->
-<s:if test="  &&  ">
+<s:if test="cartInfoDTOList != null">
+<s:form action="DeleteCartAction">
 <!-- 項目列 -->
 <table>
 	<thead>
 		<tr>
-			<th><!-- value="#" --></th>
+			<th>#</th>
 			<th>商品名</th>
 			<th>商品名ふりがな</th>
 			<th>商品画像</th>
@@ -38,13 +39,13 @@
 
 <!-- カート内容 -->
 <tbody>
-	<s:iterator value="リスト">
+	<s:iterator value="cartInfoDTOList">
 		<tr>
 			<!-- チェックボックス考察中 -->
-			<td><input type="checkbox" value='<s:property value="productId" />'></td>
+			<td><input type="checkbox" name="check" value='<s:property value="productId" />' value=""></td>
 			<td><s:property value="productName" /></td>
 			<td><s:property value="productNameKana" /></td>
-			<td><img src='<s;property value="imageFilePath" /><s;property value="imageFilePath" />' ></td>
+			<!--<td><img src='<s;property value="imageFilePath" /><s;property value="imageFilePath" />' ></td>-->
 			<td><s:property value="price" /></td>
 			<td><s:property value="releaseCompany" /></td>
 			<td><s:property value="releaseDate" /></td>
@@ -59,9 +60,14 @@
 <s:property value="totalPrice" /><!-- カート合計金額 -->
 
 <!-- 決済ボタン -->
-<!-- 削除ボタン -->
+<s:submit value="決済" data-action="SettlementConfirmAction" />
 
+<!-- 削除ボタン --><!-- 初期設定 css(opaity:0;) , jQuery で opacity 操作 -->
+<s:submit value="削除" data-action="DeleteCartAction" />
+
+</s:form>
 </s:if>
+
 
 <!--- カート情報がない場合 --->
 <s:else>

@@ -2,6 +2,7 @@ package com.internousdev.jaguar.dto;
 
 public class CartInfoDTO {
 
+	private int id; // ID (cart_infoテーブル)
 	private String userId; // ユーザーID
 	private int productId; // 商品ID
 	private int productCount; // 個数（商品個数）
@@ -17,19 +18,25 @@ public class CartInfoDTO {
 	private int subTotal; // 小計（商品*個数）
 
 
+	public int getId(){
+		return id;
+	}
+	public void setId(int id){
+		this.id = id;
+	}
 	public String getUserId(){
 		return userId;
 	}
 	public void setUserId(String userId){
 		this.userId = userId;
 	}
-	public int getproductId(){
+	public int getProductId(){
 		return productId;
 	}
 	public void setProductId(int productId){
 		this.productId = productId;
 	}
-	public int getproductCount(){
+	public int getProductCount(){
 		return productCount;
 	}
 	public void setProductCount(int productCount){

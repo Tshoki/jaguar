@@ -1,6 +1,5 @@
 package com.internousdev.jaguar.action;
 
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -9,13 +8,11 @@ import com.internousdev.jaguar.dao.CartInfoDAO;
 import com.internousdev.jaguar.dto.CartInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CartAction extends ActionSupport implements SessionAware{
-
-	private CartInfoDAO cartInfoDAO = new CartInfoDAO();
+public class AddCartAction extends ActionSupport implements SessionAware{
 
 	private String userId;
-	private List<CartInfoDTO> cartInfoDTOList;
-	private int totalPrice;
+
+	private CartInfoDAO cartInfoDAO = new CartInfoDAO();
 
 	private Map<String, Object> session;
 
@@ -34,25 +31,21 @@ public class CartAction extends ActionSupport implements SessionAware{
 			userId = session.get("tempUserId").toString();
 		}
 
-		//
-		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+		// userId と 紐付けたカート情報に 同じ商品があるかないか分岐
+		if(cartInfoDAO.○○){
+			//
+		}else{
+			//
+		}
 
-		// 合計金額
-		totalPrice = cartInfoDAO.getTotalPrice(userId);
-
-		return SUCCESS ;
+		return ERROR ;
 	}
 
-	public List<CartInfoDTO> getCartInfoDTOList(){
-		return cartInfoDTOList;
-	}
-	public void setCartInfoDTOList(List<CartInfoDTO> cartInfoDTOList){
-		this.cartInfoDTOList = cartInfoDTOList;
-	}
 	public Map<String, Object> getSession(){
 		return session;
 	}
 	public void setSession(Map<String, Object> session){
 		this.session = session;
 	}
+
 }
