@@ -28,7 +28,9 @@ public class GoLoginAction extends ActionSupport implements SessionAware{
 		}
 
 
-		session.remove("カート画面から来たフラグ");
+		session.remove("cartFlg");  // 未ログイン状態で、カート画面の決済ボタンを押した場合に立てられるフラグ
+                                   //  ここではヘッダーからのログインなので、フラグは削除
+	                              //  LoginAction でフラグの有無を確認し、存在すればカート画面に、存在しなければホーム画面に遷移させる処理
 
 
 
