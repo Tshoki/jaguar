@@ -46,15 +46,15 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		session.put("userIdForCreateUser", userId);
 		session.put("password", password);
 
-		InputChecker inputChecker=new InputChecker();
+		InputChecker ic=new InputChecker();
 
-		familyNameErrorMessageList=inputChecker.doCheck("姓",familyName,1,16,true,true,true,false,false,false);
-		firstNameErrorMessageList=inputChecker.doCheck("名",firstName,1,16,true,true,true,false,false,false);
-		familyNameKanaErrorMessageList=inputChecker.doCheck("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false);
-		firstNameKanaErrorMessageList=inputChecker.doCheck("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false);
-		emailErrorMessageList=inputChecker.doCheckForEmail("メールアドレス",email,10,32);
-		userIdErrorMessageList=inputChecker.doCheck("ユーザーID",userId,1,8,true,false,false,true,false,false);
-		passwordErrorMessageList=inputChecker.doCheck("パスワード",password,1,16,true,false,false,true,false,false);
+		familyNameErrorMessageList=ic.doCheck("姓",familyName,1,16,true,true,true,false,false,false);
+		firstNameErrorMessageList=ic.doCheck("名",firstName,1,16,true,true,true,false,false,false);
+		familyNameKanaErrorMessageList=ic.doCheck("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false);
+		firstNameKanaErrorMessageList=ic.doCheck("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false);
+		emailErrorMessageList=ic.doCheckForEmail("メールアドレス",email,10,32);
+		userIdErrorMessageList=ic.doCheck("ユーザーID",userId,1,8,true,false,false,true,false,false);
+		passwordErrorMessageList=ic.doCheck("パスワード",password,1,16,true,false,false,true,false,false);
 
 		if(familyNameErrorMessageList.size()>0){
 			return result;
@@ -72,12 +72,12 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 			return result;
 		}
 
-		UserInfoDAO userInfoDAO=UserInfoDAO();
-		if(userInfoDAO./*未定義のメソッド*/isExistsUserInfo(userId)){
+		UserInfoDAO userInfoDAO=new UserInfoDAO();
+		if(userInfoDAO.isExistsUserInfo(userId)){
 			isExistsUserErrorMessage="使用できないユーザーIDです。";
 		}else{
-			CommonUtility commonUtility=new CommonUtility();
-			password=commonUtility./*未定義のメソッド*/concealPassword(password);
+			CommonUtility cu=new CommonUtility();
+			password=cu.concealPassword(password);
 			result=SUCCESS;
 		}
 		return result;
