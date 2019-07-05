@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/jaguar.css">
 <title>パスワード再設定</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
-
+<div id="contents">
 <h1>パスワード再設定画面</h1>
 
 
@@ -56,4 +57,39 @@
 	</div>
 	</div>
 	</s:if>
+
+	<s:if test="newPasswordIncorrectErrorMessage!=null && !newPasswordIncorrectErrorMessage.isEmpty()">
+	<div class="error">
+	<div class="error-massage">
+		<s:property value="newPasswordIncorrectErrorMessage"/>
+		<br>
+	</div>
+	</div>
+	</s:if>
+
+<s:form action="ResetPasswordConfirmAction">
+	<table class="vertical-list-table">
+		<tr>
+			<th scope="row"><s:label value="ユーザID"/><th>
+			<td><s:textfield name="userId" value="%{#session.userIdForResetPassword}" placeholder="ユーザーID" class="txt"/></td>
+		</tr>
+		<tr>
+			<th scope="row"><s:label value="現在のパスワード"/></th>
+			<td><s:password name="password" value="" placeholder="現在のパスワード" class="txt"/></td>
+		</tr>
+		<tr>
+			<th scope="row"><s:label value="新しいパスワード"/></th>
+			<td><s:password name="newPassword" value="" placeholder="新しいパスワード" class="txt"/>
+		<tr>
+			<th scope="row"><s:label value="新しいパスワード（再確認）"/></th>
+			<td><s:password name="reConfirmationPassword" value="" placeholder="新しいパスワード（再確認）" class="txt"/></td>
+		</tr>
+	</table>
+	<div class="submit_btn_box">
+		<s:submit value="確認" class="submit_btn" />
+	</div>
+</s:form>
+</div>
+</body>
+</html>
 

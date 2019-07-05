@@ -9,12 +9,14 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ResetPasswordAction extends ActionSupport implements SessionAware {
 	private String backFlg;
 	private Map<String, Object> session;
-
+	//executeメソッドを定義
 	public String execute(){
-
+		//backFlgの中身がnullのときif文を実行する
 		if(backFlg==null){
+			//userIdForResetPasswordをsessionから削除する
 			session.remove("userIdForResetPassword");
 		}
+		//
 		return SUCCESS;
 	}
 

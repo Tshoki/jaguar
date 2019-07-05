@@ -26,6 +26,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 
 	public String execute(){
+
 		String result=ERROR;
 
 		InputChecker inputChecker=new InputChecker();
@@ -54,6 +55,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 		if(newPasswordIncorrectErrorMessage==null){
 			CommonUtility commonUtility=new CommonUtility();
+			concealedPassword=commonUtility.concealPassword(newPassword);
 			session.put("newPassword", newPassword);
 			result=SUCCESS;
 		}
@@ -89,7 +91,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		return reConfirmationPassword;
 	}
 
-	public void setReConfirmation(String reConfirmationPassword){
+	public void setReConfirmationPassword(String reConfirmationPassword){
 		this.reConfirmationPassword=reConfirmationPassword;
 	}
 
