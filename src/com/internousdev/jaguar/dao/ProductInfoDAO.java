@@ -167,14 +167,15 @@ public class ProductInfoDAO {
 		/**
 		 * ココは拡張for文でなくfor文でkeywordsListの要素数だけループ
 		 * ２ループ目以降はwhereじゃなくてorでもいける気がするけど、、、samplewebの流れで書く
-		 * ##########後で消す###########
+		 *
+		 *
+		 *
 		 */
 		for (String keyword : keywordsList) { // 拡張for文 keywordsListの中身を一つずつ取り出す
-			if (!(keyword.equals(""))) {
+			if (!(keyword.equals(""))) { //#####keywordが""だった場合WHERE句に含めてしまうと全て出てしまう。
 				if (initializeFlag) {
-					//ここの ' は出力する文字列
-					sql += " where (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
-					//2つ目の条件を追加する際、whereではなくorと書く必要があるため、initializeFlagをfalseにする
+					sql += " where (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";//ここの ' は出力する文字列
+					//1つ目の条件を2つ目の条件を追加する際、whereではなくorと書く必要があるため、initializeFlagをfalseにする
 					initializeFlag = false;
 				} else {
 					sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
@@ -232,7 +233,7 @@ public class ProductInfoDAO {
 		String sql = "select * from product_info where category_id=" + categoryId ;
 		boolean initializeFlag = true;	// 複数のキーワードを条件にするための条件分岐用のフラグ
 		for (String keyword : keywordsList) {
-			// keywordに何かしらの文字列がはいっているか、キーワードリストの長さが1(空文字の時も条件式として加えるため)だった場合
+			// ####keywordに何かしらの文字列がはいっているか、キーワードリストの長さが1(空文字の時も条件式として加えるため)だった場合
 			if (!(keyword.equals("")) || keywordsList.length == 1) {
 				if (initializeFlag) {
 					sql += " and ((product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
