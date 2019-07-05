@@ -4,7 +4,7 @@ public class MCategoryDTO {
 	private int id;
 	private int categoryId;
 	private String categoryName;
-	private String categoryDetails;
+	private String categoryDescription;
 
 	public int getId() {
 		return id;
@@ -25,9 +25,9 @@ public class MCategoryDTO {
 		this.categoryName = categoryName;
 	}
 	public String getCategoryDetails() {
-		return categoryDetails;
+		return categoryDescription;
 	}
-	public void setCategoryDescription(String categoryDetails) {
-		this.categoryDetails = categoryDetails;
+	public void setCategoryDescription(String categoryDescription) {
+		this.categoryDescription = categoryDescription;
 	}
 }
