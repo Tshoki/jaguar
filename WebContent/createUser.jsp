@@ -77,63 +77,49 @@
 			</tr>
 
 			<tr>
-				<td>
-					<th>名：</th>
-				</td>
+				<th>名：</th>
 				<td>
 					<s:textfield name="firstName" value="session.firstName"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td>
-					<th>姓ふりがな：</th>
-				</td>
+				<th>姓ふりがな：</th>
 				<td>
 					<s:textfield name="familyNameKana" value="session.familyNameKana"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td>
-					<th>名ふりがな：</th>
-				</td>
+				<th>名ふりがな：</th>
 				<td>
 					<s:textfield name="firstNameKana" value="session.firstNameKana"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td>
-					<th>性別：</th>
-				</td>
+				<th>性別：</th>
 				<td>
 					<s:radio name="sex" list="session.sexList" value="session.sex"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td>
-					<th>メールアドレス：</th>
-				</td>
+				<th>メールアドレス：</th>
 				<td>
 					<s:textfield name="email" value="session.email"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td>
-					<th>ユーザーID：</th>
-				</td>
+				<th>ユーザーID：</th>
 				<td>
 					<s:textfield name="userId" value="session.userIdForCreateUser"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td>
-					<th>パスワード：</th>
-				</td>
+				<th>パスワード：</th>
 				<td>
 					<s:password name="password" value="session.password"/>
 				</td>
