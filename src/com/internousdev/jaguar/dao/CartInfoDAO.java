@@ -207,6 +207,9 @@ public class CartInfoDAO {
 
 		public boolean isExistsSameProduct(String userId, int productId){
 
+			DBConnector db = new DBConnector() ;
+			Connection con = db.getConnection() ;
+
 			boolean result = false;
 
 			String sql = "select count(*) as count from  cart_info where user_id = ? and product_id = ?";
@@ -246,6 +249,9 @@ public class CartInfoDAO {
 
 		public int updateProductCount(String userId, int productId, int productCount){
 
+			DBConnector db = new DBConnector() ;
+			Connection con = db.getConnection() ;
+
 			int count  = 0;
 
 			String sql = "update cart_info set product_count = (product_count + ?), update_date = now() where user_id = ? and product_id = ?";
@@ -281,6 +287,9 @@ public class CartInfoDAO {
 
 		public int deleteCartInfo (String userId, int productId){
 
+			DBConnector db = new DBConnector() ;
+			Connection con = db.getConnection() ;
+
 			int count = 0;
 			String sql = "delete from cart_info where user_id = ? and product_id = ?";
 
@@ -312,6 +321,8 @@ public class CartInfoDAO {
 
 			public int updateUserId(String userId, String tempUserId, int productId) {
 
+				DBConnector db = new DBConnector() ;
+				Connection con = db.getConnection() ;
 
 				int count = 0;
 				String sql = "update cart_info set user_id = ? , update_date = now() where user_id = ? and product_id = ?";
