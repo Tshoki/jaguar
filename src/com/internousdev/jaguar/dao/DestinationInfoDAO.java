@@ -16,7 +16,7 @@ public class DestinationInfoDAO {
 	  int count=0;
 
 	  String sql="INSERT INTO destination_info(id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date, update_date)"
-				  + "VALUES(?,?,?,?,?,?,?, now(), now())";
+				  + "VALUES(?,?,?,?,?,?,?,?, now(), now())";
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);

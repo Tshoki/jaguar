@@ -13,20 +13,27 @@
 <h1>宛先入力確認画面</h1>
 <br>
 <s:form id="destinationInfo">
-<s:property value="familyName"/>
-<br>
-<s:property value="firstName"/>
-<br>
-<s:property value="familyNameKana"/>
-<br>
-<s:property value="firstNameKana"/>
-<br>
-<s:property value="userAddress"/>
-<br>
-<s:property value="telNumber"/>
-<br>
-<s:property value="email"/>
-<br>
+<p>姓
+	<s:property value="familyName"/>
+</p>
+<p>名
+	<s:property value="firstName"/>
+</p>
+<p>姓ふりがな
+	<s:property value="familyNameKana"/>
+</p>
+<p>名ふりがな
+	<s:property value="firstNameKana"/>
+</p>
+<p>住所
+	<s:property value="userAddress"/>
+</p>
+<p>電話
+	<s:property value="telNumber"/>
+</p>
+<p>メール
+	<s:property value="email"/>
+</p>
 <s:submit value="登録" onclick="GOtoCompleteAction()"/>
 <s:submit value="戻る" onclick="BACKtoAction()"/>
 <s:hidden id="backFlg" name="backFlg" value=""/>
