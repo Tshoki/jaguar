@@ -24,7 +24,7 @@ update_date datetime
 
 insert into user_info values
 (1,"guest", "guest","テスト","太郎","てすと","たろう",0,"guest@gmail.com",0,0,now(),now()),
-(2,"guest2","guset2","テスト","太郎2","てすと","たろう2",0,"guest2@gmail.com",0,0,now(),now()),
+(2,"guest2","guest2","テスト","太郎2","てすと","たろう2",0,"guest2@gmail.com",0,0,now(),now()),
 (3,"guest3","guest3","テスト","太郎3","てすと","たろう3",0,"guest3@gmail.com",0,0,now(),now()),
 (4,"guest4","guest4","テスト","太郎4","てすと","たろう4",0,"guest4@gmail.com",0,0,now(),now()),
 (5,"guest5","guest5","テスト","太郎5","てすと","たろう5",0,"guest5@gmail.com",0,0,now(),now()),
