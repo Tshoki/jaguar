@@ -12,31 +12,35 @@ import com.internousdev.jaguar.util.DBConnector;
 
 public class PurchaseHistoryInfoDAO {
 
+	/**
+	 * ユーザーIDと紐づいている履歴の出力
+	 * @return List<PurchaseHistoryInfoDTO>型 :
+	 */
 	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryList(String userId){
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
 		String sql = "SELECT"
-			+ "phi.id as id,"
-			+ "phi.user_id as user_id,"
-			+ "phi.product_count as product_count,"
-			+ "pi.product_id as product_id,"
-			+ "pi.product_name as product_name,"
-			+ "pi.product_name_kana as product_name_kana,"
-			+ "pi.product_description as product_description,"
-			+ "pi.category_id as category_id,"
-			+ "pi.price,"
-			+ "pi.image_file_name as image_file_name,"
-			+ "pi.image_file_path as image_file_path,"
-			+ "pi.release_company,"
-			+ "pi.release_date,"
-			+ "phi.price as price,"
-			+ "phi.price * phi.product_count as subtotal," //
-			+ "phi.regist_date as regist_date,"
-			+ "phi.update_date as update_date," ////
-			+ "di.family_name as family_name,"
-			+ "di.first_name as first_name,"
-			+ "di.user_address as user_address"
+			+ "phi.id as id," /* ID */
+			+ "phi.user_id as user_id," /* ユーザーID */
+			+ "phi.product_count as product_count," /* 個数 */
+			+ "pi.product_id as product_id," /* 商品ID */
+			+ "pi.product_name as product_name," /*商品名*/
+			+ "pi.product_name_kana as product_name_kana," /* 商品名かな */
+			+ "pi.product_description as product_description," /* 商品詳細 */
+			+ "pi.category_id as category_id," /* カテゴリID */
+			+ "pi.price," /* 価格 */
+			+ "pi.image_file_name as image_file_name," /* 画像ファイル名 */
+			+ "pi.image_file_path as image_file_path," /* 画像ファイルパス */
+			+ "pi.release_company," /* 発売会社名 */
+			+ "pi.release_date," /* 発売年月日 */
+			+ "phi.price as price," /* 値段 */
+			+ "phi.price * phi.product_count as subtotal," /* 合計金額 */
+			+ "phi.regist_date as regist_date," /* 登録日 */
+			+ "phi.update_date as update_date," /* 更新日 sampleに無し */
+			+ "di.family_name as family_name," /* 姓 */
+			+ "di.first_name as first_name," /* 名 */
+			+ "di.user_address as user_address" /* 住所 */
 			+ "FROM purchase_history_info as phi"
 			+ "LEFT JOIN product_info as pi"
 			+ "ON phi.product_id = pi.product_id"
