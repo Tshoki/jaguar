@@ -11,19 +11,21 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 	private Map<String,Object> session;
 
 	public String execute(){
-		String result;
 
+		//セッション変数からユーザーIDとユーザーID保存チェックを取得し、クラス変数に格納
 		String userId = String.valueOf(session.get("userId"));
-		Boolean savedUserId = Boolean.valueOf(String.valueOf(session.get("savedUserId")));
+		Boolean savedUserId = Boolean.valueOf(String.valueOf(session.get("savedUserIdFlg")));
 
 		UserInfoDAO userInfoDAO=new UserInfoDAO();
+		//ログインフラグ(DBにおける"logined"カラム)を書き換え、未ログイン状態にする
 		int count=userInfoDAO.logout(userId);
-
+		//logoutメソッドの戻り値（更新に成功した件数）が1件以上あれば、セッション変数を削除する
 		if(count>0){
 			session.clear();
+			//"savedUserId"の値がtrueであればセッション変数にクラス変数の値を格納する
 			if(savedUserId){
+				session.put("savedUserIdFlg", savedUserId);
 				session.put("savedUserid", userId);
-				session.put("savedUserId", savedUserId);
 			}
 		}
 		return SUCCESS;

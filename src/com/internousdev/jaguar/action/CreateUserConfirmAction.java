@@ -34,13 +34,13 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String isExistsUserErrorMessage;
 
 	public String execute(){
-		String result;
-		String rerult=ERROR;
 
 		//セッション変数tempUserIdが存在しなければ、sessionTimeoutを返し、sessionError.jspへ遷移
 		if(!session.containsKey("tempUserId")){
 			return "sessionTimeout";
 		}
+
+		String result=ERROR;
 
 		//セッション変数にユーザーの入力情報を格納
 		session.put("familyName", familyName);
@@ -65,19 +65,13 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		passwordErrorMessageList=ic.doCheck("パスワード",password,1,16,true,false,false,true,false,false);
 
 		//エラーメッセージのListが一件以上あればERRORを返し、createUser.jspへ
-		if(familyNameErrorMessageList.size()>0){
-			return result;
-		}else if(firstNameErrorMessageList.size()>0){
-			return result;
-		}else if(familyNameKanaErrorMessageList.size()>0){
-			return result;
-		}else if(firstNameKanaErrorMessageList.size()>0){
-			return result;
-		}else if(emailErrorMessageList.size()>0){
-			return result;
-		}else if(userIdErrorMessageList.size()>0){
-			return result;
-		}else if(passwordErrorMessageList.size()>0){
+		if(familyNameErrorMessageList.size()>0
+		|| firstNameErrorMessageList.size()>0
+		|| familyNameKanaErrorMessageList.size()>0
+		|| firstNameKanaErrorMessageList.size()>0
+		|| emailErrorMessageList.size()>0
+		|| userIdErrorMessageList.size()>0
+		|| passwordErrorMessageList.size()>0){
 			return result;
 		}
 

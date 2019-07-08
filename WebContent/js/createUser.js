@@ -1,4 +1,4 @@
-//createUser.jspへ戻る為のメソッド
+//createUserActionへ遷移する為のメソッド
 function goCreateUserAction(){
 	//createUserConfirm.jspのidが"backFlg"であるタグのvalueを"1"に書き換える
 	document.getElementById("backFlg").value="1";
