@@ -30,13 +30,14 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		String result=ERROR;
 
 		InputChecker inputChecker=new InputChecker();
-
+		//sessionにuserIdを格納
 		session.put("userIdForResetPassword", userId);
 
 		userIdErrorMessageList=inputChecker.doCheck("ユーザーID",userId, 1, 8, true, false, false, true, false, false);
 		passwordErrorMessageList=inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false);
 		newPasswordErrorMessageList=inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false);
 		reConfirmationNewPasswordErrorMessageList=inputChecker.doCheck("新しいパスワード(再確認)", reConfirmationPassword, 1, 16, true, false, false, true, false, false);
+		//それぞれ入力された値が正規表現にマッチするか
 
 		if(userIdErrorMessageList.size()>0
 		||passwordErrorMessageList.size()>0
@@ -44,12 +45,15 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		||reConfirmationNewPasswordErrorMessageList.size()>0){
 			return result;
 		}
+		//Listの中身が0より大きいときresult(ERROR)を返す
 
 		UserInfoDAO userInfoDAO=new UserInfoDAO();
 		if(!userInfoDAO.isExistsUserInfo(userId, password)){
 			passwordIncorrectErrorMessage="ユーザーIDまたは現在のパスワードが異なります。";
 			return result;
 		}
+		//ユーザーの存在確認、存在しないときにif文を実行
+		//戻り値としてresult(ERROR)を返す
 
 		newPasswordIncorrectErrorMessage=inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
 

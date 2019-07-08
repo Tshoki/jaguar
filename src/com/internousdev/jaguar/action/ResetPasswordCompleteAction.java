@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ResetPasswordCompleteAction extends ActionSupport implements SessionAware{
 	private Map<String, Object> session;
 
-	//executeメソッドを定義
+
 	public String execute(){
 		//resultにERRORを代入
 		String result =ERROR;
@@ -24,7 +24,7 @@ public class ResetPasswordCompleteAction extends ActionSupport implements Sessio
 			//resultにSUCCESSを代入
 			result=SUCCESS;
 		}
-
+		//それぞれsessionから削除
 		session.remove("userIdForResetPasswod");
 		session.remove("newPassword");
 		//戻り値としてresult(SUCCESS)を返す

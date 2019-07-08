@@ -33,7 +33,7 @@
 
 	<s:if test="newPasswordErrorMessageList!=null && newPsswordErrorMessageList.size()>0">
 	<div class="error">
-	<div class="error-massage">
+	<div class="error-message">
 		<s:iterator value="newPasswordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
@@ -60,7 +60,7 @@
 
 	<s:if test="newPasswordIncorrectErrorMessage!=null && !newPasswordIncorrectErrorMessage.isEmpty()">
 	<div class="error">
-	<div class="error-massage">
+	<div class="error-message">
 		<s:property value="newPasswordIncorrectErrorMessage"/>
 		<br>
 	</div>
