@@ -69,7 +69,7 @@ public class ProductInfoDAO {
 
 			/**
 			 * product_idはuniqueなのでSELECTの結果は1つ
-			 * ここはsamplewebではwhileだがifで実行
+			 * ここはsamplewebではwhileだがifで実行 して いい？
 			 * ##########後で消す###########
 			 */
 			if (rs.next()) {
@@ -164,15 +164,13 @@ public class ProductInfoDAO {
 		boolean initializeFlag = true;	// 複数のキーワードを条件にするための条件分岐用のフラグ
 
 
-		/**
-		 * ココは拡張for文でなくfor文でkeywordsListの要素数だけループ
-		 * ２ループ目以降はwhereじゃなくてorでもいける気がするけど、、、samplewebの流れで書く
-		 *
-		 *
-		 *
-		 */
 		for (String keyword : keywordsList) { // 拡張for文 keywordsListの中身を一つずつ取り出す
-			if (!(keyword.equals(""))) { //#####keywordが""だった場合WHERE句に含めてしまうと全て出てしまう。
+			/*keywordが""だった場合WHERE句に含めてしまうと全て出てしまう。
+			 * が、""だった場合そもそも全部出ることに問題は無く、
+			 * 最初の"　"や" "はすべて呼び出し元Actionクラスのtrimで("")に変えているので、
+			 * if (!(keyword.equals("")))は必要ない気がする。
+			 * */
+			if (!(keyword.equals(""))) {
 				if (initializeFlag) {
 					sql += " where (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";//ここの ' は出力する文字列
 					//1つ目の条件を2つ目の条件を追加する際、whereではなくorと書く必要があるため、initializeFlagをfalseにする
@@ -216,24 +214,22 @@ public class ProductInfoDAO {
 	/**
 	 * カテゴリーIDとキーワードを条件に商品情報を取得する
 	 * @param String[]型 : キーワードの配列 (keywordsList)
-	 * @param int型 : カテゴリーID(categoryId)
+	 * @param String型 : カテゴリーID(categoryId)DBではintだがnullチェックの為ActionクラスでStringとして扱っている。
 	 * @return List<ProductInfoDTO>型 : 商品情報のList(productInfoDTOList)
 	 */
-	public List<ProductInfoDTO> getProductInfoListByCategoryIdAndKeyword(String[] keywordsList, int categoryId) {
-		/**
-		 * samplewebだと引数が(String[] keywordsList, String categoryId)
-		 * カテゴリーIDはint型のはずなので変更
-		 * カテゴリーIDが選択されていないことは無いと思うのでNULLってことは無いはず・・・
-		 * 一応チェックポイント
-		 * ##########後で消す###########
-		 */
+	public List<ProductInfoDTO> getProductInfoListByCategoryIdAndKeyword(String[] keywordsList, String categoryId) {
+
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 		String sql = "select * from product_info where category_id=" + categoryId ;
 		boolean initializeFlag = true;	// 複数のキーワードを条件にするための条件分岐用のフラグ
 		for (String keyword : keywordsList) {
-			// ####keywordに何かしらの文字列がはいっているか、キーワードリストの長さが1(空文字の時も条件式として加えるため)だった場合
+			/*keywordが""だった場合WHERE句に含めてしまうと全て出てしまう。
+			 * が、""だった場合そもそも全部出ることに問題は無く、
+			 * 最初の"　"や" "はすべて呼び出し元Actionクラスのtrimで("")に変えているので、
+			 * if (!(keyword.equals("")))は必要ない気がする。
+			 * */
 			if (!(keyword.equals("")) || keywordsList.length == 1) {
 				if (initializeFlag) {
 					sql += " and ((product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";

@@ -29,7 +29,7 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 			List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 			MCategoryDAO mCategoryDAO = new MCategoryDAO();
 			try {
-				mCategoryDTOList = mCategoryDAO.getMCategoryList();//鈴木さんの作成待ち
+				mCategoryDTOList = mCategoryDAO.getMCategoryList();
 			} catch (NullPointerException e) {
 				mCategoryDTOList = null;
 			}

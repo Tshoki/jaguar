@@ -15,19 +15,22 @@ import com.internousdev.jaguar.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SearchItemAction extends ActionSupport implements SessionAware{
-	private int categoryId;
+	private String categoryId;
 	private String keywords;
 	private List<String> keywordsErrorMessageList;
 	private List<ProductInfoDTO> productInfoDTOList;
 	private Map<String , Object> session;
 
 	public String execute() {
-		if (categoryId == 0) {
-			categoryId = 1;
+
+		//カテゴリーの選択肢が存在しない場合は、すべてのカテゴリーを設定する
+		if (categoryId == null) {
+			categoryId = "1";
 		}
 
 		InputChecker inputChecker = new InputChecker();
 
+		//処理用の変数に値を入れる
 		if (StringUtils.isBlank(keywords)) {
 			keywords = "";
 		}else {
@@ -44,7 +47,7 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		switch (categoryId) {
-		case 1:
+		case "1":
 			productInfoDTOList = productInfoDAO.getProductInfoListByKeyword(keywords.split(" "));
 			break;
 
@@ -65,10 +68,10 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 		}
 		return SUCCESS;
 	}
-	public int getCategoryId() {
+	public String getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
 	public String getKeywords() {
