@@ -15,31 +15,34 @@ public class CartInfoDAO {
 
 	// 未完成
 
+	/*
 	private DBConnector db = new DBConnector();
 	private Connection con = db.getConnection();
-
-	CartInfoDTO dto = new CartInfoDTO();
+	*/
 
 	//
 	public List<CartInfoDTO> getCartInfoDTOList(String userId){
 
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
 		List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
 
 		String sql = "SELECT"
-						+ "cart_info.id"
-						+ "cart_info.product_id"
-						+ "cart_info.product_name"
-						+ "cart_info.product_name_kana"
-						+ "product_info.image_file_path"
-						+ "product_info.image_file_name"
-						+ "product_info.price"
-						+ "product_info.release_company"
-						+ "product_info.release_date"
-						+ "product_info.product_count"
-						+ "(cart_info.price * cart_info.product_count) AS sub_total"
-						+ "FROM cart_info LEFT JOIN product_info"
-						+ "ON cart_info.product_id = product_info.product_id"
-						+ "WHERE cart_info.user_id = ?";
+						+ " cart_info.id,"
+						+ " cart_info.product_id,"
+						+ " cart_info.product_name,"
+						+ " cart_info.product_name_kana,"
+						+ " product_info.image_file_path,"
+						+ " product_info.image_file_name,"
+						+ " product_info.price,"
+						+ " product_info.release_company,"
+						+ " product_info.release_date,"
+						+ " product_info.product_count,"
+						+ " (cart_info.price * cart_info.product_count) AS sub_total"
+						+ " FROM cart_info LEFT JOIN product_info"
+						+ " ON cart_info.product_id = product_info.product_id"
+						+ " WHERE cart_info.user_id = ?";
 
 		try{
 
@@ -49,6 +52,7 @@ public class CartInfoDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
+				CartInfoDTO dto = new CartInfoDTO();
 				dto.setId(rs.getInt("id"));
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setProductName(rs.getString("product_name"));
@@ -76,17 +80,19 @@ public class CartInfoDAO {
 
 
 	// カート合計金額
-	/*
 	public int getTotalPrice(String userId){
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		int totalPrice = 0;
 
 		// userId が 一致する レコード内 の product_count と price を 乗算
 		String sql = "SELECT"
-						+ "(product_count * price) AS total_price"
-						+ "FROM cart_info LEFT JOIN product_info"
-						+ "ON cart_info.product_id = product_info.product_id"
-						+ "WHERE user_id = ?";
+						+ " SUM(product_count * price) AS total_price"
+						+ " FROM cart_info LEFT JOIN product_info"
+						+ " ON cart_info.product_id = product_info.product_id"
+						+ " GROUP BY user_id = ?";
 
 		try{
 
@@ -111,7 +117,67 @@ public class CartInfoDAO {
 		}
 		return totalPrice ;
 	}
-	*/
+
+	public boolean addCartInfo(String userId, int productId, int productCount){
+
+		DBConnector db = new DBConnector() ;
+		Connection con = db.getConnection() ;
+
+		boolean ret = false;
+
+		// カート内商品重複確認 カラム前のテーブル名は必要ないかも？
+		String sql ="SELECT"
+						+ " *"
+						+ " FROM cart_info"
+						+ " WHERE cart_info.user_id = ? AND cart_info.product_id = ?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, userId);
+			ps.setInt(2, productId);
+
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()){
+
+				// 購入個数更新（増加）
+				String sql2 = "UPDATE"
+								+ " cart_info"
+								+ " SET product_count = (product_count + ?)"
+								+ " WHERE user_id = ?"
+								+ " AND product_id = ?";
+
+					PreparedStatement ps2 = con.prepareStatement(sql2);
+					ps2.setInt(1, productCount);
+					ps2.setString(2, userId);
+					ps2.setInt(3, productId);
+					ps2.executeUpdate();
+
+					ret = true;
+			}else{
+				// 商品新規追加
+				String sql3 = "INSERT INTO"
+								+ " cart_info(user_id, product_id, product_count)"
+								+ " VALUES(?, ?, ?)";
+
+				PreparedStatement ps3 = con.prepareStatement(sql3);
+				ps3.setString(1, userId);
+				ps3.setInt(2, productId);
+				ps3.setInt(3, productCount);
+				ps3.executeUpdate();
+			}
+		}catch (SQLException e){
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
 
 	// カートに存在する商品購入個数を更新する
 	// user_id と product_id を参照に 個数の更新
