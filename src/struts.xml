@@ -88,7 +88,6 @@
 	  <!-- 6 -->
 	  <action name="CartAction" class="com.internousdev.jaguar.action." method="execute">
 	    <result name="success"></result>
-	    <result name="error"></result>
 	    <result name="sessionTimeout"></result>
 	  </action>
 
@@ -102,7 +101,6 @@
 	  <!-- 7-1 -->
 	  <action name="SettlementConfirmAction" class="com.internousdev.jaguar.action.SettlementConfirmAction" method="execute">
 	    <result name="success">settlementConfirm.jsp</result>
-	    <result name="error">systemError.html</result>
 	    <result name="login">login.jsp</result>
 	  </action>
 

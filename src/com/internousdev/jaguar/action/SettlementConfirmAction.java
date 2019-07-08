@@ -31,8 +31,8 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
     		userId = session.get("userId").toString();
 
     		//ユーザーに紐づくカート情報を取得する。
-    		//cartInfoDTOList = cartInfoDAO.getCartInfo(userId);
-    		//session.put("cartInfoDTOList", cartInfoDTOList);
+    		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+    		session.put("cartInfoDTOList", cartInfoDTOList);
 
     		//ユーザーに紐づく宛先情報をList内に格納する。
     		DestinationInfoDAO destinationInfoDAO = new DestinationInfoDAO();
