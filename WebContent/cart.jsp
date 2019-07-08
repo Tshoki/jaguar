@@ -43,7 +43,7 @@
 <tbody>
 	<s:iterator value="cartInfoDTOList">
 		<tr>
-			<!-- チェックボックス考察中 -->
+			<!-- チェックボックス考察中 --><!-- 値は商品ID -->
 			<td><s:checkbox name="checkbox" value='<s:property value="productId" />' fieldValue="%{}" /></td>
 			<td><s:property value="productName" /></td>
 			<td><s:property value="productNameKana" /></td>

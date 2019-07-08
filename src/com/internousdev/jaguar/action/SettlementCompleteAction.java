@@ -42,7 +42,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 	if(count>0) {
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 		//そのユーザーのカート内の情報を購入後に全て削除する。
-		count = cartInfoDAO.カート内の要素を全て消去するメソッド名(String.valueOf(session.get("userId")));
+		count = cartInfoDAO.deleteAllCartInfo(String.valueOf(session.get("userId")));
 		result = SUCCESS;
 	}
 
