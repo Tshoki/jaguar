@@ -27,6 +27,7 @@ public class CartInfoDAO {
 		String sql = "SELECT"
 						+ " cart_info.id,"
 						+ " cart_info.product_id,"
+						+ " cart_info.product_count,"
 						+ " product_info.product_name,"
 						+ " product_info.product_name_kana,"
 						+ " product_info.image_file_path,"
@@ -34,8 +35,7 @@ public class CartInfoDAO {
 						+ " product_info.price,"
 						+ " product_info.release_company,"
 						+ " product_info.release_date,"
-						+ " product_info.product_count,"
-						+ " (cart_info.price * cart_info.product_count) AS sub_total"
+						+ " (product_info.price * cart_info.product_count) AS sub_total"
 						+ " FROM cart_info LEFT JOIN product_info"
 						+ " ON cart_info.product_id = product_info.product_id"
 						+ " WHERE cart_info.user_id = ?";
