@@ -23,6 +23,8 @@ private String backFlg;
 		}
 		return SUCCESS;
 	}
+
+
 	public String getBackFlg(){
 		return backFlg;
 	}
