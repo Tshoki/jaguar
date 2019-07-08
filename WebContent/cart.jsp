@@ -15,7 +15,7 @@
 <!-- imgパス " / " データ次第 -->
 <!-- 画面実装 未調査 -->
 
-<jsp:include page="header.jsp"><!-- header -->
+<jsp:include page="header.jsp"/><!-- header -->
 
 <h1>ページタイトル</h1><!-- 1日目の指令 h1 を 使うこと 推奨 -->
 

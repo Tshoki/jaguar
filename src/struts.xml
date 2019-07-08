@@ -86,9 +86,9 @@
 	  </action>
 
 	  <!-- 6 -->
-	  <action name="CartAction" class="com.internousdev.jaguar.action." method="execute">
-	    <result name="success"></result>
-	    <result name="sessionTimeout"></result>
+	  <action name="CartAction" class="com.internousdev.jaguar.action.CartAction" method="execute">
+	    <result name="success">cart.jsp</result>
+	    <result name="sessionTimeout">sessionTimeout.jsp</result>
 	  </action>
 
 	  <!-- 6 -->
@@ -140,7 +140,7 @@
 
 	  <!-- 10 -->
 	  <action name="MyPageAction" class="com.internousdev.jaguar.action.MyPageAction" method="execute">
-	    <result name="success">mypage.jsp</result>
+	    <result name="success">myPage.jsp</result>
 	    <result name="sessionTimeout">sessionError.jsp</result>
 	  </action>
 
