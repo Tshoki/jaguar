@@ -5,7 +5,6 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.jaguar.dao.CartInfoDAO;
-import com.internousdev.jaguar.dto.CartInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AddCartAction extends ActionSupport implements SessionAware{
@@ -15,6 +14,10 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 	private CartInfoDAO cartInfoDAO = new CartInfoDAO();
 
 	private Map<String, Object> session;
+
+	private int productId;
+
+	private int productCount;
 
 	public String execute(){
 
@@ -32,7 +35,7 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		}
 
 		// userId と 紐付けたカート情報に 同じ商品があるかないか分岐
-		if(cartInfoDAO.○○){
+		if(cartInfoDAO.addCartInfo(userId, productId, productCount)){
 			//
 		}else{
 			//

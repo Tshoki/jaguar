@@ -41,7 +41,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public String execute() {
 
-        //  仮IDの存在の有無でタイムアウトのチェック
+        //  仮IDの有無でタイムアウトのチェック
 
 		if(!session.containsKey("tempUserId")){
 
@@ -51,7 +51,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 	    //登録完了画面から自動遷移した時用
-		
+
 		if(session.containsKey("userIdForCreateUser")){
 
 			userId = session.get("userIdForCreateUser").toString();
@@ -67,21 +67,21 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		// 保存チェック済でuserIdの保存
 
-		if(savedUserIdFlg){  
+		if(savedUserIdFlg){
 
-			session.put("savedUserIdFlag",true);
+			session.put("savedUserIdFlg",true);
 			session.put("savedUserId", userId);
 		}
 		else {
-			session.remove("savedUserIdFlag");
+			session.remove("savedUserIdFlg");
 			session.remove("savedUserId");
 		}
 
 
 
 		// 入力エラー時の処理
-		
-		String result = ERROR; 
+
+		String result = ERROR;
 
 
 		InputChecker ic = new InputChecker();
@@ -92,7 +92,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		if(userIdErrorMessageList.size() > 0  ||
 			passwordErrorMessageList.size() > 0	){
-			
+
 			session.put("logined", 0);
 			return result;
 
@@ -104,25 +104,25 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 
 		if(userInfoDAO.isExistsUserInfo(userId, password) &&   //ユーザー存在確認
-				userInfoDAO.login(userId, password) > 0) {     // ログイン認証
+				userInfoDAO.login(userId, password) > 0) {     // ログイン認証  user_infoテーブルのloginedに1が入る
 
-			
+
 			// 紐づけ
-			      
+
 			       CartInfoDAO cartInfoDAO = new CartInfoDAO();
 
-			       String tempUserId = session.get("tempUserId").toString(); 
+			       String tempUserId = session.get("tempUserId").toString();
 
 			       List<CartInfoDTO> cartInfoDTOListForTempUser = cartInfoDAO.getCartInfoDTOList(tempUserId);
 
 
-
+			       // 仮IDで追加した商品があれば
 			       if(cartInfoDTOListForTempUser != null ) {
 
 			    	   boolean himoduke = LinkToCartInfo(tempUserId, cartInfoDTOListForTempUser);
-			    	   //  カート情報更新メソッドの詳細はこのクラスのもう一つのメソッドに  更新に成功すればtrue
+			    	   //  カート情報更新メソッドの実行 (詳細はこのクラスのもう一つのメソッドに)  更新に成功すればtrue
 
-			    	   if(!himoduke){ 
+			    	   if(!himoduke){
 
 			    		   result = "DBError";
 			    	   }
@@ -152,7 +152,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			session.remove("tempUserId");
 
 
-		
+
 		} else {
 
 			isNotUserInfoMessage = "ユーザーIDまたはパスワードが異なります。";
@@ -184,16 +184,16 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 			if(cartInfoDAO.isExistsSameProduct(userId,dto.getProductId())){
 
-			      count = count + cartInfoDAO.updateProductCount(userId, dto.getproductId(), dto.getproductCount());
+			      count = count + cartInfoDAO.updateProductCount(userId, dto.getProductId(), dto.getProductCount());
 
 			      cartInfoDAO.deleteCartInfo(tempUserId, dto.getProductId());
 
 			}
-			
+
 			else {
-				
+
 				count = count + cartInfoDAO.updateUserId(userId, tempUserId, dto.getProductId());
-				
+
 			}
 
 
