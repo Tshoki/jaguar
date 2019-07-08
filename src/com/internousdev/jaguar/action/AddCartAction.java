@@ -51,23 +51,53 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		return ret ;
 	}
 
-	public int getTotalPrice(){
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
+	public int getProductCount() {
+		return productCount;
+	}
+
+	public void setProductCount(int productCount) {
+		this.productCount = productCount;
+	}
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public List<CartInfoDTO> getCartInfoDTOList() {
+		return cartInfoDTOList;
+	}
+
+	public void setCartInfoDTOList(List<CartInfoDTO> cartInfoDTOList) {
+		this.cartInfoDTOList = cartInfoDTOList;
+	}
+
+	public int getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(int totalPrice){
+
+	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 
-	public List<CartInfoDTO> getCartInfoDTOList(){
-		return cartInfoDTOList;
-	}
-	public void setCartInfoDTOList(List<CartInfoDTO> cartInfoDTOList){
-		this.cartInfoDTOList = cartInfoDTOList;
-	}
-	public Map<String, Object> getSession(){
-		return session;
-	}
-	public void setSession(Map<String, Object> session){
-		this.session = session;
-	}
+
 }

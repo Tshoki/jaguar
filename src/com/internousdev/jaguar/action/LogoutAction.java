@@ -25,7 +25,7 @@ public class LogoutAction extends ActionSupport implements SessionAware {
 			//"savedUserId"の値がtrueであればセッション変数にクラス変数の値を格納する
 			if(savedUserId){
 				session.put("savedUserIdFlg", savedUserId);
-				session.put("savedUserid", userId);
+				session.put("savedUserId", userId);
 			}
 		}
 		return SUCCESS;
