@@ -26,8 +26,8 @@
 
 	  <!-- 1 -->
 	  <action name="CreateUserCompleteAction" class="com.internousdev.jaguar.action.CreateUserCompleteAction" method="execute">
-	    <result name="success"></result>
-	    <result name="error"></result>
+	    <result name="success">createUserComplete.jsp</result>
+	    <result name="error">systemError.html</result>
 	    <result name="sessionTimeout">sessionError.jsp</result>
 	  </action>
 
@@ -60,7 +60,7 @@
 	  <!-- 3 -->
 	  <action name="ResetPasswordCompleteAction" class="com.internousdev.jaguar.action.ResetPasswordCompleteAction" method="execute">
 	    <result name="success">resetPasswordComplete.jsp</result>
-	    <result name="error">systemError.jsp</result>
+	    <result name="error">systemError.html</result>
 	  </action>
 
 	  <!-- 4-1 -->
