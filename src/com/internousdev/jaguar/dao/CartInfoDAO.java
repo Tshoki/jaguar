@@ -85,7 +85,7 @@ public class CartInfoDAO {
 
 		// userId が 一致する レコード内 の product_count と price を 乗算
 		String sql = "SELECT"
-						+ " SUM(product_count * price) AS total_price"
+						+ " SUM(cart_info.product_count * product_info.price) AS total_price"
 						+ " FROM cart_info LEFT JOIN product_info"
 						+ " ON cart_info.product_id = product_info.product_id"
 						+ " GROUP BY user_id = ?";
