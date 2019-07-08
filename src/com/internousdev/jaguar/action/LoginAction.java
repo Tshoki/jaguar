@@ -89,7 +89,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			       List<CartInfoDTO> cartInfoDTOListForTempUser = cartInfoDAO.getCartInfoDTOList(tempUserId);
 
 			       // 仮IDで追加した商品があれば
-			       if(cartInfoDTOListForTempUser != null ) {
+			       if(cartInfoDTOListForTempUser != null) {
 
 			    	   boolean himoduke = LinkToCartInfo(tempUserId, cartInfoDTOListForTempUser);
 			    	   //  カート情報更新メソッドの実行 (詳細はこのクラスのもう一つのメソッドに)  更新に成功すればtrue
@@ -109,7 +109,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		    	   }
 
 
-			//セッションにユーザーIDとログインフラグを入れる 仮IDは削除
+		//セッションにユーザーIDとログインフラグを入れる 仮IDは削除
 
 			UserInfoDTO userInfoDTO =  userInfoDAO.getUserInfo(userId, password); // DBのユーザー情報を格納したDTOを作成
 			session.put("userId", userInfoDTO.getUserId());
