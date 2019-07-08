@@ -19,16 +19,16 @@ $(function(){
 //指定先の操作受付許可 , 透明度（表示非表示）
 $(function(){
 
-	$('input[type="submit"]').eq(7).prop('disabled', true);
-	$('input[type="submit"]').eq(7).css('opacity', 0);
+	$('delete_btn').prop('disabled', true);
+	$('delete_btn').css('opacity', 0);
 
 	$('input[type="checkbox"]').click(function() {
 		if($(this).prop('checked')){
-			$('input[type="submit"]').eq(7).prop('disabled', false);
-			$('input[type="submit"]').eq(7).animate({opacity: 1},{duration: 200});
+			$('delete_btn').prop('disabled', false);
+			$('delete_btn').animate({opacity: 1},{duration: 200});
 		}else{
-			$('input[type="submit"]').eq(7).prop('disabled', true);
-			$('input[type="submit"]').eq(7).animate({opacity: 0},{duration: 200});
+			$('delete_btn').prop('disabled', true);
+			$('delete_btn').animate({opacity: 0},{duration: 200});
 		}
 	});
 
