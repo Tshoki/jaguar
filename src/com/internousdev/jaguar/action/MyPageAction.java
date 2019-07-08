@@ -17,17 +17,20 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		if(!session.containsKey("tempUserId") && !session.containsKey("userId")) {
 			return "sessionTimeOut";
 		}
+//		仮ユーザーIdとユーザーIdが含まれていない時、セッションタイムアウト
 		
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf("userId")); 
-//		valueOf  sessionから値をString型の値で取り出すために使用
+//		valueOf　sessionから値をString型の値で取り出すために使用。nullでもエラーは出ない
 		
 		if(userInfoDTO.getUserId() == null) {
 			userInfoDTO = null;
 		}
+//		DTOのuserIdがnullと等しいならnull代入
 		
 		return SUCCESS;
+//		SUCCESSを返す
 	}
 	public UserInfoDTO getUserInfoDTO() {
 		return userInfoDTO;

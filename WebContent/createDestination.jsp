@@ -10,10 +10,8 @@
 <body>
 <h1>宛先情報入力画面</h1>
 <!-- エラーメッセージ出力 -->
-<!-- errorMessageが入っていない かつ 要素数が0以上 -->
-<!-- size...nullがListに入っていたときnullpointaが発生 -->
-<!-- nullだった場合要素は0, size()>0で中身がnullだった場合nullpointaが発生することもある -->
-<s:if test="familyNameErrorMessageList!= null && familyNameErrorMessageList.size()> 0">	
+<!-- size...nullがListに入っていたときnullpointaExceptionが発生 -->
+<s:if test="familyNameErrorMessageList!= null && familyNameErrorMessageList.size()> 0">
 	<div class="error">
 		<div class="error-message">
 			<s:iterator value="familyNameErrorMessageList">
@@ -72,7 +70,6 @@
 
 <!-- 宛先情報入力フォーム -->
 <s:form action="CreateDestinationConfirmAction">
-	<!-- %...送信の意/{=...リスト/#...sessionの値 -->
 	<p>
 	<s:textfield name="familyName" value="%{#session.familyName}" label="姓"/>
 	</p>

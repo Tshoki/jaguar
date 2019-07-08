@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserConfirmAction extends ActionSupport implements SessionAware {
 
+	//ユーザーの入力情報
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;
@@ -19,7 +20,10 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String email;
 	private String userId;
 	private String password;
+
 	private Map<String,Object> session;
+
+	//入力チェックでエラーが発生した際に出力するメッセージ
 	private List<String> familyNameErrorMessageList;
 	private List<String> firstNameErrorMessageList;
 	private List<String> familyNameKanaErrorMessageList;
@@ -33,10 +37,12 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		String result;
 		String rerult=ERROR;
 
+		//セッション変数tempUserIdが存在しなければ、sessionTimeoutを返し、sessionError.jspへ遷移
 		if(!session.containsKey("tempUserId")){
 			return "sessionTimeout";
 		}
 
+		//セッション変数にユーザーの入力情報を格納
 		session.put("familyName", familyName);
 		session.put("firstName", firstName);
 		session.put("familyNameKana", familyNameKana);
@@ -46,8 +52,10 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		session.put("userIdForCreateUser", userId);
 		session.put("password", password);
 
+		//文字チェック用クラスのインスタンス化
 		InputChecker ic=new InputChecker();
 
+		//文字チェックの結果のメッセージを格納
 		familyNameErrorMessageList=ic.doCheck("姓",familyName,1,16,true,true,true,false,false,false);
 		firstNameErrorMessageList=ic.doCheck("名",firstName,1,16,true,true,true,false,false,false);
 		familyNameKanaErrorMessageList=ic.doCheck("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false);
@@ -56,6 +64,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		userIdErrorMessageList=ic.doCheck("ユーザーID",userId,1,8,true,false,false,true,false,false);
 		passwordErrorMessageList=ic.doCheck("パスワード",password,1,16,true,false,false,true,false,false);
 
+		//エラーメッセージのListが一件以上あればERRORを返し、createUser.jspへ
 		if(familyNameErrorMessageList.size()>0){
 			return result;
 		}else if(firstNameErrorMessageList.size()>0){
@@ -73,9 +82,11 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		}
 
 		UserInfoDAO userInfoDAO=new UserInfoDAO();
+		//入力したユーザーIDが既に登録されていないかをチェックする
 		if(userInfoDAO.isExistsUserInfo(userId)){
 			isExistsUserErrorMessage="使用できないユーザーIDです。";
 		}else{
+			//パスワードのセキュリティ対策
 			CommonUtility cu=new CommonUtility();
 			password=cu.concealPassword(password);
 			result=SUCCESS;

@@ -13,11 +13,11 @@ import com.internousdev.jaguar.util.DBConnector;
 public class MCategoryDAO {
 	public List<MCategoryDTO> getMCategoryList(){
 		DBConnector dbConnector = new DBConnector();
-		Connection connection = dbConnector.getConnection();
+		Connection con = dbConnector.getConnection();
 		List<MCategoryDTO> mCategoryDTOList= new ArrayList<MCategoryDTO>();
 		String sql="select * from m_category";
 		try {
-			PreparedStatement ps= connection.prepareStatement(sql);
+			PreparedStatement ps= con.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				MCategoryDTO mCategoryDTO=new MCategoryDTO();
@@ -31,7 +31,7 @@ public class MCategoryDAO {
 			e.printStackTrace();
 		}finally {
 			try{
-				connection.close();
+				con.close();
 			}catch(SQLException e){
 				e.printStackTrace();
 			}

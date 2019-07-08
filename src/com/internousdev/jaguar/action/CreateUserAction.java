@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class CreateUserAction extends ActionSupport implements SessionAware {
 
-	private String backFlag;
+	private String backFlg;
 	private Map<String,Object> session;
 
 	public String execute(){
@@ -17,9 +17,9 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 			return "sessionTimeOut";
 		}
 
-		System.out.println("backFlg"+backFlag);
+		System.out.println("backFlg"+backFlg);
 
-		if(backFlag==null){
+		if(backFlg==null){
 			session.remove("familyName");
 			session.remove("firstName");
 			session.remove("familyNameKana");
@@ -43,12 +43,12 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
-	public String getBackFlag(){
-		return backFlag;
+	public String getBackFlg(){
+		return backFlg;
 	}
 
-	public void setBackFlag(String backFlag){
-		this.backFlag=backFlag;
+	public void setBackFlag(String backFlg){
+		this.backFlg=backFlg;
 	}
 
 	public Map<String,Object> getSession(){

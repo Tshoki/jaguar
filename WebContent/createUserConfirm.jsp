@@ -94,10 +94,11 @@
 				</td>
 			</tr>
 
+			<!-- 登録ボタン押下で、createUser.jsのgoCreateUserCompleteActionメソッドを実行 -->
 			<s:submit value="登録" onclick="goCreateUserCompleteAction"/>
+			<!-- 戻るボタン押下で、createUser.jsのgoCreateUserActionメソッドを実行 -->
 			<s:submit value="戻る" onclick="goCreateUserAction"/>
-			<s:hidden  name="backFlag" value=""/>
-
+			<s:hidden id="backFlg" name="backFlg" value=""/>
 		</table>
 		</s:form>
 	</div>

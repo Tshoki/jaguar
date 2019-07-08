@@ -15,6 +15,8 @@
 
 <h1 class="cart_title">ユーザー情報入力画面</h1>
 
+
+<!--  入力にミスがあり、CreateUserConfirmActionから戻された場合に表示するメッセージ一覧-->
 <s:if test="familyNameErrorMessageList=!null && familyNameErrorMessageList.size()>0">
 	<s:iterator value="familyNameErrorMessageList">
 		<s:property />

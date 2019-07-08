@@ -6,10 +6,10 @@ import java.util.Map;
 
 public class CreateDestinationAction extends ActionSupport implements SessionAware{
 private Map<String, Object> session;
-private String backFlg;		//jspを1つ戻すときにvalue値が入る
+private String backFlg;
 	public String execute(){
 		if(!session.containsKey("tempUserId") && !session.containsKey("userId")){		//SessionTimeOut
-			return "sessionTimeOut";
+			return "sessionTimeout";
 		}
 
 		if(backFlg == null){	//戻らない場合

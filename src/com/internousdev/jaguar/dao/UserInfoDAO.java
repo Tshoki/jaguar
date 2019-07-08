@@ -21,8 +21,10 @@ public class UserInfoDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
 			
+//		userIdでDB検索
 			ResultSet rs = ps.executeQuery();
 			
+//		rsをDTOに格納
 			while(rs.next()) {
 				userInfoDTO.setId(rs.getInt("id"));
 				userInfoDTO.setUserId(rs.getString("userId"));
@@ -43,9 +45,10 @@ public class UserInfoDAO {
 			e.printStackTrace();
 		}
 		return userInfoDTO;
+//		値が格納されたDTOを返す
 	}
 
-//	ユーザー作成用
+//		ユーザー新規作成
 	public int createUser(String familyName, String firstName, String familyNameKana, 
 			String firstNameKana, String sex, String email, String userId, String password) {
 		DBConnector db = new DBConnector();
@@ -54,6 +57,8 @@ public class UserInfoDAO {
 		String sql = "insert into user_info(user_id, password, family_name, first_name, family_name_kana,"
 				+"first_name_kana, sex, email, status, logined, regist_date, update_date)"
 				+"values(?,?,?,?,?,?,?,?,?,? now(), now())";
+//		now()関数は現在の日付、時刻を取得
+		
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -67,6 +72,8 @@ public class UserInfoDAO {
 			ps.setInt(9, 0);
 			ps.setInt(10, 1);
 			count = ps.executeUpdate();
+//		ユーザー情報をDBにセット
+			
 		}catch(SQLException e){
 			e.printStackTrace();
 		}try{
@@ -75,24 +82,27 @@ public class UserInfoDAO {
 			e.printStackTrace();
 		}
 		return count;
+//		変更した件数を返す
 	}
 	
-//	存在しているユーザーか
+//	ユーザーの存在確認
 	public boolean isExistsUserInfo(String userId, String password) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		boolean result = false;
 		
 		String sql = "select count(*) as count from user_info where user_id = ? and password = ?";
-//	countで行を数える。行数を返す
+//	countで行を数える。countとして行数を返す
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ps.setString(2, password);
 			
 			ResultSet rs = ps.executeQuery();
+//	ｓユーザーIDとパスワードを使いDBからデータを取ってくる。countとして整数が結果に出る
 			while(rs.next()) {
 				if(rs.getInt("count") > 0) {
+//	1件以上の結果があれば、trueを返す
 					result = true;
 				}
 			}
@@ -102,6 +112,36 @@ public class UserInfoDAO {
 		try{
 			con.close();
 		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	//ユーザー登録用
+	//登録しようとしたユーザーIDが既に存在しているかをチェックするメソッド。結果をboolean型のtrue or falseで返す。
+	public Boolean isExistsUserInfo(String userId){
+		DBConnector db=new DBConnector();
+		Connection con=db.getConnection();
+		boolean result=false;
+		//count(*)でクエリの条件に一致するレコード結果を全て取得する。（as countでcountという列名をつける）
+		String sql="select count(*) as count from user_info where user_id=?";
+		try{
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()){
+				//現在の列の値をint型で取得し、一件以上存在するかをチェック
+				if(rs.getInt("count")>0){
+					//存在すればtrueを返す
+					result=true;
+				}
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		try{
+			con.close();
+		}catch(SQLException e){
 			e.printStackTrace();
 		}
 		return result;
@@ -119,6 +159,7 @@ public class UserInfoDAO {
 			ps.setString(1, userId);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
+//		userIdとpasswordでSQL文を実行
 			while(rs.next()) {
 				userInfoDTO.setId(rs.getInt("id"));
 				userInfoDTO.setUserId(rs.getString("userId"));
@@ -130,6 +171,7 @@ public class UserInfoDAO {
 				userInfoDTO.setSex(rs.getInt("sex"));
 				userInfoDTO.setEmail(rs.getString("email"));
 				userInfoDTO.setLogined(rs.getInt("logined"));
+//		データをDTOに格納
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -150,9 +192,10 @@ public class UserInfoDAO {
 		String sql = "update user_info set password = ?, update_date = now() where user_id = ?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, userId);
-			ps.setString(2, password);
+			ps.setString(1, password);
+			ps.setString(2, userId);
 			result = ps.executeUpdate();
+//			passwordとuserIdをSQL文に代入して実行
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}try{
@@ -161,7 +204,9 @@ public class UserInfoDAO {
 			e.printStackTrace();
 		}
 		return result;
+//	更新した件数を代入して返す
 	}
+	
 //	ログイン認証
 	public int login(String userId, String password) {
 		DBConnector db = new DBConnector();
@@ -174,6 +219,7 @@ public class UserInfoDAO {
 			ps.setString(1, userId);
 			ps.setString(2, password);
 			result = ps.executeUpdate();
+//	DBのユーザーIDとパスワードに紐付くユーザーのloginedに1をセット、1ログイン済。　更新した件数を返す
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}try {
@@ -182,6 +228,7 @@ public class UserInfoDAO {
 			e.printStackTrace();
 		}
 		return result;
+//	件数を代入して返す
 	}
 	
 //	ログアウト
@@ -195,6 +242,7 @@ public class UserInfoDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
 			result = ps.executeUpdate();
+//	userIdで検索したデータのloginedに0をセット、0未ログイン。　更新した件数を返す
 		}catch (SQLException e){
 			e.printStackTrace();
 		}try {
@@ -203,5 +251,6 @@ public class UserInfoDAO {
 			e.printStackTrace();
 		}
 		return result;
+//	件数を代入して返す
 	}
 }
