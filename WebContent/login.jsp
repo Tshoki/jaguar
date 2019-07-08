@@ -10,20 +10,20 @@
 <title>ログイン画面</title>
 </head>
 <body>
-<jsp:include page="header.jsp"><!-- header -->
+<jsp:include page="header.jsp" /><!-- header -->
 
 <h1>ログイン画面</h1>
 
 
-<s:if test = "userIdErrorMessageList != null && userErrorMessageList.size() > 0">
-	<s:iterator value =userIdErrotMessageList>
+<s:if test = "userIdErrorMessageList != null && userIdErrorMessageList.size() > 0">
+	<s:iterator value ="userIdErrorMessageList">
 		<s:property /><br>
 	</s:iterator>
 </s:if>
 
 
 <s:if test = "passwordErrorMessageList != null && passwordErrorMessageList.size() > 0">
-	<s:iterator value =passwordErrorMessageList>
+	<s:iterator value ="passwordErrorMessageList">
 		<s:property /><br>
 	</s:iterator>
 </s:if>
