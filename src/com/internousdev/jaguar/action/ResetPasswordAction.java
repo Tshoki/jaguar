@@ -11,12 +11,12 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 	//executeメソッドを定義
 	public String execute(){
-		//backFlgの中身がnullのときif文を実行する
+		//backFlgの中身がnullのとき(戻らない時)if文を実行する
 		if(backFlg==null){
 			//userIdForResetPasswordをsessionから削除する
 			session.remove("userIdForResetPassword");
 		}
-		//
+		//戻り値としてSUCCESSを返す
 		return SUCCESS;
 	}
 
