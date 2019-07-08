@@ -43,6 +43,12 @@ public class CartAction extends ActionSupport implements SessionAware{
 		return SUCCESS ;
 	}
 
+	public String getUserId(){
+		return userId;
+	}
+	public void setUserId(String userId){
+		this.userId = userId;
+	}
 	public int getTotalPrice(){
 		return totalPrice;
 	}

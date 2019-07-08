@@ -65,7 +65,7 @@
 <s:submit value="決済" data-action="SettlementConfirmAction" />
 
 <!-- 削除ボタン --><!-- 初期設定 css(opaity:0;) , jQuery で opacity 操作 -->
-<s:submit value="削除" data-action="DeleteCartAction" />
+<s:submit value="削除" class="delete_btn" data-action="DeleteCartAction" />
 
 </s:form>
 </s:if>
