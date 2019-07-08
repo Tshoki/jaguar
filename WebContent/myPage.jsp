@@ -12,8 +12,8 @@
 <jsp:include page = "header.jsp"/>
 	<div id="contents">
 		<h1>マイページ画面</h1>
-		<s:if test="userInfoDTO != null"><!-- UserInfoDAO参照 -->
-			<s:form action="PurchaseHistoryAction">
+		<s:if test="userInfoDTO != null"><!-- UserInfoDAO参照 nullじゃなければ表示-->
+			<s:form action="PurchaseHistoryAction"><!-- 遷移先 -->
 				<table class="vertical-table">
 					<tr>
 						<th scope="row"><s:label value="姓"/></th>
@@ -37,13 +37,13 @@
 					</tr>
 				</table>
 				<div class="submit btn box">
-					<s:submit value="購入履歴" class="submit_btn"/>
+					<s:submit value="購入履歴" class="submit_btn"/><!-- クリックで購入履歴へ -->
 				</div>
 			</s:form>
 		</s:if>
 		<s:else>
 			<div class="info">
-				ユーザー情報がありません。
+				ユーザー情報がありません。<!-- nullなら表示 -->
 			</div>
 		</s:else>
 	</div>
