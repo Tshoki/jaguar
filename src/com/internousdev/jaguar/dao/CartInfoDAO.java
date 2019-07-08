@@ -162,6 +162,8 @@ public class CartInfoDAO {
 				ps3.setInt(2, productId);
 				ps3.setInt(3, productCount);
 				ps3.executeUpdate();
+
+				ret = true;
 			}
 		}catch (SQLException e){
 			e.printStackTrace();
