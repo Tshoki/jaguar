@@ -9,8 +9,8 @@ import com.internousdev.jaguar.dto.UserInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware {
-	public Map<String, Object> session;
-	private UserInfoDTO userInfoDTO;
+	private Map<String, Object> session;
+	UserInfoDTO userInfoDTO;
 	
 	public String execute() {
 
@@ -21,7 +21,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		
-		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf("userId")); 
+		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("userId"))); 
 //		valueOf　sessionから値をString型の値で取り出すために使用。nullでもエラーは出ない
 		
 		if(userInfoDTO.getUserId() == null) {
