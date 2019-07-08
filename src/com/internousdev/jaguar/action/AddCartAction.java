@@ -1,25 +1,29 @@
 package com.internousdev.jaguar.action;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.jaguar.dao.CartInfoDAO;
+import com.internousdev.jaguar.dto.CartInfoDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AddCartAction extends ActionSupport implements SessionAware{
 
 	private String userId;
-
-	private CartInfoDAO cartInfoDAO = new CartInfoDAO();
+	private int productId;
+	private int productCount;
 
 	private Map<String, Object> session;
 
-	private int productId;
+	private List<CartInfoDTO> cartInfoDTOList;
 
-	private int productCount;
+	private int totalPrice; // 合計金額
 
 	public String execute(){
+
+		String ret = ERROR ;
 
 		/* タイムアウト処理
 		if(){
@@ -35,20 +39,35 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		}
 
 		// userId と 紐付けたカート情報に 同じ商品があるかないか分岐
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+
 		if(cartInfoDAO.addCartInfo(userId, productId, productCount)){
-			//
-		}else{
-			//
+			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+			totalPrice = cartInfoDAO.getTotalPrice(userId);
+
+			ret = SUCCESS ;
 		}
 
-		return ERROR ;
+		return ret ;
 	}
 
+	public int getTotalPrice(){
+		return totalPrice;
+	}
+	public void setTotalPrice(int totalPrice){
+		this.totalPrice = totalPrice;
+	}
+
+	public List<CartInfoDTO> getCartInfoDTOList(){
+		return cartInfoDTOList;
+	}
+	public void setCartInfoDTOList(List<CartInfoDTO> cartInfoDTOList){
+		this.cartInfoDTOList = cartInfoDTOList;
+	}
 	public Map<String, Object> getSession(){
 		return session;
 	}
 	public void setSession(Map<String, Object> session){
 		this.session = session;
 	}
-
 }

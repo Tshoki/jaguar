@@ -34,13 +34,20 @@ public class CartAction extends ActionSupport implements SessionAware{
 			userId = session.get("tempUserId").toString();
 		}
 
-		//
+		// カート情報 抽出
 		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
 
-		// 合計金額
+		// 合計金額 算出
 		totalPrice = cartInfoDAO.getTotalPrice(userId);
 
 		return SUCCESS ;
+	}
+
+	public int getTotalPrice(){
+		return totalPrice;
+	}
+	public void setTotalPrice(int totalPrice){
+		this.totalPrice = totalPrice;
 	}
 
 	public List<CartInfoDTO> getCartInfoDTOList(){

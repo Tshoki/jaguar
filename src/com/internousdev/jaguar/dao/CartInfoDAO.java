@@ -13,20 +13,16 @@ import com.internousdev.jaguar.util.DBConnector;
 
 public class CartInfoDAO {
 
-	// 未完成
-
-	/*
-	private DBConnector db = new DBConnector();
-	private Connection con = db.getConnection();
-	*/
-
-	//
+	/**
+	 * ユーザーID と 紐づいている 商品情報 を 全て抽出
+	 * @return List<CartInfoDTO>型 :
+	 */
 	public List<CartInfoDTO> getCartInfoDTOList(String userId){
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
-		List<CartInfoDTO> cartInfoDTOList = new ArrayList<CartInfoDTO>();
+		List<CartInfoDTO> cartInfoDTOList = new ArrayList<>();
 
 		String sql = "SELECT"
 						+ " cart_info.id,"
@@ -79,7 +75,7 @@ public class CartInfoDAO {
 	}
 
 
-	// カート合計金額
+	// カート合計金額 算出
 	public int getTotalPrice(String userId){
 
 		DBConnector db = new DBConnector();
@@ -346,5 +342,39 @@ public class CartInfoDAO {
 				return count;
 		}
 
+
+
+	/**
+	* Settlement用 userId に 紐づく カート情報 を 全て削除
+	* @return int 型 : Action分岐用 変数 count
+	*/
+	public int deleteAllCartInfo(String userId){
+
+		int count = 0;
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
+		String sql ="DELETE"
+						+ " FROM cart_info"
+						+ " WHERE user_id";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+
+			count = ps.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+			}catch (SQLException e){
+				e.printStackTrace();
+			}
+		}
+
+		return count ;
+	}
 
 }
