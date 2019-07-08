@@ -9,7 +9,11 @@ import com.internousdev.jaguar.dto.UserInfoDTO;
 import com.internousdev.jaguar.util.DBConnector;
 
 public class UserInfoDAO {
-	
+	/**
+	 * マイページ用
+	 * @param userId
+	 * @return UserInfoDTO型：userInfoDTO
+	 */
 //	マイページ用
 	public UserInfoDTO getUserInfo(String userId) {
 		DBConnector db = new DBConnector();
@@ -47,7 +51,18 @@ public class UserInfoDAO {
 		return userInfoDTO;
 //		値が格納されたDTOを返す
 	}
-
+/**
+ * ユーザー新規登録
+ * @param familyName
+ * @param firstName
+ * @param familyNameKana
+ * @param firstNameKana
+ * @param sex
+ * @param email
+ * @param userId
+ * @param password
+ * @return int型:count
+ */
 //		ユーザー新規作成
 	public int createUser(String familyName, String firstName, String familyNameKana, 
 			String firstNameKana, String sex, String email, String userId, String password) {
@@ -84,8 +99,13 @@ public class UserInfoDAO {
 		return count;
 //		変更した件数を返す
 	}
-	
-//	ユーザーの存在確認
+	/**
+	 * ユーザーの存在確認
+	 * @param userId
+	 * @param password
+	 * @return boolean型：result
+	 */
+//	ユーザーの存在確認 boolean値true, falseで返す
 	public boolean isExistsUserInfo(String userId, String password) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -116,24 +136,28 @@ public class UserInfoDAO {
 		}
 		return result;
 	}
-	
+	/**
+	 * ユーザー登録用
+	 * @param userId
+	 * @return boolean型：result
+	 */
 	//ユーザー登録用
 	//登録しようとしたユーザーIDが既に存在しているかをチェックするメソッド。結果をboolean型のtrue or falseで返す。
 	public Boolean isExistsUserInfo(String userId){
-		DBConnector db=new DBConnector();
-		Connection con=db.getConnection();
-		boolean result=false;
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		boolean result = false;
 		//count(*)でクエリの条件に一致するレコード結果を全て取得する。（as countでcountという列名をつける）
-		String sql="select count(*) as count from user_info where user_id=?";
+		String sql="select count(*) as count from user_info where user_id = ?";
 		try{
-			PreparedStatement ps=con.prepareStatement(sql);
+			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ResultSet rs=ps.executeQuery();
+			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
 				//現在の列の値をint型で取得し、一件以上存在するかをチェック
-				if(rs.getInt("count")>0){
+				if(rs.getInt("count") > 0){
 					//存在すればtrueを返す
-					result=true;
+					result = true;
 				}
 			}
 		}catch(SQLException e){
@@ -146,8 +170,13 @@ public class UserInfoDAO {
 		}
 		return result;
 	}
-	
-//	ユーザー情報
+	/**
+	 * ユーザー情報呼び出し
+	 * @param userId
+	 * @param password
+	 * @return UserInfoDTO型：userInfoDTO
+	 */
+//	ユーザー情報呼び出し
 	public UserInfoDTO getUserInfo(String userId, String password) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -182,7 +211,12 @@ public class UserInfoDAO {
 		}
 		return userInfoDTO;
 	}
-	
+	/**
+	 * パスワードリセット
+	 * @param userId
+	 * @param password
+	 * @return int型：result
+	 */
 //	パスワードリセット
 	public int resetPassword(String userId, String password) {
 		DBConnector db = new DBConnector();
@@ -206,7 +240,12 @@ public class UserInfoDAO {
 		return result;
 //	更新した件数を代入して返す
 	}
-	
+	/**
+	 * ログイン認証
+	 * @param userId
+	 * @param password
+	 * @return int型：result
+	 */
 //	ログイン認証
 	public int login(String userId, String password) {
 		DBConnector db = new DBConnector();
@@ -230,7 +269,11 @@ public class UserInfoDAO {
 		return result;
 //	件数を代入して返す
 	}
-	
+	/**
+	 * ログアウト
+	 * @param userId
+	 * @return int型：result
+	 */
 //	ログアウト
 	public int logout(String userId) {
 		DBConnector db = new DBConnector();

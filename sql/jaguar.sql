@@ -91,10 +91,13 @@ id int primary key auto_increment not null,
 user_id varchar(16) not null, /*外部キー制約*/
 product_id int not null, /*外部キー制約*/
 product_count int,
+price int not null,
+destination_id int, /*？外部キー制約？*/
 regist_date datetime,
 update_date datetime,
 foreign key (user_id) references user_info (user_id),
-foreign key (product_id) references product_info (product_id)
+foreign key (product_id) references product_info (product_id),
+foreign key (destination_id) references destination_info (id)
 );
 
 create table destination_info(
