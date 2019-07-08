@@ -224,13 +224,17 @@ public class ProductInfoDAO {
 		List<ProductInfoDTO> productInfoDTOList = new ArrayList<ProductInfoDTO>();
 		String sql = "select * from product_info where category_id=" + categoryId ;
 		boolean initializeFlag = true;	// 複数のキーワードを条件にするための条件分岐用のフラグ
+
+		if !(keywordsList.size()==1 && 中身が""){
+
+
 		for (String keyword : keywordsList) {
 			/*keywordが""だった場合WHERE句に含めてしまうと全て出てしまう。
 			 * が、""だった場合そもそも全部出ることに問題は無く、
 			 * 最初の"　"や" "はすべて呼び出し元Actionクラスのtrimで("")に変えているので、
 			 * if (!(keyword.equals("")))は必要ない気がする。
 			 * */
-			if (!(keyword.equals("")) || keywordsList.length == 1) {
+			//if (!(keyword.equals("")) || keywordsList.length == 1) {
 				if (initializeFlag) {
 					sql += " and ((product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 					//2つ目の条件を追加する際、whereではなくorと書く必要があるため、initializeFlagをfalseにする
@@ -238,9 +242,15 @@ public class ProductInfoDAO {
 				} else {
 					sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				}
+
+				sql += ")";
+
 			}
 		}
-		sql += ")";
+
+
+		}
+
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
