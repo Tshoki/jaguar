@@ -17,8 +17,10 @@
 
 <jsp:include page="header.jsp"><!-- header -->
 
+<h1>ページタイトル</h1><!-- 1日目の指令 h1 を 使うこと 推奨 -->
+
 <!--- カート情報がある場合 --->
-<s:if test="cartInfoDTOList != null">
+<s:if test="!cartInfoDTOList.isEmpty()">
 <s:form action="DeleteCartAction">
 <!-- 項目列 -->
 <table>
@@ -42,7 +44,7 @@
 	<s:iterator value="cartInfoDTOList">
 		<tr>
 			<!-- チェックボックス考察中 -->
-			<td><input type="checkbox" name="check" value='<s:property value="productId" />' value=""></td>
+			<td><s:checkbox name="checkbox" value='<s:property value="productId" />' fieldValue="%{}" /></td>
 			<td><s:property value="productName" /></td>
 			<td><s:property value="productNameKana" /></td>
 			<!--<td><img src='<s;property value="imageFilePath" /><s;property value="imageFilePath" />' ></td>-->
