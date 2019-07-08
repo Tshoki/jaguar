@@ -34,7 +34,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 		count += purchaseHistoryInfoDAO.regist(
 				userId,
 				dto.getProductId(),
-				dto.getproductCount(),
+				dto.getProductCount(),
 				id,
 				dto.getPrice()
 		);
