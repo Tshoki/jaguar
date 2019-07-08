@@ -14,14 +14,14 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		String result=ERROR;
 		DestinationInfoDAO destinationInfoDAO=new DestinationInfoDAO();
 		int count=destinationInfoDAO.insert(
-				session.get("userId").toString(),
+				session.get("userId").toString(),	//nullは不可
 				session.get("familyName").toString(),
 				session.get("firstName").toString(),
-				String.valueOf(session.get("familyNameKana")),
+				String.valueOf(session.get("familyNameKana")),	//最悪nullでもいい
 				String.valueOf(session.get("firstNameKana")),
-				String.valueOf(session.get("userAddress")),
 				String.valueOf(session.get("telNumber")),
-				session.get("email").toString());
+				String.valueOf(session.get("email")),
+				session.get("userAddress").toString());
 		if(count>0){
 			result=SUCCESS;
 		}

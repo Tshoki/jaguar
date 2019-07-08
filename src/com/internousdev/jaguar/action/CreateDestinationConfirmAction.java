@@ -61,115 +61,96 @@ public String execute(){
 	return result;
 }
 
-public String getFamilyName(){
+public String getFamilyName() {
 	return familyName;
 }
-public void setFamilyName(String familyName){
-	this.familyName=familyName;
+public void setFamilyName(String familyName) {
+	this.familyName = familyName;
 }
-
-
-public String getFirstName(){
+public String getFirstName() {
 	return firstName;
 }
-public void setFirstName(String firstName){
-	this.firstName=firstName;
+public void setFirstName(String firstName) {
+	this.firstName = firstName;
 }
-
-
-public String getFamilyNameKana(){
+public String getFamilyNameKana() {
 	return familyNameKana;
 }
-public void setFamilyNameKana(String familyNameKana){
-	this.familyNameKana=familyNameKana;
+public void setFamilyNameKana(String familyNameKana) {
+	this.familyNameKana = familyNameKana;
 }
-
-
-public String getFirstNameKana(){
+public String getFirstNameKana() {
 	return firstNameKana;
 }
-public void setFirstNameKana(String firstNameKana){
-	this.firstNameKana=firstNameKana;
+public void setFirstNameKana(String firstNameKana) {
+	this.firstNameKana = firstNameKana;
 }
-
-
-public String getUserAddress(){
+public String getUserAddress() {
 	return userAddress;
 }
-public void setUserAddress(String userAddress){
-	this.userAddress=userAddress;
+public void setUserAddress(String userAddress) {
+	this.userAddress = userAddress;
 }
-
-
-public String getTelNumber(){
+public String getTelNumber() {
 	return telNumber;
 }
-public void setTelNumber(String telNumber){
-	this.telNumber=telNumber;
+public void setTelNumber(String telNumber) {
+	this.telNumber = telNumber;
 }
-
-
-public String getEmail(){
+public String getEmail() {
 	return email;
 }
-public void setEmail(String email){
-	this.email=email;
+public void setEmail(String email) {
+	this.email = email;
 }
 
-
-////ERRORMessageList
-public List<String> getFamilyNameErrorMessageList(){
+//////////////////errorMessageList//////////////////////////////
+public List<String> getFamilyNameErrorMessageList() {
 	return familyNameErrorMessageList;
 }
-public void setFamilyNameErrorMessageList(List<String> familyNameErrorMessageList){
-	this.familyNameErrorMessageList=familyNameErrorMessageList;
+public void setFamilyNameErrorMessageList(List<String> familyNameErrorMessageList) {
+	this.familyNameErrorMessageList = familyNameErrorMessageList;
 }
-
-
-public List<String> getFirstNameErrorMessageList(){
+public List<String> getFirstNameErrorMessageList() {
 	return firstNameErrorMessageList;
 }
-public void setFirstNameError(List<String> firstNameErrorMessageList){
-	this.firstNameErrorMessageList=firstNameErrorMessageList;
+public void setFirstNameErrorMessageList(List<String> firstNameErrorMessageList) {
+	this.firstNameErrorMessageList = firstNameErrorMessageList;
 }
-
-
-public List<String> getFamilyNameKanaErrorMessageList(){
+public List<String> getFamilyNameKanaErrorMessageList() {
 	return familyNameKanaErrorMessageList;
 }
-public void setFamilyNameKanaErrorMessageList(List<String> familyNameKanaErrorMessageList){
-	this.familyNameKanaErrorMessageList=familyNameKanaErrorMessageList;
+public void setFamilyNameKanaErrorMessageList(List<String> familyNameKanaErrorMessageList) {
+	this.familyNameKanaErrorMessageList = familyNameKanaErrorMessageList;
 }
-
-
-public List<String> getFirstNameKanaErrorMessageList(){
+public List<String> getFirstNameKanaErrorMessageList() {
 	return firstNameKanaErrorMessageList;
 }
-public void setFirstNameKanaErrorMessageList(List<String> firstNameKanaErrorMessageList){
-	this.firstNameKanaErrorMessageList=firstNameKanaErrorMessageList;
+public void setFirstNameKanaErrorMessageList(List<String> firstNameKanaErrorMessageList) {
+	this.firstNameKanaErrorMessageList = firstNameKanaErrorMessageList;
 }
-
-
-public List<String> getUserAddressErrorMessageList(){
+public List<String> getUserAddressErrorMessageList() {
 	return userAddressErrorMessageList;
 }
-public void setUserAddressMessageList(List<String> userAddressErrorMessageList){
-	this.userAddressErrorMessageList=userAddressErrorMessageList;
+public void setUserAddressErrorMessageList(List<String> userAddressErrorMessageList) {
+	this.userAddressErrorMessageList = userAddressErrorMessageList;
 }
-
-
-public List<String> getTelNumberErrorMessageList(){
+public List<String> getTelNumberErrorMessageList() {
 	return telNumberErrorMessageList;
 }
-public void setTelNumberMessageList(List<String> telNumberErrorMessageList){
-	this.telNumberErrorMessageList=telNumberErrorMessageList;
+public void setTelNumberErrorMessageList(List<String> telNumberErrorMessageList) {
+	this.telNumberErrorMessageList = telNumberErrorMessageList;
 }
-
-
-public List<String> getEmailErrorMessageList(){
+public List<String> getEmailErrorMessageList() {
 	return emailErrorMessageList;
 }
-public void setEmailMessageList(List<String> emailErrorMessageList){
-	this.emailErrorMessageList=emailErrorMessageList;
+public void setEmailErrorMessageList(List<String> emailErrorMessageList) {
+	this.emailErrorMessageList = emailErrorMessageList;
+}
+public Map<String, Object> getSession() {
+	return session;
+}
+public void setSession(Map<String, Object> session) {
+	this.session = session;
 }
 }
