@@ -21,33 +21,33 @@ public class PurchaseHistoryInfoDAO {
 		Connection con = db.getConnection();
 		List<PurchaseHistoryInfoDTO> purchaseHistoryInfoDTOList = new ArrayList<PurchaseHistoryInfoDTO>();
 		String sql = "SELECT"
-			+ "phi.id as id," /* ID */
-			+ "phi.user_id as user_id," /* ユーザーID */
-			+ "phi.product_count as product_count," /* 個数 */
-			+ "pi.product_id as product_id," /* 商品ID */
-			+ "pi.product_name as product_name," /*商品名*/
-			+ "pi.product_name_kana as product_name_kana," /* 商品名かな */
-			+ "pi.product_description as product_description," /* 商品詳細 */
-			+ "pi.category_id as category_id," /* カテゴリID */
-			+ "pi.price," /* 価格 */
-			+ "pi.image_file_name as image_file_name," /* 画像ファイル名 */
-			+ "pi.image_file_path as image_file_path," /* 画像ファイルパス */
-			+ "pi.release_company," /* 発売会社名 */
-			+ "pi.release_date," /* 発売年月日 */
-			+ "phi.price as price," /* 値段 */
-			+ "phi.price * phi.product_count as subtotal," /* 合計金額 */
-			+ "phi.regist_date as regist_date," /* 登録日 */
-			+ "phi.update_date as update_date," /* 更新日 sampleに無し */
-			+ "di.family_name as family_name," /* 姓 */
-			+ "di.first_name as first_name," /* 名 */
-			+ "di.user_address as user_address" /* 住所 */
-			+ "FROM purchase_history_info as phi"
-			+ "LEFT JOIN product_info as pi"
-			+ "ON phi.product_id = pi.product_id"
-			+ "LEFT JOIN destination_info as di"
-			+ "ON phi.destination_id = di.id"
-			+ "WHERE phi.user_id = ?"
-			+ "ORDER BY regist_date DESC";
+			+ " phi.id as id," /* ID */
+			+ " phi.user_id as user_id," /* ユーザーID */
+			+ " phi.product_count as product_count," /* 個数 */
+			+ " pi.product_id as product_id," /* 商品ID */
+			+ " pi.product_name as product_name," /*商品名*/
+			+ " pi.product_name_kana as product_name_kana," /* 商品名かな */
+			+ " pi.product_description as product_description," /* 商品詳細 */
+			+ " pi.category_id as category_id," /* カテゴリID */
+			+ " pi.price," /* 価格 */
+			+ " pi.image_file_name as image_file_name," /* 画像ファイル名 */
+			+ " pi.image_file_path as image_file_path," /* 画像ファイルパス */
+			+ " pi.release_company," /* 発売会社名 */
+			+ " pi.release_date," /* 発売年月日 */
+			+ " phi.price as price," /* 値段 */
+			+ " phi.price * phi.product_count as subtotal," /* 合計金額 */
+			+ " phi.regist_date as regist_date," /* 登録日 */
+			+ " phi.update_date as update_date," /* 更新日 */
+			+ " di.family_name as family_name," /* 姓 */
+			+ " di.first_name as first_name," /* 名 */
+			+ " di.user_address as user_address" /* 住所 */
+			+ " FROM purchase_history_info as phi"
+			+ " LEFT JOIN product_info as pi"
+			+ " ON phi.product_id = pi.product_id"
+			+ " LEFT JOIN destination_info as di"
+			+ " ON phi.destination_id = di.id"
+			+ " WHERE phi.user_id = ?"
+			+ " ORDER BY regist_date DESC";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -85,6 +85,7 @@ public class PurchaseHistoryInfoDAO {
 		return purchaseHistoryInfoDTOList;
 	}
 
+	//ユーザーID、商品ID、個数、宛先情報ID、値段の登録
 	public int regist(String userId, int productId, int productCount, int destinationId, int price){
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -110,6 +111,7 @@ public class PurchaseHistoryInfoDAO {
 		return count;
 	}
 
+	//ユーザーIDに紐付けられている履歴の削除
 	public int deleteAll(String userId){
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
