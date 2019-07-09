@@ -47,7 +47,7 @@
 			<td><s:checkbox name="checkbox" value='<s:property value="productId" />' fieldValue="%{}" /></td>
 			<td><s:property value="productName" /></td>
 			<td><s:property value="productNameKana" /></td>
-			<!--<td><img src='<s;property value="imageFilePath" /><s;property value="imageFilePath" />' ></td>-->
+			<td><img src='<s;property value="imageFilePath" />/<s;property value="imageFileName" />' /></td>
 			<td><s:property value="price" /></td>
 			<td><s:property value="releaseCompany" /></td>
 			<td><s:property value="releaseDate" /></td>
