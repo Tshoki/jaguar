@@ -130,7 +130,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 			      count = count + cartInfoDAO.updateProductCount(userId, dto.getProductId(), dto.getProductCount());
 
-			      cartInfoDAO.deleteTempCartInfo(tempUserId, dto.getProductId());
+			      cartInfoDAO.deleteCartInfo(tempUserId, dto.getProductId());
 			}
 			else {
 				count = count + cartInfoDAO.updateUserId(userId, tempUserId, dto.getProductId());
