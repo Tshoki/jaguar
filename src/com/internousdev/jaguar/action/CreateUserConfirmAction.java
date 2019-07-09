@@ -97,7 +97,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		this.familyName=familyName;
 	}
 
-	public String firstName(){
+	public String getFirstName(){
 		return firstName;
 	}
 
@@ -105,7 +105,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		this.firstName=firstName;
 	}
 
-	public String getFamiyNameKana(){
+	public String getFamilyNameKana(){
 		return familyNameKana;
 	}
 

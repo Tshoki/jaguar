@@ -54,7 +54,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		return backFlg;
 	}
 
-	public void setBackFlag(String backFlg){
+	public void setBackFlg(String backFlg){
 		this.backFlg=backFlg;
 	}
 
@@ -62,6 +62,7 @@ public class CreateUserAction extends ActionSupport implements SessionAware {
 		return session;
 	}
 
+	@Override
 	public void setSession(Map<String,Object> session){
 		this.session=session;
 	}

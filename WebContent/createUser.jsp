@@ -15,49 +15,49 @@
 
 
 <!--  入力にミスがあり、CreateUserConfirmActionから戻された場合に表示するメッセージ一覧-->
-<s:if test="familyNameErrorMessageList=!null && familyNameErrorMessageList.size()>0">
+<s:if test="familyNameErrorMessageList!=null && familyNameErrorMessageList.size()>0">
 	<s:iterator value="familyNameErrorMessageList">
 		<s:property />
 	</s:iterator>
 </s:if>
 
-<s:if test="firstNameErrorMessageList=!null && firstNameErrorMessageList.size()>0">
+<s:if test="firstNameErrorMessageList!=null && firstNameErrorMessageList.size()>0">
 	<s:iterator value="firstNameErrorMessageList">
 		<s:property />
 	</s:iterator>
 </s:if>
 
-<s:if test="familyNameKanaErrorMessageList=!null && familyNameKanaErrorMessageList.size()>0">
+<s:if test="familyNameKanaErrorMessageList!=null && familyNameKanaErrorMessageList.size()>0">
 	<s:iterator value="familyNameKanaErrorMessageList">
 		<s:property />
 	</s:iterator>
 </s:if>
 
-<s:if test="firstNameKanaErrorMessageList=!null && firstNameKanaErrorMessageList.size()>0">
+<s:if test="firstNameKanaErrorMessageList!=null && firstNameKanaErrorMessageList.size()>0">
 	<s:iterator value="firstNameKanaErrorMessageList">
 		<s:property />
 	</s:iterator>
 </s:if>
 
-<s:if test="emailErrorMessageList=!null && emailErrorMessageList.size()>0">
+<s:if test="emailErrorMessageList!=null && emailErrorMessageList.size()>0">
 	<s:iterator value="emailErrorMessageList">
 		<s:property />
 	</s:iterator>
 </s:if>
 
-<s:if test="userIdErrorMessageList=!null && userIdErrorMessageList.size()>0">
+<s:if test="userIdErrorMessageList!=null && userIdErrorMessageList.size()>0">
 	<s:iterator value="userIdErrorMessageList">
 		<s:property />
 	</s:iterator>
 </s:if>
 
-<s:if test="passwordErrorMessageList=!null && passwordErrorMessageList.size()>0">
+<s:if test="passwordErrorMessageList!=null && passwordErrorMessageList.size()>0">
 	<s:iterator value="passwordErrorMessageList">
 		<s:property />
 	</s:iterator>
 </s:if>
 
-<s:if test="isExistsUserErrorMessage=!null && !isExistsUserErrorMessage.isEmpty()">
+<s:if test="isExistsUserErrorMessage!=null && !isExistsUserErrorMessage.isEmpty()">
 	<s:iterator value="isExistsUserErrorMessage">
 		<s:property />
 	</s:iterator>
