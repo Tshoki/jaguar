@@ -11,7 +11,7 @@
 <title>SettlementComplete画面</title>
 </head>
 <body>
-<jsp:include page="header.jsp">
+<jsp:include page="header.jsp"/>
 
 <div id="main">
   <p>決済が完了しました。</p>

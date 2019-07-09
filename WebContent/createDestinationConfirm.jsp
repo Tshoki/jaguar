@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./css/jaguar.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="./js/jaguar.js"></script>
+<script type="text/javascript" src="./js/createDestination.js"></script>
 <title>宛先入力確認画面</title>
 </head>
 <body>

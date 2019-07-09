@@ -4,8 +4,9 @@ import java.util.List;
 import java.util.Map;
 import com.internousdev.jaguar.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class CreateDestinationConfirmAction extends ActionSupport{
+public class CreateDestinationConfirmAction extends ActionSupport implements SessionAware{
 private String familyName;
 private String firstName;
 private String familyNameKana;
@@ -37,24 +38,24 @@ public String execute(){
 	session.put("email", email);
 
 	InputChecker ic=new InputChecker();
-	//フォームの内容ﾁｪｯｸ(項目名、値、最小文字数、最大文字数、半角英数、漢字、ひらがな、半角英数、カタカナ、スペース)
+	//フォームの内容ﾁｪｯｸ(項目名、値、最小文字数、最大文字数、半角英字、漢字、ひらがな、半角英数、カタカナ、スペース)
 	familyNameErrorMessageList=ic.doCheck("性", familyName, 1, 16, true, true, true, false, false, false);
 	firstNameErrorMessageList=ic.doCheck("名", firstName, 1, 16, true, true, true, false, false, false);
 	familyNameKanaErrorMessageList=ic.doCheck("性ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false);
 	firstNameKanaErrorMessageList=ic.doCheck("名ふりがな", firstNameKana, 1, 16, false, false, true, false, false, false);
-	userAddressErrorMessageList=ic.doCheck("住所", userAddress, 10, 50, true, true, true, true, true, false);
-	telNumberErrorMessageList=ic.doCheck("電話", email, 10, 13, false, false, false, true, false, false);
-	//（項目名、値、最小文字数、最大文字数、）
-	emailErrorMessageList=ic.doCheckForEmail("メールアドレス", telNumber, 10, 32);
+	userAddressErrorMessageList=ic.doCheck("住所", userAddress, 10, 50, false, true, true, true, true, false);
+	telNumberErrorMessageList=ic.doCheck("電話", telNumber, 10, 13, false, false, false, true, false, false);
+	//（項目名、値、最小文字数、最大文字数）
+	emailErrorMessageList=ic.doCheckForEmail("メールアドレス", email, 10, 32);
 
+	//エラーメッセージの有無
 	if (familyNameErrorMessageList.size()>0
 	|| firstNameErrorMessageList.size()>0
 	|| familyNameKanaErrorMessageList.size()>0
 	|| firstNameKanaErrorMessageList.size()>0
 	|| userAddressErrorMessageList.size()>0
 	|| telNumberErrorMessageList.size()>0
-	|| emailErrorMessageList.size()>0)
-	{
+	|| emailErrorMessageList.size()>0){
 		result=ERROR;
 	}else{
 		result=SUCCESS;

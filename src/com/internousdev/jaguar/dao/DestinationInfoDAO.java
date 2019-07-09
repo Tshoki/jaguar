@@ -13,10 +13,10 @@ public class DestinationInfoDAO {
 	DBConnector db=new DBConnector();
 	Connection con=db.getConnection();
 	public int insert(String userId, String familyName, String firstName, String familyNameKana, String firstNameKana, String email, String telNumber, String userAddress){
-	  int count=0;
+	int count=0;
 
-	  String sql="INSERT INTO destination_info(id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date, update_date)"
-				  + "VALUES(?,?,?,?,?,?,?,?, now(), now())";
+	  String sql="INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date, update_date)"
+				  + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, now(), now())";
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
@@ -41,6 +41,8 @@ public class DestinationInfoDAO {
 		return count;
 	}
     public List<DestinationInfoDTO> getDestinationInfo(String userId){
+	DBConnector db=new DBConnector();
+	Connection con=db.getConnection();
       List<DestinationInfoDTO> destinationInfoDTOList=new ArrayList<DestinationInfoDTO>();
 	  String sql="SELECT id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address"
 			      + "FROM destination_info"
@@ -48,7 +50,8 @@ public class DestinationInfoDAO {
 		try{
 				PreparedStatement ps=con.prepareStatement(sql);
 				ps.setString(1, userId);
-				ResultSet rs=ps.getResultSet();
+				ResultSet rs=ps.executeQuery();
+
 			while(rs.next()){
 				DestinationInfoDTO DID=new DestinationInfoDTO();
 				DID.setUserId(rs.getString("id"));
