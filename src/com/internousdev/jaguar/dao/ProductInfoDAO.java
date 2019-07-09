@@ -163,14 +163,8 @@ public class ProductInfoDAO {
 
 		boolean initializeFlag = true;	// 複数のキーワードを条件にするための条件分岐用のフラグ
 
-
-		for (String keyword : keywordsList) { // 拡張for文 keywordsListの中身を一つずつ取り出す
-			/*keywordが""だった場合WHERE句に含めてしまうと全て出てしまう。
-			 * が、""だった場合そもそも全部出ることに問題は無く、
-			 * 最初の"　"や" "はすべて呼び出し元Actionクラスのtrimで("")に変えているので、
-			 * if (!(keyword.equals("")))は必要ない気がする。
-			 * */
-			if (!(keyword.equals(""))) {
+		if (!(keywordsList[0].equals(""))){ //検索ワードが空じゃないときのみfor文実行
+			for (String keyword : keywordsList) { // 拡張for文 keywordsListの中身を一つずつkeywordに代入して処理実行
 				if (initializeFlag) {
 					sql += " where (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";//ここの ' は出力する文字列
 					//1つ目の条件を2つ目の条件を追加する際、whereではなくorと書く必要があるため、initializeFlagをfalseにする
@@ -180,6 +174,7 @@ public class ProductInfoDAO {
 				}
 			}
 		}
+
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -225,19 +220,20 @@ public class ProductInfoDAO {
 		String sql = "select * from product_info where category_id=" + categoryId ;
 		boolean initializeFlag = true;	// 複数のキーワードを条件にするための条件分岐用のフラグ
 
-		for (String keyword : keywordsList) {
-			// keywordに何かしらの文字列がはいっているか、キーワードリストの長さが1(空文字の時も条件式として加えるため)だった場合
-			if (!(keyword.equals("")) || keywordsList.length == 1) {
+		if (!(keywordsList[0].equals(""))){ //検索ワードが空じゃないときのみfor文実行
+
+			for (String keyword : keywordsList) {
 				if (initializeFlag) {
 					sql += " and ((product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
-					//2つ目の条件を指定する際にwhereを記述する必要はないため、initializeFlagをfalseにする
+					//2つ目の条件を追加する際、whereではなくorと書く必要があるため、initializeFlagをfalseにする
 					initializeFlag = false;
 				} else {
 					sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				}
+
+				sql += ")"; //検索ワードが有る時のみ、andの始まりの ( を閉じる
 			}
 		}
-		sql += ")";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
