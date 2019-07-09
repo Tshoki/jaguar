@@ -4,10 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
-<script type="text/javascript" src="./js/header.js"></script>
-<title> createUser.jsp </title>
+<meta charset="UTF-8"/>
+<title> ユーザー情報入力画面</title>
 </head>
 <body>
 
@@ -72,56 +70,56 @@
 			<tr>
 				<th>姓：</th>
 				<td>
-					<s:textfield name="familyName" value="session.familyName"/>
+					<s:textfield name="familyName" value="%{#session.familyName}"/>
 				</td>
 			</tr>
 
 			<tr>
 				<th>名：</th>
 				<td>
-					<s:textfield name="firstName" value="session.firstName"/>
+					<s:textfield name="firstName" value="%{session.firstName}"/>
 				</td>
 			</tr>
 
 			<tr>
 				<th>姓ふりがな：</th>
 				<td>
-					<s:textfield name="familyNameKana" value="session.familyNameKana"/>
+					<s:textfield name="familyNameKana" value="%{session.familyNameKana}"/>
 				</td>
 			</tr>
 
 			<tr>
 				<th>名ふりがな：</th>
 				<td>
-					<s:textfield name="firstNameKana" value="session.firstNameKana"/>
+					<s:textfield name="firstNameKana" value="%{session.firstNameKana}"/>
 				</td>
 			</tr>
 
 			<tr>
 				<th>性別：</th>
 				<td>
-					<s:radio name="sex" list="session.sexList" value="session.sex"/>
+					<s:radio name="sex" list="%{session.sexList}" value="%{session.sex}"/>
 				</td>
 			</tr>
 
 			<tr>
 				<th>メールアドレス：</th>
 				<td>
-					<s:textfield name="email" value="session.email"/>
+					<s:textfield name="email" value="%{session.email}"/>
 				</td>
 			</tr>
 
 			<tr>
 				<th>ユーザーID：</th>
 				<td>
-					<s:textfield name="userId" value="session.userIdForCreateUser"/>
+					<s:textfield name="userId" value="%{session.userIdForCreateUser}"/>
 				</td>
 			</tr>
 
 			<tr>
 				<th>パスワード：</th>
 				<td>
-					<s:password name="password" value="session.password"/>
+					<s:password name="password" value="%{session.password}"/>
 				</td>
 			</tr>
 			<s:submit value="確認"/>

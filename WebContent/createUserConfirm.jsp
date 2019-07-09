@@ -4,9 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
-<script type="text/javascript" src="./js/header.js"></script>
+<meta charset="UTF-8"/>
 <title> ユーザー情報入力確認画面</title>
 </head>
 <body>
@@ -95,9 +93,9 @@
 			</tr>
 
 			<!-- 登録ボタン押下で、createUser.jsのgoCreateUserCompleteActionメソッドを実行 -->
-			<s:submit value="登録" onclick="goCreateUserCompleteAction"/>
+			<s:submit value="登録" onclick="goCreateUserCompleteAction()"/>
 			<!-- 戻るボタン押下で、createUser.jsのgoCreateUserActionメソッドを実行 -->
-			<s:submit value="戻る" onclick="goCreateUserAction"/>
+			<s:submit value="戻る" onclick="goCreateUserAction()"/>
 			<s:hidden id="backFlg" name="backFlg" value=""/>
 		</table>
 		</s:form>

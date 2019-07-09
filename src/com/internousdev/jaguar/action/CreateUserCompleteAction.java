@@ -33,7 +33,8 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 				session.get("firstName").toString(),
 				String.valueOf(session.get("familyNameKana")),
 				String.valueOf(session.get("firstNameKana")),
-				sex,String.valueOf("email"),
+				sex,
+				String.valueOf("email"),
 				session.get("userIdForCreateUser").toString(),
 				session.get("password").toString()
 				);

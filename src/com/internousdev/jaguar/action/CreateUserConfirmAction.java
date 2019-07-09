@@ -21,7 +21,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 	private String userId;
 	private String password;
 
-	private Map<String,Object> session;
+	public Map<String,Object> session;
 
 	//入力チェックでエラーが発生した際に出力するメッセージ
 	private List<String> familyNameErrorMessageList;
