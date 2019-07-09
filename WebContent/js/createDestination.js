@@ -3,5 +3,5 @@ function GOtoCompleteAction(){	//完了画面に行く
 }
 function BACKtoAction(){	//戻る
 	document.getElementById("backFlg").value="1";	//idを1に
-	var id=document.getElementById("destinationInfo").action("CreateDestionationAction");
+	document.getElementById("destinationInfo").action="CreateDestionationAction";
 }
