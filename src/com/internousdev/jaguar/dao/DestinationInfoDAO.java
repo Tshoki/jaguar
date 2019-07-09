@@ -44,7 +44,7 @@ public class DestinationInfoDAO {
       List<DestinationInfoDTO> destinationInfoDTOList=new ArrayList<DestinationInfoDTO>();
 	  String sql="SELECT id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address"
 			      + "FROM destination_info"
-				  + "WHERE userId";
+				  + "WHERE userId=?";
 		try{
 				PreparedStatement ps=con.prepareStatement(sql);
 				ps.setString(1, userId);
