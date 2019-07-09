@@ -186,8 +186,8 @@ public class CartInfoDAO {
 	}
 
 	/**
-	* TEST
-	* @return
+	* userId に紐づく productId の 存在確認
+	* @return boolean型 : 存在すれば true
 	*/
 	public boolean isExistsSameProduct(String userId, int productId){
 
@@ -227,8 +227,8 @@ public class CartInfoDAO {
 	}
 
 	/**
-	* TEST
-	* @return
+	* cart_infoテーブル の userId が持つ productId の productCount を アップデート
+	* @return int型 : 成功した数
 	*/
 	public int updateProductCount(String userId, int productId, int productCount){
 
@@ -264,8 +264,8 @@ public class CartInfoDAO {
 	}
 
 	/**
-	* TEST
-	* @return
+	* userId と productId を条件に データを削除
+	* @return int型 : 成功した数
 	*/
 	public int deleteCartInfo(String userId, int productId){
 
@@ -298,8 +298,8 @@ public class CartInfoDAO {
 	}
 
 	/**
-	* TEST
-	* @return
+	* prpductId の tempUserId を userId に アップデート
+	* @return int型 : 成功した数
 	*/
 	public int updateUserId(String userId, String tempUserId, int productId) {
 
