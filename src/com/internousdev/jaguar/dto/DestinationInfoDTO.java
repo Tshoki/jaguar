@@ -1,7 +1,7 @@
 package com.internousdev.jaguar.dto;
 
 public class DestinationInfoDTO {
-private String id;
+private int id;
 private String userId;
 private String familyName;
 private String firstName;
@@ -11,10 +11,10 @@ private String email;
 private String telNumber;
 private String userAddress;
 
-public String getId() {
+public int getId() {
 	return id;
 }
-public void setId(String id) {
+public void setId(int id) {
 	this.id = id;
 }
 public String getUserId(){

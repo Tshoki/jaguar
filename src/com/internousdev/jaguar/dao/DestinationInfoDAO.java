@@ -44,7 +44,7 @@ public class DestinationInfoDAO {
 	DBConnector db=new DBConnector();
 	Connection con=db.getConnection();
       List<DestinationInfoDTO> destinationInfoDTOList=new ArrayList<DestinationInfoDTO>();
-	  String sql="SELECT user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address"
+	  String sql="SELECT id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address"
 			      + "FROM destination_info"
 				  + "WHERE user_id=?";
 		try{
@@ -54,7 +54,7 @@ public class DestinationInfoDAO {
 
 			while(rs.next()){
 				DestinationInfoDTO DID=new DestinationInfoDTO();
-				DID.setId(rs.getString("id"));
+				DID.setId(rs.getInt("id"));
 				DID.setFamilyName(rs.getString("family_name"));
 				DID.setFirstName(rs.getString("first_name"));
 				DID.setFamilyNameKana(rs.getString("family_name_kana"));
