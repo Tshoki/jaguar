@@ -61,7 +61,7 @@
 
 	<div>
 
-		<s:if test = "#session.savedUserIdFlag == true">
+		<s:if test = "#session.savedUserIdFlg == true">
 			<s:checkbox name = "savedUserIdFlg" checked = "checked"/>
 		</s:if>
 
