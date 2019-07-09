@@ -15,9 +15,10 @@ public class HomeAction extends ActionSupport implements SessionAware{
 	private Map<String, Object> session;
 
 	public String execute() {
-
+		//tempUserIdとuserIdがなければ
 		if (!(session.containsKey("tempUserId")) && !(session.containsKey("userId"))) {
 			CommonUtility commonUtility = new CommonUtility();
+			//ランダム１６桁の仮ユーザーIDが作られる
 			session.put("tempUserId", commonUtility.getRamdomValue());
 		}
 

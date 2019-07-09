@@ -32,14 +32,17 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 
 		//処理用の変数に値を入れる
 		if (StringUtils.isBlank(keywords)) {
+			//キーワードがnull,""," ","　"の時に空文字に設定する
 			keywords = "";
 		}else {
+			//キーワードの"　"を" "に変換して,空白2個以上を" "に変換
 			keywords = keywords.replaceAll("　", " ").replaceAll("\\s{2,}"," ").trim();
 		}
-
+		//空文字じゃなかったら
 		if(!(keywords.equals(""))) {
+			//ListにCheckをかけた結果を入れる
 			keywordsErrorMessageList = inputChecker.doCheck("検索ワード", keywords,0,50, true, true, true, true, true, true);
-
+			//該当要素数が１つでもあれば
 			if(keywordsErrorMessageList.size() > 0 ){
 				return SUCCESS;
 			}
@@ -48,14 +51,17 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		switch (categoryId) {
 		case "1":
+			//キーワードのみの検索ワードを半角スペースで区切ってListに入れる
 			productInfoDTOList = productInfoDAO.getProductInfoListByKeyword(keywords.split(" "));
 			break;
 
 		default:
+			//カテゴリーと半角スペースで区切ったキーワードをListに入れる
 			productInfoDTOList = productInfoDAO.getProductInfoListByCategoryIdAndKeyword(keywords.split(" "), categoryId);
 			break;
 		}
 
+		// カテゴリーのリストが表示されていないのは良くないので、作成する
 		if(!session.containsKey("mCategoryDTOList")) {
 			List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 			MCategoryDAO mCategoryDAO = new MCategoryDAO();
