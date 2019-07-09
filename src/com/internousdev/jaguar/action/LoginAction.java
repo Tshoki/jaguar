@@ -12,9 +12,7 @@ import com.internousdev.jaguar.dto.UserInfoDTO;
 import com.internousdev.jaguar.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class LoginAction extends ActionSupport implements SessionAware{
-
 
 	private String userId;
 	private String password;
@@ -26,7 +24,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private int totalPrice;
 	private Map<String,Object> session;
 
-
 	public String execute() {
 
         //  仮IDの有無でタイムアウトのチェック
@@ -34,21 +31,16 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			return "sessionTimeout";
 		}
 
-
-
 	    //登録完了画面から自動遷移した時用
 		if(session.containsKey("userIdForCreateUser")){
-
 			userId = session.get("userIdForCreateUser").toString();
 			password = session.get("password").toString();
-
 			//代入後は不要
 			session.remove("userIdForCreateUser");
 			session.remove("password");
 		}
 
-
-		// 保存チェック済でsessionにuserIdとFlgの保存
+		// ID保存チェック済でsessionにuserIdとFlgの保存
 		if(savedUserIdFlg){
 
 			session.put("savedUserIdFlg",true);
@@ -58,8 +50,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			session.remove("savedUserIdFlg");
 			session.remove("savedUserId");
 		}
-
-
 
 	// 入力エラー時の処理
 
@@ -76,7 +66,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			return result;
 		}
 
-
 	// ログイン認証チェック
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 
@@ -92,13 +81,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			       if(cartInfoDTOListForTempUser != null) {
 
 			    	   boolean himoduke = LinkToCartInfo(tempUserId, cartInfoDTOListForTempUser);
-			    	   //  カート情報更新メソッドの実行 (詳細はこのクラスのもう一つのメソッドに)  更新に成功すればtrue
+			    	   //  カート情報更新メソッドの実行 (詳細はこのクラスのもう一つのメソッドに)
 
 			    	   if(!himoduke){
 			    		   result = "DBError";
 			    	   }
 			       }
-
 
 			       if(session.containsKey("cartFlg")){
 		    		   result = "cart";
@@ -108,14 +96,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			    	   result = SUCCESS;
 		    	   }
 
-
 		//セッションにユーザーIDとログインフラグを入れる 仮IDは削除
 
 			UserInfoDTO userInfoDTO =  userInfoDAO.getUserInfo(userId, password); // DBのユーザー情報を格納したDTOを作成
 			session.put("userId", userInfoDTO.getUserId());
 			session.put("logined", 1);
 			session.remove("tempUserId");
-
 
 		} else {
 			isNotUserInfoMessage = "ユーザーIDまたはパスワードが異なります。";
@@ -124,16 +110,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		return result;
 	}
 
-
-
-	//  仮IDのカート情報をユーザーIDのカート情報に結びつけるメソッド
-
-
-
 	/**
-	 * カート情報を仮IDからユーザーIDに紐づけ
-	 * @param tempUserId : String型  仮ID
-	 * @return boolean型 : 紐づけ成功でtrue
+	 * カート情報を仮IDからユーザーIDに紐づけする。
+	 * 紐づけ成功したら、userIdに基づくカート情報リストと合計金額がフィールドに代入される。
+	 * @param tempUserId : 仮ID String型
+	 * @param cartInfoDTOListForTempUser : 仮IDのカート情報リスト List<CartInfoDTO>型
+	 * @return 全て完了でtrue : boolean型
 	 */
 	public boolean LinkToCartInfo(String tempUserId, List<CartInfoDTO> cartInfoDTOListForTempUser){
 
@@ -149,169 +131,81 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			      count = count + cartInfoDAO.updateProductCount(userId, dto.getProductId(), dto.getProductCount());
 
 			      cartInfoDAO.deleteCartInfo(tempUserId, dto.getProductId());
-
 			}
 			else {
 				count = count + cartInfoDAO.updateUserId(userId, tempUserId, dto.getProductId());
 			}
 		}
 
-
 		if(cartInfoDTOListForTempUser.size()  == count) {
 
 			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
-
 			totalPrice = cartInfoDAO.getTotalPrice(userId);
-
-			// この２つは、カート画面に遷移した際、このアクションのフィールドから取得するため必要となる
-
 			result = true;
 		}
 		return result;
 	}
-
-
-
-
-
-
-/*
-
-
-	public boolean LinkToCartInfo(String tempUserId, List<CartInfoDTO> cartInfoDTOListForTempUser){
-
-
-		boolean result = false;
-		boolean ret = false;
-
-
-		CartInfoDAO cartInfoDAO = new CartInfoDAO();
-
-
-		for(CartInfoDTO dto : cartInfoDTOListForTempUser){
-
-			//dto.getProductId()がuserIdのカートにあれば、dto.getProductCount()を追加
-			//なければ userIdに新商品の情報を追加
-
-
-			ret =cartInfoDAO.addCartInfo(userId,dto.getProductId(),dto.getProductCount());
-
-			if(ret){
-
-			cartInfoDAO.deleteCartInfo(tempUserId, dto.getProductId());
-
-			}
-
-		}
-
-
-		if(ret) {
-
-			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
-
-			totalPrice = cartInfoDAO.getTotalPrice(userId);
-
-			result = true;
-		}
-
-
-		return result;
-
-	}
-
-	//保留
-*/
-
-
-
-
-
-
-
-
-
-
 
 	public String getUserId() {
 		return userId;
 	}
-
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-
 	public boolean isSavedUserIdFlg() {
 		return savedUserIdFlg;
 	}
-
 	public void setSavedUserIdFlg(boolean savedUserIdFlg) {
 		this.savedUserIdFlg = savedUserIdFlg;
 	}
 
-
 	public String getIsNotUserInfoMessage() {
 		return isNotUserInfoMessage;
 	}
-
 	public void setIsNotUserInfoMessage(String isNotUserInfoMessage) {
 		this.isNotUserInfoMessage = isNotUserInfoMessage;
 	}
 
-
 	public List<String> getUserIdErrorMessageList() {
 		return userIdErrorMessageList;
 	}
-
 	public void setUserIdErrorMessageList(List<String> userIdErrorMessageList) {
 		this.userIdErrorMessageList = userIdErrorMessageList;
 	}
 
-
 	public List<String> getPasswordErrorMessageList() {
 		return passwordErrorMessageList;
 	}
-
 	public void setPasswordErrorMessageList(List<String> passwordErrorMessageList) {
 		this.passwordErrorMessageList = passwordErrorMessageList;
 	}
 
-
 	public List<CartInfoDTO> getCartInfoDTOList() {
 		return cartInfoDTOList;
 	}
-
 	public void setCartInfoDTOList(List<CartInfoDTO> cartInfoDTOList) {
 		this.cartInfoDTOList = cartInfoDTOList;
 	}
 
-
 	public int getTotalPrice() {
 		return totalPrice;
 	}
-
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 
-
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-
-
 }
