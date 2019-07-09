@@ -86,8 +86,9 @@ public class CartInfoDAO {
 		// userId が 一致する レコード内 の product_count と price を 乗算
 		String sql = "SELECT"
 						+ " SUM(cart_info.product_count * product_info.price) AS total_price"
-						+ " FROM cart_info LEFT JOIN product_info"
+						+ " FROM cart_info JOIN product_info"
 						+ " ON cart_info.product_id = product_info.product_id"
+						+ " WHERE cart_info.user_id = ?"
 						+ " GROUP BY user_id = ?";
 
 		try{
@@ -95,6 +96,7 @@ public class CartInfoDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, userId);
+			ps.setString(2, userId);
 
 			ResultSet rs = ps.executeQuery();
 

@@ -27,8 +27,9 @@ public class CartAction extends ActionSupport implements SessionAware{
 		}
 		*/
 
+		// session 前後の括弧を外す修正 2019-07-09
 		// ログインフラグを参照 に userId の 値 を 設定
-		if((Integer)(session.get("logined")) == 1){
+		if((Integer)session.get("logined") == 1){
 			userId = session.get("userId").toString();
 		}else{
 			userId = session.get("tempUserId").toString();

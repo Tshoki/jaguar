@@ -14,7 +14,6 @@ public class UserInfoDAO {
 	 * @param userId
 	 * @return UserInfoDTO型：userInfoDTO
 	 */
-//	マイページ用
 	public UserInfoDTO getUserInfo(String userId) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -63,7 +62,6 @@ public class UserInfoDAO {
  * @param password
  * @return int型:count
  */
-//		ユーザー新規作成
 	public int createUser(String familyName, String firstName, String familyNameKana, 
 			String firstNameKana, String sex, String email, String userId, String password) {
 		DBConnector db = new DBConnector();
@@ -105,7 +103,7 @@ public class UserInfoDAO {
 	 * @param password
 	 * @return boolean型：result
 	 */
-//	ユーザーの存在確認 boolean値true, falseで返す
+// boolean値true, falseで返す
 	public boolean isExistsUserInfo(String userId, String password) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -141,7 +139,6 @@ public class UserInfoDAO {
 	 * @param userId
 	 * @return boolean型：result
 	 */
-	//ユーザー登録用
 	//登録しようとしたユーザーIDが既に存在しているかをチェックするメソッド。結果をboolean型のtrue or falseで返す。
 	public Boolean isExistsUserInfo(String userId){
 		DBConnector db = new DBConnector();
@@ -176,7 +173,6 @@ public class UserInfoDAO {
 	 * @param password
 	 * @return UserInfoDTO型：userInfoDTO
 	 */
-//	ユーザー情報呼び出し
 	public UserInfoDTO getUserInfo(String userId, String password) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -217,7 +213,6 @@ public class UserInfoDAO {
 	 * @param password
 	 * @return int型：result
 	 */
-//	パスワードリセット
 	public int resetPassword(String userId, String password) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -246,7 +241,6 @@ public class UserInfoDAO {
 	 * @param password
 	 * @return int型：result
 	 */
-//	ログイン認証
 	public int login(String userId, String password) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -274,7 +268,6 @@ public class UserInfoDAO {
 	 * @param userId
 	 * @return int型：result
 	 */
-//	ログアウト
 	public int logout(String userId) {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();

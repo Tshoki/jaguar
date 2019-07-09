@@ -12,7 +12,7 @@
 <jsp:include page = "header.jsp"/>
 	<div id="contents">
 		<h1>マイページ画面</h1>
-		<s:if test="userInfoDTO != null"><!-- UserInfoDAO参照 nullじゃなければ表示-->
+		<s:if test="userInfoDTO != null"><!-- nullじゃなければ表示-->
 			<s:form action="PurchaseHistoryAction"><!-- 遷移先 -->
 				<table class="vertical-table">
 					<tr>
