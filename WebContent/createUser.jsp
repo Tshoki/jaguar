@@ -57,7 +57,7 @@
 	</s:iterator>
 </s:if>
 
-<s:if test="isExistsUserErrorMessage=!null && isExistsUserErrorMessage.size()>0">
+<s:if test="isExistsUserErrorMessage=!null && !isExistsUserErrorMessage.isEmpty()">
 	<s:iterator value="isExistsUserErrorMessage">
 		<s:property />
 	</s:iterator>
