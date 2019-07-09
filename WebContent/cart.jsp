@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/jaguar.css"> <!-- こちらです -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="./js/cart.js"></script>
 <title>カート画面</title>

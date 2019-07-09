@@ -52,7 +52,7 @@ public class CartInfoDAO {
 				dto.setId(rs.getInt("id"));
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setProductName(rs.getString("product_name"));
-				dto.setProductName(rs.getString("product_name_kana"));
+				dto.setProductNameKana(rs.getString("product_name_kana"));
 				dto.setImageFilePath(rs.getString("image_file_path"));
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setPrice(rs.getInt("price"));
