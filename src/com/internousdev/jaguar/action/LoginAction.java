@@ -129,6 +129,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	//  仮IDのカート情報をユーザーIDのカート情報に結びつけるメソッド
 
 
+
+	/**
+	 * カート情報を仮IDからユーザーIDに紐づけ
+	 * @param tempUserId : String型  仮ID
+	 * @return boolean型 : 紐づけ成功でtrue
+	 */
 	public boolean LinkToCartInfo(String tempUserId, List<CartInfoDTO> cartInfoDTOListForTempUser){
 
 		boolean result = false;
