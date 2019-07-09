@@ -78,22 +78,25 @@ public class DestinationInfoDAO {
 		return destinationInfoDTOList;
 	}
 
-//    public int deleteDestination(int id){
-//    	String sql="delete from destination_info where id=?";
-//    	int count=0;
-//    	try {
-//    		PreparedStatement ps = con.prepareStatement(sql);
-//    		ps.setInt(1, id);
-//    		count=ps.executeUpdate();
-//    	}catch(SQLException e) {
-//    		e.printStackTrace();
-//    	}finally{
-//    	try{
-//    		con.close();
-//    	}catch(SQLException e) {
-//    		e.printStackTrace();
-//    	}
-//    	}
-//    	return count;
-//    }
+    public int deleteDestination(int id){
+    	DBConnector db=new DBConnector();
+		Connection con=db.getConnection();
+
+    	String sql="delete from destination_info where id=?";
+    	int count=0;
+    	try {
+    		PreparedStatement ps = con.prepareStatement(sql);
+    		ps.setInt(1, id);
+    		count=ps.executeUpdate();
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    	}finally{
+    	try{
+    		con.close();
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    	}
+    	return count;
+    }
 }
