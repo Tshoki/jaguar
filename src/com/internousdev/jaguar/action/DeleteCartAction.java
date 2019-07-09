@@ -15,6 +15,9 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 	private int productId;
 	private int productCount;
 
+	private String[] checkbox;
+
+
 	private List<CartInfoDTO> cartInfoDTOList;
 
 	private Map<String, Object> session;
@@ -25,7 +28,6 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 	public String execute(){
 
 		String ret = ERROR ;
-		// SUCCESS
 
 		// タイムアウト sessionTimeout
 
@@ -38,7 +40,18 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 
+		int count = 0;
+
+		for(String productId: checkbox){
+			count += cartInfoDAO.deleteTempCartInfo(userId, Integer.parseInt(productId));
+		}
+		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+		totalPrice = cartInfoDAO.getTotalPrice(userId);
+
+		ret = SUCCESS ;
 		/*
+		count = cartInfoDAO.deleteCartInfo(String userId, );
+
 		if(cartInfoDAO.○○){
 			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
 			totalPrice = cartInfoDAO.getTotalPrice(userId);
@@ -56,6 +69,18 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 	}
 	public void setUserId(String userId){
 		this.userId = userId;
+	}
+	public int getProductId(){
+		return productId;
+	}
+	public void setProductId(int productId){
+		this.productId = productId;
+	}
+	public int getProductCount(){
+		return productCount;
+	}
+	public void setProductCount(int productCount){
+		this.productCount = productCount;
 	}
 	public int getTotalPrice(){
 		return totalPrice;
@@ -75,6 +100,13 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 	}
 	public void setSession(Map<String, Object> session){
 		this.session = session;
+	}
+
+	public String[] getCheckbox() {
+		return checkbox;
+	}
+	public void setCheckbox(String[] checkbox) {
+		this.checkbox = checkbox;
 	}
 
 }

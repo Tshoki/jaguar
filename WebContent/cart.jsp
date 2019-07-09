@@ -41,11 +41,12 @@
 <tbody>
 	<s:iterator value="cartInfoDTOList">
 		<tr>
-			<!-- チェックボックス考察中 --><!-- 値は商品ID -->
-			<td><s:checkbox name="checkbox" value='<s:property value="productId" />' fieldValue="%{}" /></td>
+			<!-- チェックボックス考察中 --><!-- 値は商品ID fieldValue='%{productId}' -->
+			<td><s:checkbox name="checkbox" fieldValue='%{productId}' /></td>
+			<!--<td><s:checkbox name="checkbox" value='<s:property value="productId" />' /></td>-->
 			<td><s:property value="productName" /></td>
 			<td><s:property value="productNameKana" /></td>
-			<td><img src='<s:property value="imageFilePath" />/<s:property value="imageFileName" />' /></td>
+			<td><img src='<s:property value="imageFilePath" />/<s:property value="imageFileName" />' width="20px" /></td>
 			<td><s:property value="price" /></td>
 			<td><s:property value="releaseCompany" /></td>
 			<td><s:property value="releaseDate" /></td>

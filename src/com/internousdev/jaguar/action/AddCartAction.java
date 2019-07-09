@@ -40,10 +40,15 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		}
 
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+		int count = 0;
 
 		// userId と 紐付けたカート情報に 同じ商品があるかないか分岐
-		if(cartInfoDAO.addCartInfo(userId, productId, productCount)){
-
+		if(cartInfoDAO.checkCartInfo(userId, productId)){
+			count = cartInfoDAO.countUpProduct(userId, productId, productCount);
+		}else{
+			count = cartInfoDAO.createProductId(userId, productId, productCount);
+		}
+		if(count > 0){
 			// カート情報 抽出
 			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
 

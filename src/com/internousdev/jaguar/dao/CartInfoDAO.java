@@ -119,22 +119,19 @@ public class CartInfoDAO {
 	}
 
 	/**
-	 * カート内重複確認 -> 購入個数更新 -> 商品新規追加
-	 * @return int 型
+	 * カート内重複確認
+	 * @return boolean 型
 	 */
-	public boolean addCartInfo(String userId, int productId, int productCount){
-
-		DBConnector db = new DBConnector() ;
-		Connection con = db.getConnection() ;
+	public boolean checkCartInfo(String userId, int productId){
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		boolean ret = false;
 
-		// カート内商品重複確認
 		String sql ="SELECT"
 						+ " *"
 						+ " FROM cart_info"
 						+ " WHERE cart_info.user_id = ? AND cart_info.product_id = ?";
-
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 
@@ -144,36 +141,9 @@ public class CartInfoDAO {
 			ResultSet rs = ps.executeQuery();
 
 			if(rs.next()){
-
-				// 購入個数更新（増加）
-				String sql2 = "UPDATE"
-								+ " cart_info"
-								+ " SET product_count = (product_count + ?)"
-								+ " WHERE user_id = ?"
-								+ " AND product_id = ?";
-
-					PreparedStatement ps2 = con.prepareStatement(sql2);
-					ps2.setInt(1, productCount);
-					ps2.setString(2, userId);
-					ps2.setInt(3, productId);
-					ps2.executeUpdate();
-
-					ret = true;
-			}else{
-				// 商品新規追加
-				String sql3 = "INSERT INTO"
-								+ " cart_info(user_id, product_id, product_count)"
-								+ " VALUES(?, ?, ?)";
-
-				PreparedStatement ps3 = con.prepareStatement(sql3);
-				ps3.setString(1, userId);
-				ps3.setInt(2, productId);
-				ps3.setInt(3, productCount);
-				ps3.executeUpdate();
-
 				ret = true;
 			}
-		}catch (SQLException e){
+		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			try {
@@ -182,18 +152,110 @@ public class CartInfoDAO {
 				e.printStackTrace();
 			}
 		}
-		return ret;
+		return ret ;
 	}
 
 	/**
-	* userId に紐づく productId の 存在確認
-	* @return boolean型 : 存在すれば true
-	*/
-	/*
-	public int deleteCartInfo(){
-		//
+	 * 購入個数更新
+	 * @return int 型
+	 */
+	public int countUpProduct(String userId, int productId, int productCount){
+		DBConnector db = new DBConnector() ;
+		Connection con = db.getConnection() ;
+
+		int count = 0;
+
+		String sql = "UPDATE"
+						+ " cart_info"
+						+ " SET product_count = (product_count + ?)"
+						+ " WHERE user_id = ? AND product_id = ?";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, productCount);
+			ps.setString(2, userId);
+			ps.setInt(3, productId);
+
+			count = ps.executeUpdate();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count ;
 	}
+
+	/**
+	 * 商品新規追加
+	 * @return int 型
+	 */
+	public int createProductId(String userId, int productId, int productCount){
+		DBConnector db = new DBConnector() ;
+		Connection con = db.getConnection() ;
+
+		int count = 0;
+
+		String sql ="INSERT INTO"
+						+ " cart_info(user_id, product_id, product_count)"
+						+ " VALUES(?, ?, ?)";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, userId);
+			ps.setInt(2, productId);
+			ps.setInt(3, productCount);
+
+			count = ps.executeUpdate();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count ;
+	}
+
+	/**
+	* test
+	* @return int型
 	*/
+	public int deleteCartInfo(){
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
+		int count = 0;
+
+		String sql = "DELETE"
+						+ "";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			//
+
+			count = ps.executeUpdate();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return count ;
+	}
 
 	/**
 	* userId に紐づく productId の 存在確認
