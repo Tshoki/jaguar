@@ -54,7 +54,7 @@ public class ProductInfoDAO {
 
 	/**
 	 * 商品IDを条件として商品情報を取り出す
-	 * @param int型 商品ID(productId)
+	 * @param productId int型 商品ID
 	 * @return ProductInfoDTO型 : 商品情報 (productInfoDTO)
 	 */
 	public ProductInfoDTO getProductInfoByProductId(int productId) {
@@ -99,10 +99,10 @@ public class ProductInfoDAO {
 
 	/**
 	 * 関連商品を取得する。
-	 * @param int型 カテゴリーID(categoryId)
-	 * @param int型 商品ID(productId)
-	 * @param int型 データを取得する開始位置 (limitOffset)
-	 * @param int型 データ取得件数 (limitRowCount)
+	 * @param categoryId int型 カテゴリーID
+	 * @param productId int型 商品ID
+	 * @param limitOffset int型 データを取得する開始位置
+	 * @param limitRowCount int型 データ取得件数
 	 * @return  List<ProductInfoDTO>型 : 関連商品情報 (productInfoDTOList)
 	 */
 	public List<ProductInfoDTO> getRelatedProductList(int categoryId, int productId, int limitOffset,int limitRowCount) {
@@ -152,7 +152,7 @@ public class ProductInfoDAO {
 
 	/**
 	 * キーワードを条件に商品情報を取得する
-	 * @param String[]型 : キーワードの配列 (keywordsList)
+	 * @param keywordsList String[]型 : キーワードの配列
 	 * @return List<ProductInfoDTO>型 : 関連商品情報 (productInfoDTOList)
 	 */
 	public List<ProductInfoDTO> getProductInfoListByKeyword(String[] keywordsList) {
@@ -208,8 +208,8 @@ public class ProductInfoDAO {
 
 	/**
 	 * カテゴリーIDとキーワードを条件に商品情報を取得する
-	 * @param String[]型 : キーワードの配列 (keywordsList)
-	 * @param String型 : カテゴリーID(categoryId)DBではintだがnullチェックの為ActionクラスでStringとして扱っている。
+	 * @param keywordsList String[]型 : キーワードの配列
+	 * @param categoryId String型 : カテゴリーID (DBではintだがnullをチェックする為、ActionクラスでStringとして扱っている。)
 	 * @return List<ProductInfoDTO>型 : 商品情報のList(productInfoDTOList)
 	 */
 	public List<ProductInfoDTO> getProductInfoListByCategoryIdAndKeyword(String[] keywordsList, String categoryId) {
