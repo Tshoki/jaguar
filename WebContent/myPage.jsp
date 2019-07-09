@@ -5,15 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style.css">
 <title>マイページ</title>
 </head>
 <body>
 <jsp:include page = "header.jsp"/>
 	<div id="contents">
 		<h1>マイページ画面</h1>
-		<s:if test="userInfoDTO != null"><!-- nullじゃなければ表示-->
-			<s:form action="PurchaseHistoryAction"><!-- 遷移先 -->
+		<s:if test="userInfoDTO != null">
+			<s:form action="PurchaseHistoryAction">
 				<table class="vertical-table">
 					<tr>
 						<th scope="row"><s:label value="姓"/></th>
@@ -37,7 +36,7 @@
 					</tr>
 				</table>
 				<div class="submit_btn_box">
-					<s:submit value="購入履歴" class="submit_btn"/><!-- クリックで購入履歴へ -->
+					<s:submit value="購入履歴" class="submit_btn"/>
 				</div>
 			</s:form>
 		</s:if>
