@@ -60,7 +60,6 @@ public class DestinationInfoDAO {
 				DID.setTelNumber(rs.getString("tel_number"));
 				DID.setUserAddress(rs.getString("user_address"));
 				destinationInfoDTOList.add(DID);
-
 			}
 		}catch(Exception e){
 			e.printStackTrace();

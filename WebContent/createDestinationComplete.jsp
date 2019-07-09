@@ -9,6 +9,7 @@
 <title>宛先入力完了画面</title>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
 <h1>宛先情報入力完了画面</h1>
 </body>
 </html>

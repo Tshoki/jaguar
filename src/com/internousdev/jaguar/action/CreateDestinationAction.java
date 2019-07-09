@@ -8,11 +8,13 @@ public class CreateDestinationAction extends ActionSupport implements SessionAwa
 private Map<String, Object> session;
 private String backFlg;
 	public String execute(){
-		if(!session.containsKey("tempUserId") && !session.containsKey("userId")){		//SessionTimeOut
+		//SessionTimeOut
+		if(!session.containsKey("tempUserId") && !session.containsKey("userId")){
 			return "sessionTimeout";
 		}
 
-		if(backFlg == null){	//戻らない場合
+		//先に進む場合
+		if(backFlg == null){
 			session.remove("familyName");
 			session.remove("firstName");
 			session.remove("familyNameKana");

@@ -10,6 +10,7 @@
 <title>宛先入力確認画面</title>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
 <h1>宛先入力確認画面</h1>
 <br>
 <s:form id="destinationInfo">

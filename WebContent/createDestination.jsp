@@ -8,6 +8,7 @@
 <title>宛先入力画面</title>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
 <h1>宛先情報入力画面</h1>
 <!-- エラーメッセージ出力 -->
 <!-- size...nullがListに入っていたときnullpointaExceptionが発生 -->

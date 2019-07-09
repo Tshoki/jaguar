@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp">
+<jsp:include page="header.jsp"/>
 
 <h1 class="cart_title">ユーザー情報入力画面</h1>
 
