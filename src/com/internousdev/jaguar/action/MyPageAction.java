@@ -27,7 +27,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		if(userInfoDTO.getUserId() == null) {
 			userInfoDTO = null;
 		}
-//		DTOのuserIdがnullと等しいならnull代入
+//		DTO、userIdがnullと等しいならnull代入
 		
 		return SUCCESS;
 //		SUCCESSを返す
