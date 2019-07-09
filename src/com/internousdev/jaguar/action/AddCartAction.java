@@ -27,7 +27,7 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 
 		/* タイムアウト処理
 		if(){
-			return sessionTimeout;
+			ret = sessionTimeout;
 		}
 		*/
 

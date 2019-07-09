@@ -74,8 +74,10 @@ public class CartInfoDAO {
 		return cartInfoDTOList;
 	}
 
-
-	// カート合計金額 算出
+	/**
+	 * 合計金額算出
+	 * @return int 型
+	 */
 	public int getTotalPrice(String userId){
 
 		DBConnector db = new DBConnector();
@@ -116,6 +118,10 @@ public class CartInfoDAO {
 		return totalPrice ;
 	}
 
+	/**
+	 * カート内重複確認 -> 購入個数更新 -> 商品新規追加
+	 * @return int 型
+	 */
 	public boolean addCartInfo(String userId, int productId, int productCount){
 
 		DBConnector db = new DBConnector() ;
@@ -123,7 +129,7 @@ public class CartInfoDAO {
 
 		boolean ret = false;
 
-		// カート内商品重複確認 カラム前のテーブル名は必要ないかも？
+		// カート内商品重複確認
 		String sql ="SELECT"
 						+ " *"
 						+ " FROM cart_info"
@@ -179,128 +185,143 @@ public class CartInfoDAO {
 		return ret;
 	}
 
-	// カートに存在する商品購入個数を更新する
-	// user_id と product_id を参照に 個数の更新
-	/*
-	public int updateProductCount(String userId, int productId, int productCount){
+	/**
+	* TEST
+	* @return
+	*/
+	public boolean isExistsSameProduct(String userId, int productId){
 
-		String sql = "UPDATE cart_info SET productCount = ? WHERE user_id = ?";
+		DBConnector db = new DBConnector() ;
+		Connection con = db.getConnection() ;
+
+		boolean result = false;
+
+		String sql = "SELECT"
+						+ " COUNT(*) AS count"
+						+ " FROM  cart_info"
+						+ " WHERE user_id = ? AND product_id = ?";
 
 		try{
-			PreparedStatement ps = con.preparedStatement(sql);
-			ps.set(1, productCount);
-			ps.set(2, userId);
-			ps.set(3, productId);
+			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.executeUpdate();
-		}
-	}
-	*/
+			ps.setString(1, userId);
+			ps.setInt(2, productId);
 
-	// userId productIdの商品のカートに入れた情報が存在するかどうかを判別する
+			ResultSet rs = ps.executeQuery();
 
+				while(rs.next()){
 
+					if(rs.getInt("count") > 0){
 
-
-	//引数に入れたユーザーIDが商品IDを持っているかチェックするメソッド
-
-
-		public boolean isExistsSameProduct(String userId, int productId){
-
-			DBConnector db = new DBConnector() ;
-			Connection con = db.getConnection() ;
-
-			boolean result = false;
-
-			String sql = "select count(*) as count from  cart_info where user_id = ? and product_id = ?";
-
-
-			try{
-				PreparedStatement ps = con.prepareStatement(sql);
-
-				ps.setString(1, userId);
-				ps.setInt(2, productId);
-
-				ResultSet rs = ps.executeQuery();
-
-					while(rs.next()){
-
-						if(rs.getInt("count") > 0){
-
-							result = true;
-						}
+						result = true;
 					}
-			}catch(SQLException e){
-				e.printStackTrace();
-			}try{
-				con.close();
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-			return result;
+				}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}try{
+			con.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	/**
+	* TEST
+	* @return
+	*/
+	public int updateProductCount(String userId, int productId, int productCount){
+
+		DBConnector db = new DBConnector() ;
+		Connection con = db.getConnection() ;
+
+		int count  = 0;
+
+		String sql = "UPDATE"
+						+ " cart_info"
+						+ " SET product_count = (product_count + ?),"
+						+ " update_date = now()"
+						+ " WHERE user_id = ? AND product_id = ?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, productCount);
+			ps.setString(2, userId);
+			ps.setInt(3, productId);
+
+			count = ps.executeUpdate();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}try{
+			con.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
 		}
 
+		return count;
+	}
 
+	/**
+	* TEST
+	* @return
+	*/
+	public int deleteCartInfo(String userId, int productId){
 
+		DBConnector db = new DBConnector() ;
+		Connection con = db.getConnection() ;
 
+		int count = 0;
 
-		// 仮IDで追加した商品の個数を、ユーザーIDで追加した同じ商品の個数に追加するアップデートメソッド
+		String sql = "DELETE"
+						+ " FROM cart_info"
+						+ " WHERE user_id = ? AND product_id = ?";
 
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
 
-		public int updateProductCount(String userId, int productId, int productCount){
+			ps.setString(1, userId);
+			ps.setInt(2, productId);
 
-			DBConnector db = new DBConnector() ;
-			Connection con = db.getConnection() ;
+			count = ps.executeUpdate();
 
-			int count  = 0;
-
-			String sql = "update cart_info set product_count = (product_count + ?), update_date = now() where user_id = ? and product_id = ?";
-
-			try{
-				PreparedStatement ps = con.prepareStatement(sql);
-
-				ps.setInt(1, productCount);
-				ps.setString(2, userId);
-				ps.setInt(3, productId);
-
-				count = ps.executeUpdate();
-
-
-			}catch(SQLException e){
-				e.printStackTrace();
-			}try{
-				con.close();
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-
-
-
-			return count;
+		}catch(SQLException e){
+			e.printStackTrace();
+		}try{
+			con.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
 		}
+		return count;
 
+	}
 
-
-
-		// カート情報テーブルから、引数に入れたユーザーID、商品IDのデータを削除するメソッド
-
-
-		public int deleteCartInfo (String userId, int productId){
+	/**
+	* TEST
+	* @return
+	*/
+	public int updateUserId(String userId, String tempUserId, int productId) {
 
 			DBConnector db = new DBConnector() ;
 			Connection con = db.getConnection() ;
 
 			int count = 0;
-			String sql = "delete from cart_info where user_id = ? and product_id = ?";
 
-			try{
+			String sql = "UPDATE"
+							+ " cart_info"
+							+ " SET user_id = ? ,"
+							+ " update_date = now()"
+							+ " WHERE user_id = ? AND product_id = ?";
+
+			try {
 				PreparedStatement ps = con.prepareStatement(sql);
 
 				ps.setString(1, userId);
-				ps.setInt(2, productId);
+				ps.setString(2, tempUserId);
+				ps.setInt(3,productId);
 
 				count = ps.executeUpdate();
-
 
 			}catch(SQLException e){
 				e.printStackTrace();
@@ -310,43 +331,7 @@ public class CartInfoDAO {
 				e.printStackTrace();
 			}
 			return count;
-
-		}
-
-
-
-
-
-	       //ある商品について、カート情報テーブルのuser_idを、仮IDからユーザーIDに更新するメソッド
-
-			public int updateUserId(String userId, String tempUserId, int productId) {
-
-				DBConnector db = new DBConnector() ;
-				Connection con = db.getConnection() ;
-
-				int count = 0;
-				String sql = "update cart_info set user_id = ? , update_date = now() where user_id = ? and product_id = ?";
-
-				try {
-					PreparedStatement ps = con.prepareStatement(sql);
-
-					ps.setString(1, userId);
-					ps.setString(2, tempUserId);
-					ps.setInt(3,productId);
-
-					count = ps.executeUpdate();
-
-				}catch(SQLException e){
-					e.printStackTrace();
-				}try{
-					con.close();
-				}catch(SQLException e) {
-					e.printStackTrace();
-				}
-				return count;
-		}
-
-
+	}
 
 	/**
 	* Settlement用 userId に 紐づく カート情報 を 全て削除

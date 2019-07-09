@@ -12,8 +12,6 @@
 <body>
 
 <!-- 未完成 -->
-<!-- imgパス " / " データ次第 -->
-<!-- 画面実装 未調査 -->
 
 <jsp:include page="header.jsp"/><!-- header -->
 
