@@ -225,39 +225,6 @@ public class CartInfoDAO {
 	}
 
 	/**
-	* test
-	* @return int型
-	*/
-	public int deleteCartInfo(){
-
-		DBConnector db = new DBConnector();
-		Connection con = db.getConnection();
-
-		int count = 0;
-
-		String sql = "DELETE"
-						+ "";
-
-		try{
-			PreparedStatement ps = con.prepareStatement(sql);
-
-			//
-
-			count = ps.executeUpdate();
-
-		}catch(SQLException e){
-			e.printStackTrace();
-		}finally{
-			try {
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return count ;
-	}
-
-	/**
 	* userId に紐づく productId の 存在確認
 	* @return boolean型 : 存在すれば true
 	*/
@@ -339,7 +306,7 @@ public class CartInfoDAO {
 	* userId と productId を条件に データを削除
 	* @return int型 : 成功した数
 	*/
-	public int deleteTempCartInfo(String userId, int productId){
+	public int deleteCartInfo(String userId, int productId){
 
 		DBConnector db = new DBConnector() ;
 		Connection con = db.getConnection() ;

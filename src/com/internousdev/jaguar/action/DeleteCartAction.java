@@ -43,22 +43,12 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 		int count = 0;
 
 		for(String productId: checkbox){
-			count += cartInfoDAO.deleteTempCartInfo(userId, Integer.parseInt(productId));
+			count += cartInfoDAO.deleteCartInfo(userId, Integer.parseInt(productId));
 		}
 		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
 		totalPrice = cartInfoDAO.getTotalPrice(userId);
 
 		ret = SUCCESS ;
-		/*
-		count = cartInfoDAO.deleteCartInfo(String userId, );
-
-		if(cartInfoDAO.○○){
-			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
-			totalPrice = cartInfoDAO.getTotalPrice(userId);
-
-			ret = SUCCESS ;
-		}
-		*/
 
 		return ret ;
 	}
