@@ -189,6 +189,16 @@ public class CartInfoDAO {
 	* userId に紐づく productId の 存在確認
 	* @return boolean型 : 存在すれば true
 	*/
+	/*
+	public int deleteCartInfo(){
+		//
+	}
+	*/
+
+	/**
+	* userId に紐づく productId の 存在確認
+	* @return boolean型 : 存在すれば true
+	*/
 	public boolean isExistsSameProduct(String userId, int productId){
 
 		DBConnector db = new DBConnector() ;
@@ -267,7 +277,7 @@ public class CartInfoDAO {
 	* userId と productId を条件に データを削除
 	* @return int型 : 成功した数
 	*/
-	public int deleteCartInfo(String userId, int productId){
+	public int deleteTempCartInfo(String userId, int productId){
 
 		DBConnector db = new DBConnector() ;
 		Connection con = db.getConnection() ;

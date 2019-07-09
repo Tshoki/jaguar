@@ -39,11 +39,15 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 			userId = session.get("tempUserId").toString();
 		}
 
-		// userId と 紐付けたカート情報に 同じ商品があるかないか分岐
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 
+		// userId と 紐付けたカート情報に 同じ商品があるかないか分岐
 		if(cartInfoDAO.addCartInfo(userId, productId, productCount)){
+
+			// カート情報 抽出
 			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+
+			// 合計金額 算出
 			totalPrice = cartInfoDAO.getTotalPrice(userId);
 
 			ret = SUCCESS ;

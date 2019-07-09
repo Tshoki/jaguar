@@ -11,8 +11,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class CartAction extends ActionSupport implements SessionAware{
 
-	private CartInfoDAO cartInfoDAO = new CartInfoDAO();
-
 	private String userId;
 	private List<CartInfoDTO> cartInfoDTOList;
 	private int totalPrice;
@@ -34,6 +32,8 @@ public class CartAction extends ActionSupport implements SessionAware{
 		}else{
 			userId = session.get("tempUserId").toString();
 		}
+
+		CartInfoDAO cartInfoDAO = new CartInfoDAO();
 
 		// カート情報 抽出
 		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
