@@ -56,6 +56,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		//戻り値としてresult(ERROR)を返す
 
 		newPasswordIncorrectErrorMessage=inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
+		//一度目のパスワードと二度目のパスワードが同じか検証
 
 		if(newPasswordIncorrectErrorMessage==null){
 			CommonUtility commonUtility=new CommonUtility();
@@ -63,6 +64,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 			session.put("newPassword", newPassword);
 			result=SUCCESS;
 		}
+		//入力した新しいパスワードが間違ってなければ隠す、sessionに格納
 
 		return result;
 	}

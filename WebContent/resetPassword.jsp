@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./css/jaguar.css">
+
 <title>パスワード再設定</title>
 </head>
 <body>
@@ -52,7 +52,7 @@
 	<s:if test="passwordIncorrectErrorMessage!=null && !passwordIncorrectErrorMessage.isEmpty()">
 	<div class="error">
 	<div class="error-message">
-		<s:property value="newPasswordIncorrectErrorMessage"/>
+		<s:property value="passwordIncorrectErrorMessage"/>
 		<br>
 	</div>
 	</div>

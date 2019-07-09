@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="refresh" content="3;URL='HomeAction'"/>
-<link rel="stylesheet" type="text/css" href="./css/jaguar.css">
+
 <title>パスワード再設定完了</title>
 </head>
 <body>

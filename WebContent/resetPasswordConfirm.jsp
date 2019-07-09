@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./css/jaguar.css">
+
 <title>パスワード再設定確認</title>
 </head>
 <body>

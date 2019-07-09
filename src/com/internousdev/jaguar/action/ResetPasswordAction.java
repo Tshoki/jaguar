@@ -11,7 +11,7 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware {
 	private Map<String, Object> session;
 	//executeメソッドを定義
 	public String execute(){
-		//backFlgの中身がnullのとき(戻らない時)if文を実行する
+		//戻るボタンを押していないとき
 		if(backFlg==null){
 			//userIdForResetPasswordをsessionから削除する
 			session.remove("userIdForResetPassword");
