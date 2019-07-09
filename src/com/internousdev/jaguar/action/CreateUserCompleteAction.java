@@ -34,12 +34,12 @@ public class CreateUserCompleteAction extends ActionSupport implements SessionAw
 				String.valueOf(session.get("familyNameKana")),
 				String.valueOf(session.get("firstNameKana")),
 				sex,
-				String.valueOf("email"),
+				String.valueOf(session.get("email")),
 				session.get("userIdForCreateUser").toString(),
-				session.get("password").toString()
-				);
-		if(count>0){
-			result=SUCCESS;
+				session.get("password").toString());
+
+		if(count > 0) {
+			result = SUCCESS;
 		}
 
 		//ユーザー登録成功後、userIdForCreateUserとpassword以外のセッション変数を削除
