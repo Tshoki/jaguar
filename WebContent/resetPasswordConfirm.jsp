@@ -9,7 +9,7 @@
 <title>パスワード再設定確認</title>
 </head>
 <body>
-<script type="text/javascript" src="./js/resetPassword.js"></script>
+<script src="./js/resetPassword.js"></script>
 <jsp:include page="header.jsp"/>
 <div id="contents">
 	<h1>パスワード再設定確認画面</h1>
