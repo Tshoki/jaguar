@@ -36,6 +36,22 @@ insert into user_info values
 (11,"guest11","guest11","テスト","太郎11","てすと","たろう11",0,"guest11@gmail.com",0,0,now(),now()),
 (12,"guest12","guest12","テスト","太郎12","てすと","たろう12",0,"guest12@gmail.com",0,0,now(),now());
 
+create table m_category(
+id int primary key not null auto_increment,
+category_id int unique not null,
+category_name varchar(20) unique not null,
+category_description varchar(100),
+insert_date datetime not null,
+update_date datetime
+);
+
+insert into m_category values
+(1,1,"全てのカテゴリー","本、家電・パソコン、おもちゃ・ゲーム、CD全てのカテゴリーが対象になります",now(),now()),
+(2,2,"本","本に関するカテゴリーが対象になります",now(),now()),
+(3,3,"家電・パソコン","家電・パソコンに関するカテゴリーが対象になります",now(),now()),
+(4,4,"おもちゃ・ゲーム","おもちゃ・ゲームに関するカテゴリーが対象になります",now(),now()),
+(5,5,"CD","CDに関するカテゴリーが対象になります",now(),now());
+
 create table product_info(
 id int primary key auto_increment not null,
 product_id int unique not null,
@@ -86,20 +102,6 @@ update_date datetime,
 foreign key (product_id) references product_info (product_id)
 );
 
-create table purchase_history_info(
-id int primary key auto_increment not null,
-user_id varchar(16) not null, /*外部キー制約*/
-product_id int not null, /*外部キー制約*/
-product_count int,
-price int not null,
-destination_id int, /*？外部キー制約？*/
-regist_date datetime,
-update_date datetime,
-foreign key (user_id) references user_info (user_id),
-foreign key (product_id) references product_info (product_id),
-foreign key (destination_id) references destination_info (id)
-);
-
 create table destination_info(
 id int primary key not null auto_increment,
 user_id varchar(16) not null, /*外部キー制約*/
@@ -118,18 +120,17 @@ foreign key (user_id) references user_info (user_id)
 insert into destination_info value
 (1,"guest","テスト","太郎","てすと","たろう","guest@gmail.com","080-1234-6789","神奈川県川崎市幸区神明町1-2-3",now(),now());
 
-create table m_category(
-id int primary key not null auto_increment,
-category_id int unique not null,
-category_name varchar(20) unique not null,
-category_description varchar(100),
-insert_date datetime not null,
-update_date datetime
+create table purchase_history_info(
+id int primary key auto_increment not null,
+user_id varchar(16) not null, /*外部キー制約*/
+product_id int not null, /*外部キー制約*/
+product_count int,
+price int not null,
+destination_id int, /*？外部キー制約？*/
+regist_date datetime,
+update_date datetime,
+foreign key (user_id) references user_info (user_id),
+foreign key (product_id) references product_info (product_id),
+foreign key (destination_id) references destination_info (id)
 );
 
-insert into m_category values
-(1,1,"全てのカテゴリー","本、家電・パソコン、おもちゃ・ゲーム、CD全てのカテゴリーが対象になります",now(),now()),
-(2,2,"本","本に関するカテゴリーが対象になります",now(),now()),
-(3,3,"家電・パソコン","家電・パソコンに関するカテゴリーが対象になります",now(),now()),
-(4,4,"おもちゃ・ゲーム","おもちゃ・ゲームに関するカテゴリーが対象になります",now(),now()),
-(5,5,"CD","CDに関するカテゴリーが対象になります",now(),now());
