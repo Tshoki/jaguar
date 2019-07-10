@@ -14,7 +14,7 @@ public class ProductInfoDAO {
 
 	/**
 	 * 全ての商品情報を取得する
-	 * @return List<ProductInfoDTO>型 : 商品情報 (productInfoDTOList)
+	 * @return List<ProductInfoDTO>型 : 商品情報
 	 */
 	public List<ProductInfoDTO> getProductInfoListAll() {
 		DBConnector db = new DBConnector();
@@ -54,8 +54,8 @@ public class ProductInfoDAO {
 
 	/**
 	 * 商品IDを条件として商品情報を取り出す
-	 * @param productId int型 商品ID
-	 * @return ProductInfoDTO型 : 商品情報 (productInfoDTO)
+	 * @param productId int型 : 商品ID
+	 * @return ProductInfoDTO型 : 商品情報
 	 */
 	public ProductInfoDTO getProductInfoByProductId(int productId) {
 		DBConnector db = new DBConnector();
@@ -67,11 +67,6 @@ public class ProductInfoDAO {
 			ps.setInt(1, productId);
 			ResultSet rs = ps.executeQuery();
 
-			/**
-			 * product_idはuniqueなのでSELECTの結果は1つ
-			 * ここはsamplewebではwhileだがifで実行 して いい？
-			 * ##########後で消す###########
-			 */
 			if (rs.next()) {
 				productInfoDTO.setId(rs.getInt("id"));
 				productInfoDTO.setProductId(rs.getInt("product_id"));
@@ -99,11 +94,11 @@ public class ProductInfoDAO {
 
 	/**
 	 * 関連商品を取得する。
-	 * @param categoryId int型 カテゴリーID
-	 * @param productId int型 商品ID
-	 * @param limitOffset int型 データを取得する開始位置
-	 * @param limitRowCount int型 データ取得件数
-	 * @return  List<ProductInfoDTO>型 : 関連商品情報 (productInfoDTOList)
+	 * @param categoryId int型 : カテゴリーID
+	 * @param productId int型 : 商品ID
+	 * @param limitOffset int型 : データを取得する開始位置
+	 * @param limitRowCount int型 : データ取得件数
+	 * @return  List<ProductInfoDTO>型 : 関連商品情報
 	 */
 	public List<ProductInfoDTO> getRelatedProductList(int categoryId, int productId, int limitOffset,int limitRowCount) {
 		DBConnector db = new DBConnector();
@@ -153,7 +148,7 @@ public class ProductInfoDAO {
 	/**
 	 * キーワードを条件に商品情報を取得する
 	 * @param keywordsList String[]型 : キーワードの配列
-	 * @return List<ProductInfoDTO>型 : 関連商品情報 (productInfoDTOList)
+	 * @return List<ProductInfoDTO>型 : 関連商品情報
 	 */
 	public List<ProductInfoDTO> getProductInfoListByKeyword(String[] keywordsList) {
 		DBConnector db = new DBConnector();
@@ -174,7 +169,6 @@ public class ProductInfoDAO {
 				}
 			}
 		}
-
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -210,7 +204,7 @@ public class ProductInfoDAO {
 	 * カテゴリーIDとキーワードを条件に商品情報を取得する
 	 * @param keywordsList String[]型 : キーワードの配列
 	 * @param categoryId String型 : カテゴリーID (DBではintだがnullをチェックする為、ActionクラスでStringとして扱っている。)
-	 * @return List<ProductInfoDTO>型 : 商品情報のList(productInfoDTOList)
+	 * @return List<ProductInfoDTO>型 : 商品情報のList
 	 */
 	public List<ProductInfoDTO> getProductInfoListByCategoryIdAndKeyword(String[] keywordsList, String categoryId) {
 
@@ -230,7 +224,6 @@ public class ProductInfoDAO {
 				} else {
 					sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				}
-
 				sql += ")"; //検索ワードが有る時のみ、andの始まりの ( を閉じる
 			}
 		}

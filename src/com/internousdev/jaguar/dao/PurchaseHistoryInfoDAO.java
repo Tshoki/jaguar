@@ -14,7 +14,8 @@ public class PurchaseHistoryInfoDAO {
 
 	/**
 	 * ユーザーIDと紐づいている履歴の出力
-	 * @return List<PurchaseHistoryInfoDTO>型 :
+	 * @param userId String型 : ユーザーID
+	 * @return List<PurchaseHistoryInfoDTO>型 :購入履歴リスト
 	 */
 	public List<PurchaseHistoryInfoDTO> getPurchaseHistoryList(String userId){
 		DBConnector db = new DBConnector();
@@ -85,7 +86,15 @@ public class PurchaseHistoryInfoDAO {
 		return purchaseHistoryInfoDTOList;
 	}
 
-	//ユーザーID、商品ID、個数、宛先情報ID、値段の登録
+	/**
+	 * 購入履歴の登録
+	 * @param userId String型 : ユーザーID
+	 * @param productId int型 : 商品ID
+	 * @param productCount int型 : 購入個数
+	 * @param destinationId int型 : 宛先ID
+	 * @param price int型 : 値段
+	 * @return int型 :更新件数
+	 */
 	public int regist(String userId, int productId, int productCount, int destinationId, int price){
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -111,7 +120,11 @@ public class PurchaseHistoryInfoDAO {
 		return count;
 	}
 
-	//ユーザーIDに紐付けられている履歴の削除
+	/**
+	 * 購入履歴の削除
+	 * @param userId String型 : ユーザーID
+	 * @return int型 :更新件数
+	 */
 	public int deleteAll(String userId){
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();

@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<script type="text/javascript" src="./js/header.js"></script>
+<script src="./js/header.js"></script>
 <header>
 	<div id="header">
 		<div id="header-title">
-		ヘッダー画面
+		jaguar
 		</div>
 		<div id="header-menu">
 
-				<s:form id="form" name="form">
-					<s:if test='#session.mCategoryDTOList!=null && #session.mCategoryDTOList.size()>0'>
-						<s:select name="categoryId" list="#session.mCategoryDTOList" listValue="categoryName" listKey="categoryId" class="cs-div" id="categoryId"/>
+			<s:form id="form" name="form">
+				<s:if test='#session.mCategoryDTOList!=null && #session.mCategoryDTOList.size()>0'>
+					<s:select name="categoryId" list="#session.mCategoryDTOList" listValue="categoryName" listKey="categoryId" class="cs-div" id="categoryId"/>
 					</s:if>
 						<s:textfield name="keywords" class="txt-keywords" placeholder="検索ワード" />
 						<s:submit value="商品検索" class="submit_btn" onclick="goSearchItemAction();"/>

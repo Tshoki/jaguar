@@ -1,6 +1,3 @@
-/**
- *
- */
 function goGoLoginAction(){
 	document.getElementById("form").action="GoLoginAction";
 }

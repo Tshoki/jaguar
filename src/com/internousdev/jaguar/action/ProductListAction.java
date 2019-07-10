@@ -22,21 +22,19 @@ public class ProductListAction extends ActionSupport implements SessionAware{
 		productInfoDTOList = productInfoDAO.getProductInfoListAll(); //全商品情報を取得。
 
 		/**
-		 * HomeActionのコードと同じ。HomeActionでsessionにいれているが、
-		 * 消えてしまっている場合、ココで表示したいので作成
+		 * HomeActionの記述と同じ。カテゴリーIDのリストをsessionにいれているが、
+		 * 消えてしまっている場合、表示したいので作成
 		 */
 		if(!session.containsKey("mCategoryDTOList")) {
 			List<MCategoryDTO> mCategoryDTOList = new ArrayList<MCategoryDTO>();
 			MCategoryDAO mCategoryDAO = new MCategoryDAO();
 			try {
-				mCategoryDTOList = mCategoryDAO.getMCategoryList();
+				mCategoryDTOList = mCategoryDAO.getMCategoryList();//カテゴリー情報を取得。
 			} catch (NullPointerException e) {
 				mCategoryDTOList = null;
 			}
-
 			session.put("mCategoryDTOList", mCategoryDTOList);
 		}
-
 
 		return SUCCESS;
 	}

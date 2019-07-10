@@ -6,26 +6,24 @@
 	<meta charset="UTF-8">
 	<title> 商品一覧画面 </title>
 </head>
-
 <body>
-	<jsp:include page="header.jsp" /><!-- ヘッダーの埋め込み -->
+	<jsp:include page="header.jsp" />
 	<div id="contents">
 		<h1>商品一覧画面</h1>
+		<!-- エラーがあるとき -->
 		<s:if test="keywordsErrorMessageList!=null && keywordsErrorMessageList.size()>0">
-
 			<div class="error-message">
 				<s:iterator value="keywordsErrorMessageList">
 					<s:property /><br>
 				</s:iterator>
 			</div>
-
 		</s:if>
 
+		<!-- エラーがないとき -->
 		<s:elseif test="productInfoDTOList!=null && productInfoDTOList.size()>0">
 		<div id="product-list">
 			<s:iterator value="productInfoDTOList">
-			<div class="product-list-box">
-
+				<div class="product-list-box">
 					<a href='<s:url action="ProductDetailsAction">
 						<s:param name="productId" value="%{productId}"/>
 						</s:url>'><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>'/><br>
@@ -33,8 +31,7 @@
 						<s:property value="productNameKana"/><br>
 						<s:property value="price"/>円<br>
 					</a>
-
-			</div>
+				</div>
 			</s:iterator>
 		</div>
 		</s:elseif>
