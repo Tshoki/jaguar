@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript" src="./js/login.js"></script>
+<script src="./js/login.js"></script>
 <title>ログイン画面</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
 
 		<table>
 			<tr>
-				<th><label>ユーザーID</label></th>
+				<th><s:label>ユーザーID</s:label></th>
 
 				<s:if test = "#session.savedUserIdFlg == true">
 					<td><s:textfield name = "userId" value = "%{session.savedUserId}"/></td>
@@ -44,7 +44,7 @@
 			<tr>
 
 			<tr>
-				<th><label>パスワード</label></th>
+				<th><s:label>パスワード</s:label></th>
 				<td><s:password name = "password"/></td>
 			</tr>
 		</table>
@@ -58,7 +58,7 @@
 				<s:checkbox name = "savedUserIdFlg" />
 			</s:else>
 
-			<label>ユーザーID保存</label>
+			<s:label>ユーザーID保存</s:label>
 		</div>
 
 		<s:submit value = "ログイン" onclick = "goLoginAction()" />

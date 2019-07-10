@@ -70,7 +70,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 
 		if(userInfoDAO.isExistsUserInfo(userId, password) &&   //ユーザー存在確認
-				userInfoDAO.login(userId, password) > 0) {     // ログイン認証  user_infoテーブルのloginedに1が入る
+				userInfoDAO.login(userId, password) > 0) {     // ログイン認証
 
 			// 紐づけ
 			       CartInfoDAO cartInfoDAO = new CartInfoDAO();
@@ -98,7 +98,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		//セッションにユーザーIDとログインフラグを入れる 仮IDは削除
 
-			UserInfoDTO userInfoDTO =  userInfoDAO.getUserInfo(userId, password); // DBのユーザー情報を格納したDTOを作成
+			UserInfoDTO userInfoDTO =  userInfoDAO.getUserInfo(userId, password);
 			session.put("userId", userInfoDTO.getUserId());
 			session.put("logined", 1);
 			session.remove("tempUserId");
