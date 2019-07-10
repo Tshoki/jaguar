@@ -10,7 +10,6 @@ import java.util.List;
 import com.internousdev.jaguar.dto.CartInfoDTO;
 import com.internousdev.jaguar.util.DBConnector;
 
-
 public class CartInfoDAO {
 
 	/**
@@ -387,7 +386,7 @@ public class CartInfoDAO {
 
 		String sql ="DELETE"
 						+ " FROM cart_info"
-						+ " WHERE user_id=?";
+						+ " WHERE user_id = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
