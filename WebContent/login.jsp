@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <script type="text/javascript" src="./js/login.js"></script>
 <title>ログイン画面</title>
 </head>
