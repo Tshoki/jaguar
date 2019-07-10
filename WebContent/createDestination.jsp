@@ -67,29 +67,28 @@
 	</s:iterator>
 </s:if>
 
-
 <!-- 宛先情報入力フォーム -->
 <s:form action="CreateDestinationConfirmAction">
 	<p>
-	<s:textfield name="familyName" value="%{#session.familyName}" label="姓"/>
+	<s:textfield name="familyName" value="%{#session.familyName}" label="姓："/>
 	</p>
 	<p>
-	<s:textfield name="firstName" value="%{#session.firstName}" label="名"/>
+	<s:textfield name="firstName" value="%{#session.firstName}" label="名："/>
 	</p>
 	<p>
-	<s:textfield name="familyNameKana" value="%{#session.familyNameKana}" label="姓ふりがな"/>
+	<s:textfield name="familyNameKana" value="%{#session.familyNameKana}" label="姓ふりがな："/>
 	</p>
 	<p>
-	<s:textfield name="firstNameKana" value="%{#session.firstNameKana}" label="名ふりがな"/>
+	<s:textfield name="firstNameKana" value="%{#session.firstNameKana}" label="名ふりがな："/>
 	</p>
 	<p>
-	<s:textfield name="userAddress" value="%{#session.userAddress}" label="住所"/>
+	<s:textfield name="userAddress" value="%{#session.userAddress}" label="住所："/>
 	</p>
 	<p>
-	<s:textfield name="telNumber" value="%{#session.telNumber}" label="電話番号"/>
+	<s:textfield name="telNumber" value="%{#session.telNumber}" label="電話番号："/>
 	</p>
 	<p>
-	<s:textfield name="email" value="%{#session.email}" label="メールアドレス"/>
+	<s:textfield name="email" value="%{#session.email}" label="メールアドレス："/>
 	</p>
 	<s:submit value="確認"/>
 </s:form>

@@ -39,7 +39,7 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 		session.remove("email");
 
 		return result;
-}
+	}
 	public Map<String, Object> getSession(){
 		return session;
 	}
