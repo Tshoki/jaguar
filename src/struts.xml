@@ -88,14 +88,14 @@
 	  <!-- 6 -->
 	  <action name="CartAction" class="com.internousdev.jaguar.action.CartAction" method="execute">
 	    <result name="success">cart.jsp</result>
-	    <result name="sessionTimeout">sessionTimeout.jsp</result>
+	    <result name="sessionTimeout">sessionError.jsp</result>
 	  </action>
 
 	  <!-- 6 -->
 	  <action name="DeleteCartAction" class="com.internousdev.jaguar.action.DeleteCartAction" method="execute">
 	    <result name="success">cart.jsp</result>
 	    <result name="error">systemError.html</result>
-	    <result name="sessionTimeout">sessionTimeout.jsp</result>
+	    <result name="sessionTimeout">sessionError.jsp</result>
 	  </action>
 
 	  <!-- 7-1 -->
