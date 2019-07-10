@@ -30,7 +30,7 @@
 		<div class="submit_btn_box">
 			<s:submit value="戻る" class="submit_btn" onclick="goResetPasswordAction()"/>
 		</div>
-		<s:hidden id="backFlg" name="backFlg" value=""/>
+		<s:hidden id="backFlag" name="backFlg" value=""/>
 	</s:form>
 </div>
 </body>
