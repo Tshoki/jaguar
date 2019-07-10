@@ -10,5 +10,6 @@
 <body>
 <jsp:include page="header.jsp"/>
 <h1>宛先情報入力完了画面</h1>
+<h2>宛先情報入力が完了しました。</h2>
 </body>
 </html>

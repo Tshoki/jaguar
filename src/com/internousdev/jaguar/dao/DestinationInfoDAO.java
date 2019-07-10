@@ -16,6 +16,7 @@ public class DestinationInfoDAO {
 		Connection con=db.getConnection();
 		int count=0;
 
+	/*データの格納*/
 	  String sql="INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, regist_date, update_date) "
 				  + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, now(), now()) ";
 
@@ -34,7 +35,7 @@ public class DestinationInfoDAO {
 
 		}catch(SQLException e){
 			e.printStackTrace();
-		}finally{
+		}finally{	//throw対策
 			try{
 			con.close();
 		}catch(SQLException e) {

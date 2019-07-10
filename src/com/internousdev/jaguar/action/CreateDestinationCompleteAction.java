@@ -25,7 +25,7 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 				String.valueOf(session.get("telNumber")),
 				String.valueOf(session.get("email")));
 
-
+		//余計なデータの削除
 		if(count>0){
 			result=SUCCESS;
 		}

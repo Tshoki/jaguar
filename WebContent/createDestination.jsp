@@ -10,7 +10,6 @@
 <jsp:include page="header.jsp"/>
 <h1>宛先情報入力画面</h1>
 <!-- エラーメッセージ出力 -->
-<!-- size...nullがListに入っていたときnullpointaExceptionが発生 -->
 <s:if test="familyNameErrorMessageList!= null && familyNameErrorMessageList.size()> 0">
 	<s:iterator value="familyNameErrorMessageList">
 		<s:property/>
