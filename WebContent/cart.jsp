@@ -4,18 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/jaguar.css"> <!-- こちらです -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="./js/cart.js"></script>
 <title>カート画面</title>
 </head>
 <body>
 
-<!-- 未完成 -->
-
 <jsp:include page="header.jsp"/><!-- header -->
 
-<h1>ページタイトル</h1><!-- 1日目の指令 h1 を 使うこと 推奨 -->
+<h1>カート画面</h1>
 
 <!--- カート情報がある場合 --->
 <s:if test="!cartInfoDTOList.isEmpty()">
@@ -38,23 +35,21 @@
 <!-- /項目列 -->
 
 <!-- カート内容 -->
-<tbody>
-	<s:iterator value="cartInfoDTOList">
+	<tbody>
+		<s:iterator value="cartInfoDTOList">
 		<tr>
-			<!-- チェックボックス考察中 --><!-- 値は商品ID fieldValue='%{productId}' -->
 			<td><s:checkbox name="checkbox" fieldValue='%{productId}' /></td>
-			<!--<td><s:checkbox name="checkbox" value='<s:property value="productId" />' /></td>-->
 			<td><s:property value="productName" /></td>
 			<td><s:property value="productNameKana" /></td>
 			<td><img src='<s:property value="imageFilePath" />/<s:property value="imageFileName" />' width="20px" /></td>
-			<td><s:property value="price" /></td>
+			<td><s:property value="price" />円</td>
 			<td><s:property value="releaseCompany" /></td>
 			<td><s:property value="releaseDate" /></td>
-			<td><s:property value="productCount" /></td>
-			<td><s:property value="subTotal" /></td>
+			<td><s:property value="productCount" />個</td>
+			<td><s:property value="subTotal" />円</td>
 		</tr>
-	</s:iterator>
-</tbody>
+		</s:iterator>
+	</tbody>
 <!-- /カート内容 -->
 </table>
 
@@ -63,7 +58,7 @@
 <!-- 決済ボタン -->
 <s:submit value="決済" data-action="SettlementConfirmAction" />
 
-<!-- 削除ボタン --><!-- 初期設定 css(opaity:0;) , jQuery で opacity 操作 -->
+<!-- 削除ボタン -->
 <s:submit value="削除" class="delete_btn" data-action="DeleteCartAction" />
 
 </s:form>

@@ -12,20 +12,22 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CartAction extends ActionSupport implements SessionAware{
 
 	private String userId;
-	private List<CartInfoDTO> cartInfoDTOList;
-	private int totalPrice;
 
 	private Map<String, Object> session;
 
+	private List<CartInfoDTO> cartInfoDTOList;
+
+	private int totalPrice;
+
 	public String execute(){
 
-		/* タイムアウト処理
-		if(){
-			return sessionTimeout;
-		}
-		*/
+		String ret = SUCCESS ;
 
-		// session 前後の括弧を外す修正 2019-07-09
+		// タイムアウト確認
+		if(!session.containsKey("tempUserId") && !session.containsKey("userId")){
+			ret = "sessionTimeout";
+		}
+
 		// ログインフラグを参照 に userId の 値 を 設定
 		if((Integer)session.get("logined") == 1){
 			userId = session.get("userId").toString();
@@ -41,7 +43,7 @@ public class CartAction extends ActionSupport implements SessionAware{
 		// 合計金額 算出
 		totalPrice = cartInfoDAO.getTotalPrice(userId);
 
-		return SUCCESS ;
+		return ret ;
 	}
 
 	public String getUserId(){
@@ -50,6 +52,7 @@ public class CartAction extends ActionSupport implements SessionAware{
 	public void setUserId(String userId){
 		this.userId = userId;
 	}
+
 	public int getTotalPrice(){
 		return totalPrice;
 	}

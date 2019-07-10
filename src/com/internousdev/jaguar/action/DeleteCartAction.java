@@ -17,22 +17,23 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 
 	private String[] checkbox;
 
-
 	private List<CartInfoDTO> cartInfoDTOList;
 
 	private Map<String, Object> session;
 
 	private int totalPrice; // 合計金額
 
-	// 未完成
 	public String execute(){
 
 		String ret = ERROR ;
 
-		// タイムアウト sessionTimeout
+		// タイムアウト確認
+		if(!session.containsKey("tempUserId") && !session.containsKey("userId")){
+			ret = "sessionTimeout";
+		}
 
 		// ログインフラグを参照 に userId の 値 を 設定
-		if((Integer)(session.get("logined")) == 1){
+		if((Integer)session.get("logined") == 1){
 			userId = session.get("userId").toString();
 		}else{
 			userId = session.get("tempUserId").toString();
@@ -45,14 +46,16 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 		for(String productId: checkbox){
 			count += cartInfoDAO.deleteCartInfo(userId, Integer.parseInt(productId));
 		}
-		cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
-		totalPrice = cartInfoDAO.getTotalPrice(userId);
 
-		ret = SUCCESS ;
+		if(count == checkbox.length){
+			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
+			totalPrice = cartInfoDAO.getTotalPrice(userId);
+
+			ret = SUCCESS ;
+		}
 
 		return ret ;
 	}
-
 
 	public String getUserId(){
 		return userId;
@@ -72,6 +75,14 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 	public void setProductCount(int productCount){
 		this.productCount = productCount;
 	}
+
+	public String[] getCheckbox(){
+		return checkbox;
+	}
+	public void setCheckbox(String[] checkbox){
+		this.checkbox = checkbox;
+	}
+
 	public int getTotalPrice(){
 		return totalPrice;
 	}
@@ -91,12 +102,4 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session){
 		this.session = session;
 	}
-
-	public String[] getCheckbox() {
-		return checkbox;
-	}
-	public void setCheckbox(String[] checkbox) {
-		this.checkbox = checkbox;
-	}
-
 }

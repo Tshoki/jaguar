@@ -19,19 +19,17 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 
 	private List<CartInfoDTO> cartInfoDTOList;
 
-	private int totalPrice; // 合計金額
+	private int totalPrice;
 
 	public String execute(){
 
 		String ret = ERROR ;
 
-		/* タイムアウト処理
-		if(){
-			ret = sessionTimeout;
+		// タイムアウト確認
+		if(!session.containsKey("tempUserId") && !session.containsKey("userId")){
+			ret = "sessionTimeout";
 		}
-		*/
 
-		// session 前後の括弧を外す修正 2019-07-09
 		// ログインフラグを参照 に userId の 値 を 設定
 		if((Integer)session.get("logined") == 1){
 			userId = session.get("userId").toString();
@@ -40,6 +38,7 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		}
 
 		CartInfoDAO cartInfoDAO = new CartInfoDAO();
+
 		int count = 0;
 
 		// userId と 紐付けたカート情報に 同じ商品があるかないか分岐
@@ -48,6 +47,7 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		}else{
 			count = cartInfoDAO.createProductId(userId, productId, productCount);
 		}
+
 		if(count > 0){
 			// カート情報 抽出
 			cartInfoDTOList = cartInfoDAO.getCartInfoDTOList(userId);
@@ -86,7 +86,6 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 	public List<CartInfoDTO> getCartInfoDTOList() {
 		return cartInfoDTOList;
 	}

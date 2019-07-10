@@ -1,8 +1,9 @@
 package com.internousdev.jaguar.dto;
 
+import java.sql.Date;
+
 public class CartInfoDTO {
 
-	private int id; // ID (cart_infoテーブル)
 	private String userId; // ユーザーID
 	private int productId; // 商品ID
 	private int productCount; // 個数（商品個数）
@@ -12,18 +13,11 @@ public class CartInfoDTO {
 	private int price; // 価格（商品価格）
 	private String imageFilePath; // 画像ファイルパス
 	private String imageFileName; // 画像ファイル名
-	private String releaseDate; // 発売年月
+	private Date releaseDate; // 発売年月
 	private String releaseCompany; // 発売会社
 
 	private int subTotal; // 小計（商品*個数）
 
-
-	public int getId(){
-		return id;
-	}
-	public void setId(int id){
-		this.id = id;
-	}
 	public String getUserId(){
 		return userId;
 	}
@@ -73,10 +67,10 @@ public class CartInfoDTO {
 	public void setImageFileName(String imageFileName){
 		this.imageFileName = imageFileName;
 	}
-	public String getImageReleaseDate(){
+	public Date getImageReleaseDate(){
 		return releaseDate;
 	}
-	public void setReleaseDate(String releaseDate){
+	public void setReleaseDate(Date releaseDate){
 		this.releaseDate = releaseDate;
 	}
 	public String getReleaseCompany(){
@@ -92,5 +86,4 @@ public class CartInfoDTO {
 	public void setSubTotal(int subTotal){
 		this.subTotal = subTotal;
 	}
-
 }

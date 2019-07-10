@@ -35,10 +35,13 @@ public class CartInfoDAO {
 						+ " product_info.price,"
 						+ " product_info.release_company,"
 						+ " product_info.release_date,"
+						+ "	cart_info.regist_date,"
+						+ "	cart_info.update_date,"
 						+ " (product_info.price * cart_info.product_count) AS sub_total"
 						+ " FROM cart_info LEFT JOIN product_info"
 						+ " ON cart_info.product_id = product_info.product_id"
-						+ " WHERE cart_info.user_id = ?";
+						+ " WHERE cart_info.user_id = ?"
+						+ "	ORDER BY cart_info.regist_date DESC, cart_info.update_date DESC";
 
 		try{
 
@@ -49,7 +52,6 @@ public class CartInfoDAO {
 
 			while(rs.next()){
 				CartInfoDTO dto = new CartInfoDTO();
-				dto.setId(rs.getInt("id"));
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
@@ -57,7 +59,7 @@ public class CartInfoDAO {
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setPrice(rs.getInt("price"));
 				dto.setReleaseCompany(rs.getString("release_company"));
-				dto.setReleaseDate(rs.getString("release_date"));
+				dto.setReleaseDate(rs.getDate("release_date"));
 				dto.setProductCount(rs.getInt("product_count"));
 				dto.setSubTotal(rs.getInt("sub_total"));
 				cartInfoDTOList.add(dto);
