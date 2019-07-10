@@ -6,14 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<script type="text/javascript" src="./js/settlementConfirm.js"></script>
 <title>決済確認</title>
-
-<!-- 仮作成　佐藤 -->
 
 </head>
 <body>
 <jsp:include page="header.jsp" />
+<script src="./js/settlementConfirm.js"></script>
 <div id="contents">
 <h1>決済確認画面</h1>
 <s:if test="destinationInfoDTOList!=null && destinationInfoDTOList.size()>0">
@@ -71,7 +69,8 @@
 	<s:submit value="決済" class="submit_btn" onclick="goSettlementCompleteAction()" />
 	</div>
 	<div class="submit_btn_box">
-	<s:submit value="削除" class="submit_btn" onclick="goDeleteDestinationAction()" />	</div>
+	<s:submit value="削除" class="submit_btn" onclick="goDeleteDestinationAction()" />
+	</div>
 	</s:form>
 </s:if>
 <s:else>
@@ -87,7 +86,6 @@
 		<s:submit value="新規宛先登録" class="submit_btn" />
 	</s:form>
 </div>
-
-	</div>
+</div>
 </body>
 </html>
