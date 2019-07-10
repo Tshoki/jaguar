@@ -22,12 +22,12 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		UserInfoDAO userInfoDAO = new UserInfoDAO();
 		
 		userInfoDTO = userInfoDAO.getUserInfo(String.valueOf(session.get("userId"))); 
-//		valueOf　sessionから値をString型の値で取り出すために使用。nullでもエラーは出ない
+//		sessionのuserIdを引数にメソッド使用
 		
 		if(userInfoDTO.getUserId() == null) {
 			userInfoDTO = null;
 		}
-//		DTO、userIdがnullと等しいならnull代入
+//		DTOのuserIdがnullと等しいならnull代入
 		
 		return SUCCESS;
 //		SUCCESSを返す
