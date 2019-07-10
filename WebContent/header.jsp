@@ -21,7 +21,7 @@
 					<s:else>
 						<s:submit value="ログイン" class="submit_btn" onclick="goGoLoginAction();"/>
 					</s:else>
-						<s:submit value="カート" class="submit_btn" onclick="goCartAction();"/><li>
+						<s:submit value="カート" class="submit_btn" onclick="goCartAction();"/>
 						<s:submit value="商品一覧" class="submit_btn" onclick="goProductListAction();"/>
 					<s:if test="#session.logined==1">
 						<s:submit value="マイページ" class="submit_btn" onclick="goMyPageAction();"/>
