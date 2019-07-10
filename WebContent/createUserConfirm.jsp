@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="./css/sasaki.css"/>
 <title>ユーザー情報入力確認画面</title>
 </head>
 <body>
@@ -12,11 +13,11 @@
 	<script src="./js/createUser.js"></script>
 	<jsp:include page="header.jsp" />
 
-	<h1 class="cart_title">ユーザー情報入力確認画面</h1>
+	<h1 id="title">ユーザー情報入力確認画面</h1>
 
-	<div>
+	<div id="form">
 		<s:form id="createUserForm">
-			<table>
+			<table id="form_table">
 				<tr>
 					<th>姓：</th>
 					<td><s:property value="familyName" /></td>
