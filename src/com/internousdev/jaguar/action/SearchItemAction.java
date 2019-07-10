@@ -51,12 +51,12 @@ public class SearchItemAction extends ActionSupport implements SessionAware{
 		ProductInfoDAO productInfoDAO = new ProductInfoDAO();
 		switch (categoryId) {
 		case "1":
-			//キーワードのみの検索ワードを半角スペースで区切ってListに入れる
+			//カテゴリーIDが1の場合は半角スペースで区切った検索ワードをListに入れる
 			productInfoDTOList = productInfoDAO.getProductInfoListByKeyword(keywords.split(" "));
 			break;
 
 		default:
-			//カテゴリーと半角スペースで区切ったキーワードをListに入れる
+			//カテゴリーIDが1以外の場合は半角スペースで区切った検索ワードとカテゴリーIDをListに入れる
 			productInfoDTOList = productInfoDAO.getProductInfoListByCategoryIdAndKeyword(keywords.split(" "), categoryId);
 			break;
 		}
