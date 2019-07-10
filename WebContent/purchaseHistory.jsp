@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link rel="stylesheet" href="./css/purchaseHistory.css">
 <script src="./js/jaguar.js"></script>
 <title> 商品購入履歴 </title>
 </head>
