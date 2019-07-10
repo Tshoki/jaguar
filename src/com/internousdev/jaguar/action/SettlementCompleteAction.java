@@ -24,7 +24,7 @@ public class SettlementCompleteAction extends ActionSupport implements SessionAw
 	  String userId = session.get("userId").toString();
 	  //sessionの情報をList<CartInfoDTO>型にダウンキャスト
 	  @SuppressWarnings("unchecked")
-	List<CartInfoDTO> cartInfoDTOList = (List<CartInfoDTO>) session.get("CartInfoDTOList");
+	List<CartInfoDTO> cartInfoDTOList = (List<CartInfoDTO>) session.get("cartInfoDTOList");
 
 	PurchaseHistoryInfoDAO purchaseHistoryInfoDAO = new PurchaseHistoryInfoDAO();
 	int count = 0;
