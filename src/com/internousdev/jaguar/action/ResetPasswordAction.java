@@ -36,5 +36,4 @@ public class ResetPasswordAction extends ActionSupport implements SessionAware {
 		this.session=session;
 	}
 
-
 }

@@ -24,7 +24,6 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 	private String concealedPassword;
 	private Map<String, Object> session;
 
-
 	public String execute(){
 
 		String result=ERROR;

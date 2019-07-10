@@ -12,7 +12,6 @@
 <div id="contents">
 <h1>パスワード再設定画面</h1>
 
-
 	<s:if test="userIdErrorMessageList!=null && userIdErrorMessageList.size()>0">
 	<div class="error">
 	<div class="error-message">
