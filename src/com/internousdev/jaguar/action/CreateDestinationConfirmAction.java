@@ -38,12 +38,12 @@ public String execute(){
 	session.put("email", email);
 
 	InputChecker ic=new InputChecker();
-	//フォームの内容ﾁｪｯｸ(項目名、値、最小文字数、最大文字数、半角英字、漢字、ひらがな、半角英数、カタカナ、スペース)
-	familyNameErrorMessageList=ic.doCheck("性", familyName, 1, 16, true, true, true, false, false, false);
+	//フォームの内容ﾁｪｯｸ(項目名、値、最小文字数、最大文字数、半角英字、漢字、ひらがな、半角数字、カタカナ、スペース)
+	familyNameErrorMessageList=ic.doCheck("姓", familyName, 1, 16, true, true, true, false, false, false);
 	firstNameErrorMessageList=ic.doCheck("名", firstName, 1, 16, true, true, true, false, false, false);
-	familyNameKanaErrorMessageList=ic.doCheck("性ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false);
+	familyNameKanaErrorMessageList=ic.doCheck("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false);
 	firstNameKanaErrorMessageList=ic.doCheck("名ふりがな", firstNameKana, 1, 16, false, false, true, false, false, false);
-	userAddressErrorMessageList=ic.doCheck("住所", userAddress, 10, 50, false, true, true, true, true, false);
+	userAddressErrorMessageList=ic.doCheck("住所", userAddress, 10, 50, true, true, true, true, true, false);
 	telNumberErrorMessageList=ic.doCheck("電話", telNumber, 10, 13, false, false, false, true, false, false);
 	//（項目名、値、最小文字数、最大文字数）
 	emailErrorMessageList=ic.doCheckForEmail("メールアドレス", email, 10, 32);

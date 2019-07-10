@@ -10,7 +10,7 @@ import com.internousdev.jaguar.dto.DestinationInfoDTO;
 import com.internousdev.jaguar.util.DBConnector;
 
 public class DestinationInfoDAO {
-	public int insert(String userId, String familyName, String firstName, String familyNameKana, String firstNameKana, String email, String telNumber, String userAddress){
+	public int insert(String userId, String familyName, String firstName, String familyNameKana, String firstNameKana, String userAddress, String telNumber, String email){
 
 		DBConnector db=new DBConnector();
 		Connection con=db.getConnection();

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/style.css">
-<script type="text/javascript" src= "./js/settlementConfirm.js"></script>
+<script type="text/javascript" src="./js/settlementConfirm.js"></script>
 <title>決済確認</title>
 
 <!-- 仮作成　佐藤 -->
@@ -68,10 +68,10 @@
 	</table>
 
 	<div class="submit_btn_box">
-	<s:submit value="決済" class="submit_btn" onClick="goSettlementCompleteAction()" />
+	<s:submit value="決済" class="submit_btn" onclick="goSettlementCompleteAction()" />
 	</div>
 	<div class="submit_btn_box">
-	<s:submit value="削除" class="submit_btn" onClick="goDeleteDestinationAction()" />	</div>
+	<s:submit value="削除" class="submit_btn" onclick="goDeleteDestinationAction()" />	</div>
 	</s:form>
 </s:if>
 <s:else>
