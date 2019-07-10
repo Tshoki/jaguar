@@ -55,6 +55,8 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 			// 合計金額 算出
 			totalPrice = cartInfoDAO.getTotalPrice(userId);
 
+			productCount = 0 ; // 更新ボタン対策
+
 			ret = SUCCESS ;
 		}
 
