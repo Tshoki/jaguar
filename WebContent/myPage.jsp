@@ -42,7 +42,7 @@
 		</s:if>
 		<s:else>
 			<div class="info">
-				ユーザー情報がありません。<!-- nullなら表示 -->
+				ユーザー情報がありません。
 			</div>
 		</s:else>
 	</div>

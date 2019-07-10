@@ -23,10 +23,8 @@ public class UserInfoDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
-			
 //		userIdでDB検索
 			ResultSet rs = ps.executeQuery();
-			
 //		rsをDTOに格納
 			while(rs.next()) {
 				userInfoDTO.setId(rs.getInt("id"));
@@ -86,7 +84,6 @@ public class UserInfoDAO {
 			ps.setInt(10, 1);
 			count = ps.executeUpdate();
 //		ユーザー情報をDBにセット
-			
 		}catch(SQLException e){
 			e.printStackTrace();
 		}try{
@@ -153,7 +150,7 @@ public class UserInfoDAO {
 			while(rs.next()){
 				//現在の列の値をint型で取得し、一件以上存在するかをチェック
 				if(rs.getInt("count") > 0){
-					//存在すればtrueを返す
+				//存在すればtrueを返す
 					result = true;
 				}
 			}
@@ -184,7 +181,7 @@ public class UserInfoDAO {
 			ps.setString(1, userId);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
-//		userIdとpasswordでSQL文を実行
+//	userIdとpasswordでSQL文を実行
 			while(rs.next()) {
 				userInfoDTO.setId(rs.getInt("id"));
 				userInfoDTO.setUserId(rs.getString("user_id"));
@@ -196,7 +193,7 @@ public class UserInfoDAO {
 				userInfoDTO.setSex(rs.getInt("sex"));
 				userInfoDTO.setEmail(rs.getString("email"));
 				userInfoDTO.setLogined(rs.getInt("logined"));
-//		データをDTOに格納
+//	データをDTOに格納
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -224,7 +221,7 @@ public class UserInfoDAO {
 			ps.setString(1, password);
 			ps.setString(2, userId);
 			result = ps.executeUpdate();
-//			passwordとuserIdをSQL文に代入して実行
+//	passwordとuserIdをSQL文に代入して実行
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}try{
@@ -278,7 +275,7 @@ public class UserInfoDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
 			result = ps.executeUpdate();
-//	userIdで検索したデータのloginedに0をセット、0未ログイン。　更新した件数を返す
+//	userIdで検索したデータのloginedに0をセット、0未ログイン。更新した件数を返す
 		}catch (SQLException e){
 			e.printStackTrace();
 		}try {
