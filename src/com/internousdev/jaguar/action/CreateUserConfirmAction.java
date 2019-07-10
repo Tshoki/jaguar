@@ -59,7 +59,7 @@ public class CreateUserConfirmAction extends ActionSupport implements SessionAwa
 		familyNameErrorMessageList=ic.doCheck("姓",familyName,1,16,true,true,true,false,false,false);
 		firstNameErrorMessageList=ic.doCheck("名",firstName,1,16,true,true,true,false,false,false);
 		familyNameKanaErrorMessageList=ic.doCheck("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false);
-		firstNameKanaErrorMessageList=ic.doCheck("姓ふりがな",familyNameKana,1,16,false,false,true,false,false,false);
+		firstNameKanaErrorMessageList=ic.doCheck("名ふりがな",firstNameKana,1,16,false,false,true,false,false,false);
 		emailErrorMessageList=ic.doCheckForEmail("メールアドレス",email,10,32);
 		userIdErrorMessageList=ic.doCheck("ユーザーID",userId,1,8,true,false,false,true,false,false);
 		passwordErrorMessageList=ic.doCheck("パスワード",password,1,16,true,false,false,true,false,false);

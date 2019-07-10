@@ -63,7 +63,6 @@
 	</s:iterator>
 </s:if>
 
-<div id="main">
 	<div>
 		<s:form action="CreateUserConfirmAction">
 			<table>
@@ -126,6 +125,5 @@
 		</table>
 		</s:form>
 	</div>
-</div>
 </body>
 </html>

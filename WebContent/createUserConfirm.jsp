@@ -15,8 +15,6 @@
 
 <h1 class="cart_title">ユーザー情報入力確認画面</h1>
 
-
-<div id="main">
 	<div>
 		<s:form id="createUserForm">
 		<table>
@@ -100,6 +98,5 @@
 		</table>
 		</s:form>
 	</div>
-</div>
 </body>
 </html>
