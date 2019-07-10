@@ -387,7 +387,7 @@ public class CartInfoDAO {
 
 		String sql ="DELETE"
 						+ " FROM cart_info"
-						+ " WHERE user_id";
+						+ " WHERE user_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

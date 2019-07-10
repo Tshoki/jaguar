@@ -16,7 +16,7 @@ public class DestinationInfoDAO {
 		Connection con=db.getConnection();
 		int count=0;
 
-	  String sql="INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date, update_date) "
+	  String sql="INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, regist_date, update_date) "
 				  + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, now(), now()) ";
 
 		try{
@@ -26,9 +26,9 @@ public class DestinationInfoDAO {
 			ps.setString(3, firstName);
 			ps.setString(4, familyNameKana);
 			ps.setString(5, firstNameKana);
-			ps.setString(6, email);
+			ps.setString(6, userAddress);
 			ps.setString(7, telNumber);
-			ps.setString(8, userAddress);
+			ps.setString(8, email);
 
 			count=ps.executeUpdate();
 

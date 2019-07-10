@@ -19,13 +19,12 @@ public class CreateDestinationCompleteAction extends ActionSupport implements Se
 				session.get("userId").toString(),
 				session.get("familyName").toString(),
 				session.get("firstName").toString(),
+				String.valueOf(session.get("familyNameKana")),//この先使うことがない
+				String.valueOf(session.get("firstNameKana")),//最悪nullでもいい
 				session.get("userAddress").toString(),
-				//この先使うことがない
-				//最悪nullでもいい
-				String.valueOf(session.get("familyNameKana")),
-				String.valueOf(session.get("firstNameKana")),
 				String.valueOf(session.get("telNumber")),
 				String.valueOf(session.get("email")));
+
 
 		if(count>0){
 			result=SUCCESS;
