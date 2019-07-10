@@ -67,7 +67,7 @@ public class CartInfoDTO {
 	public void setImageFileName(String imageFileName){
 		this.imageFileName = imageFileName;
 	}
-	public Date getImageReleaseDate(){
+	public Date getReleaseDate(){
 		return releaseDate;
 	}
 	public void setReleaseDate(Date releaseDate){
