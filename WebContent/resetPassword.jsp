@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link rel="stylesheet" href="./css/resetPassword.css">
 <title>パスワード再設定</title>
 </head>
 <body>
@@ -13,61 +13,49 @@
 <h1>パスワード再設定画面</h1>
 
 	<s:if test="userIdErrorMessageList!=null && userIdErrorMessageList.size()>0">
-	<div class="error">
 	<div class="error-message">
 		<s:iterator value="userIdErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
-		</div>
 	</s:if>
 
 	<s:if test="passwordErrorMessageList!=null && passwordErrorMessageList.size()>0">
-	<div class="error">
 	<div class="error-message">
 		<s:iterator value="passwordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
-		</div>
 	</s:if>
 
-	<s:if test="newPasswordErrorMessageList!=null && newPsswordErrorMessageList.size()>0">
-	<div class="error">
+	<s:if test="newPasswordErrorMessageList!=null && newPasswordErrorMessageList.size()>0">
 	<div class="error-message">
 		<s:iterator value="newPasswordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
-		</div>
 	</s:if>
 
-	<s:if test="reConfirmationNewPasswordErrorMessageList!=null && reconfirmationNewPasswordErrorMessageList.size()>0">
-	<div class="error">
+	<s:if test="reConfirmationNewPasswordErrorMessageList!=null && reConfirmationNewPasswordErrorMessageList.size()>0">
 	<div class="error-message">
 		<s:iterator value="reConfirmationNewPasswordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
-		</div>
 	</s:if>
 
 	<s:if test="passwordIncorrectErrorMessage!=null && !passwordIncorrectErrorMessage.isEmpty()">
-	<div class="error">
 	<div class="error-message">
 		<s:property value="passwordIncorrectErrorMessage"/>
 		<br>
 	</div>
-	</div>
 	</s:if>
 
 	<s:if test="newPasswordIncorrectErrorMessage!=null && !newPasswordIncorrectErrorMessage.isEmpty()">
-	<div class="error">
 	<div class="error-message">
 		<s:property value="newPasswordIncorrectErrorMessage"/>
 		<br>
 	</div>
-	</div>
 	</s:if>
 
 <s:form action="ResetPasswordConfirmAction">
-	<table class="vertical-list-table">
+	<table class="c_table">
 		<tr>
 			<th scope="row"><s:label value="ユーザID"/><th>
 			<td><s:textfield name="userId" value="%{#session.userIdForResetPassword}" placeholder="ユーザーID" class="txt"/></td>

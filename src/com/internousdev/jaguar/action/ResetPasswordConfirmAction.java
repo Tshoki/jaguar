@@ -124,7 +124,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		this.newPasswordErrorMessageList=newPasswordErrorMessageList;
 	}
 
-	public List<String> getReconfirmationNewPasswordErrorMessageList(){
+	public List<String> getReConfirmationNewPasswordErrorMessageList(){
 		return reConfirmationNewPasswordErrorMessageList;
 	}
 
