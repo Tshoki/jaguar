@@ -7,8 +7,8 @@
 <script src="./js/header.js"></script>
 
 <header>
-	<ul>
 	<s:form id="form" name="form">
+	<ul>
 		<li><span>jaguar</span></li>
 		<s:if test='#session.mCategoryDTOList!=null && #session.mCategoryDTOList.size()>0'>
 		<li><s:select name="categoryId" list="#session.mCategoryDTOList" listValue="categoryName" listKey="categoryId" id="categoryId"/></li>
@@ -26,6 +26,6 @@
 		<s:if test="#session.logined==1">
 		<s:submit value="マイページ" onclick="goMyPageAction();"/>
 		</s:if>
-	</s:form>
 	</ul>
+	</s:form>
 </header>
