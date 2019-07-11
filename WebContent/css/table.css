@@ -1,3 +1,4 @@
+@CHARSET "UTF-8";
 /* Jaguar Reset CSS v1.0 2019 */
 html{ margin:0; padding:0; font-size:62.5%; }
 body{ margin:0; padding:0; font-size:1.6em; line-height:1; }
@@ -15,15 +16,10 @@ input[type="submit"]{
 	color: #fff;
  	font-size: 8px;
  }
-
-
 input[type="submit"]:hover {
 	opacity: 0.5;
 	cursor: pointer;
 }
-
-
-/* Jaguar Title CSS v1.0 2019 7/11 */
 h1 {
     border-bottom: 3px solid black;
     border-top: 3px solid black;
@@ -33,17 +29,14 @@ h1 {
     margin: 20px auto 30px auto;
 }
 
-/* Jaguar Message CSS v1.0 2019 7/11 */
-.bg_blue {
+.info{
+	width: 85%;
     color: blue;
     border: 1px solid #518c51;
     background-color: #90EE90;
-}
-
-.bg_red {
-    color: red;
-    border: 1px solid #ff5757;
-    background-color: #ff8c8c;
+    padding: 10px 10px;
+    text-align: center;
+    margin: 25px auto 35px auto;
 }
 
 table.row_table{
