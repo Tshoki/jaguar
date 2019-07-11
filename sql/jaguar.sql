@@ -58,7 +58,7 @@ product_id int unique not null,
 product_name varchar(100) unique not null,
 product_name_kana varchar(100) unique not null,
 product_description varchar(255),
-category_id int not null, /*外部キー制約　親テと子テの整合性のため*/
+category_id int not null,
 price int not null,
 image_file_path varchar(100) not null,
 image_file_name varchar(50) not null,
@@ -95,7 +95,7 @@ insert into product_info values
 create table cart_info(
 id int primary key not null auto_increment,
 user_id varchar(16) not null,
-product_id int not null, /*外部キー制約*/
+product_id int not null,
 product_count int not null,
 regist_date datetime,
 update_date datetime,
@@ -104,7 +104,7 @@ foreign key (product_id) references product_info (product_id)
 
 create table destination_info(
 id int primary key not null auto_increment,
-user_id varchar(16) not null, /*外部キー制約*/
+user_id varchar(16) not null,
 family_name varchar(32) not null,
 first_name varchar(32) not null,
 family_name_kana varchar(32) not null,
@@ -122,11 +122,11 @@ insert into destination_info value
 
 create table purchase_history_info(
 id int primary key auto_increment not null,
-user_id varchar(16) not null, /*外部キー制約*/
-product_id int not null, /*外部キー制約*/
+user_id varchar(16) not null,
+product_id int not null,
 product_count int,
 price int not null,
-destination_id int, /*？外部キー制約？*/
+destination_id int,
 regist_date datetime,
 update_date datetime,
 foreign key (user_id) references user_info (user_id),
