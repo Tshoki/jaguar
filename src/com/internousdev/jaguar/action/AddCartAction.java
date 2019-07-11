@@ -31,7 +31,7 @@ public class AddCartAction extends ActionSupport implements SessionAware{
 		}
 
 		// ログインフラグを参照 に userId の 値 を 設定
-		if((Integer)session.get("logined") == 1){
+		if((int)session.get("logined") == 1){
 			userId = session.get("userId").toString();
 		}else{
 			userId = session.get("tempUserId").toString();

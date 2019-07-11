@@ -53,7 +53,7 @@
 <!-- /カート内容 -->
 </table>
 
-<s:property value="totalPrice" /><!-- カート合計金額 -->
+カート合計金額:<s:property value="totalPrice" /><!-- カート合計金額 -->
 
 <!-- 決済ボタン -->
 <s:submit value="決済" data-action="SettlementConfirmAction" />
