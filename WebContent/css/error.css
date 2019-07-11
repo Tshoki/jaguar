@@ -1,0 +1,21 @@
+h1{
+  width: 95%;
+  border-top: 3px solid blue;
+  border-bottom: 3px solid blue;
+  color: blue;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 5%;
+  margin-left: 2%;
+}
+
+.info{
+  width: 90%;
+  margin-left: 2%;
+  border: 1px solid blue;
+  background-color: skyblue;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 60px;
+  color: blue;
+}
