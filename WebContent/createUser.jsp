@@ -7,6 +7,7 @@
 <meta charset="UTF-8" />
 <title>ユーザー情報入力画面</title>
 <link rel="stylesheet" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/createUser.css">
 </head>
 <body>
 
@@ -123,7 +124,9 @@
 					</td>
 				</tr>
 			</table>
-			<s:submit value="確認" />
+			<div id="submit_btn">
+			<s:submit value="確認"/>
+			</div>
 		</s:form>
 	</div>
 </body>

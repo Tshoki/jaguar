@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <script src="./js/createDestination.js"></script>
 <link rel="stylesheet" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/createDestinationConfirm.css">
 <title>宛先入力確認画面</title>
 </head>
 <body>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/destinationComplete.css">
+<link rel="stylesheet" href="./css/complete.css">
 <meta http-equiv="refresh" content="3;URL='SettlementConfirmAction'">	<!-- 3秒後決済確認画面遷移 -->
 <title>宛先入力完了画面</title>
 </head>

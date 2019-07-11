@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/style/css">
+<link rel="stylesheet" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/resetPasswordConfirm.css">
 <title>パスワード再設定確認</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
 <div id="contents">
 	<h1>パスワード再設定確認画面</h1>
 	<s:form id="resetPasswordForm">
-		<table class="vertical-list-table">
+		<table class="row_table">
 			<tr>
 				<th scope="row"><s:label value="ユーザーID"/></th>
 				<td><s:property value="userId"/></td>
