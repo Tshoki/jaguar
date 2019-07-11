@@ -26,14 +26,14 @@
 		</div>
 	</s:if>
 
-	<s:if test="newPasswordErrorMessageList!=null && newPsswordErrorMessageList.size()>0">
+	<s:if test="newPasswordErrorMessageList!=null && newPasswordErrorMessageList.size()>0">
 	<div class="error-message">
 		<s:iterator value="newPasswordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
 	</s:if>
 
-	<s:if test="reConfirmationNewPasswordErrorMessageList!=null && reconfirmationNewPasswordErrorMessageList.size()>0">
+	<s:if test="reConfirmationNewPasswordErrorMessageList!=null && reConfirmationNewPasswordErrorMessageList.size()>0">
 	<div class="error-message">
 		<s:iterator value="reConfirmationNewPasswordErrorMessageList"><s:property/>
 		<br></s:iterator>
