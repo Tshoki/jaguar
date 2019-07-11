@@ -202,8 +202,8 @@ public class CartInfoDAO {
 		int count = 0;
 
 		String sql ="INSERT INTO"
-						+ " cart_info(user_id, product_id, product_count)"
-						+ " VALUES(?, ?, ?)";
+						+ " cart_info(user_id, product_id, product_count, regist_date, update_date)"
+						+ " VALUES(?, ?, ?, NOW(), NOW())";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 
