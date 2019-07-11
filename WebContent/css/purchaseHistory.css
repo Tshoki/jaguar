@@ -28,9 +28,19 @@ table.horizontal-list-table th{
   padding: 8px 14px;
 }
 
+
+
 table.horizontal-list-table td{
   padding: 4px 10px 4px;
   border: 1px solid #d3d3d3;
+}
+
+table.horizontal-list-table td:last-child{
+	width: 20%;
+}
+
+table.horizontal-list-table td:nth-child(10n-1){
+	width: 15%;
 }
 
 .submit_btn_box{
