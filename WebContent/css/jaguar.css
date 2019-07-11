@@ -16,6 +16,7 @@ input[type="submit"]{
  	font-size: 8px;
  }
 
+
 input[type="submit"]:hover {
 	opacity: 0.5;
 	cursor: pointer;
