@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8" />
 <link rel="stylesheet" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/createUserConfirm.css">
 <title>ユーザー情報入力確認画面</title>
 </head>
 <body>
@@ -19,42 +20,42 @@
 		<s:form id="createUserForm">
 			<table class="row_table">
 				<tr>
-					<th scope="row">姓：</th>
+					<th scope="row">姓</th>
 					<td><s:property value="familyName" /></td>
 				</tr>
 
 				<tr>
-					<th scope="row">名：</th>
+					<th scope="row">名</th>
 					<td><s:property value="firstName" /></td>
 				</tr>
 
 				<tr>
-					<th scope="row">姓ふりがな：</th>
+					<th scope="row">姓ふりがな</th>
 					<td><s:property value="familyNameKana" /></td>
 				</tr>
 
 				<tr>
-					<th scope="row">名ふりがな：</th>
+					<th scope="row">名ふりがな</th>
 					<td><s:property value="firstNameKana" /></td>
 				</tr>
 
 				<tr>
-					<th scope="row">性別：</th>
+					<th scope="row">性別</th>
 					<td><s:property value="sex" /></td>
 				</tr>
 
 				<tr>
-					<th scope="row">メールアドレス：</th>
+					<th scope="row">メールアドレス</th>
 					<td><s:property value="email" /></td>
 				</tr>
 
 				<tr>
-					<th scope="row">ユーザーID：</th>
+					<th scope="row">ユーザーID</th>
 					<td><s:property value="userId" /></td>
 				</tr>
 
 				<tr>
-					<th scope="row">パスワード：</th>
+					<th scope="row">パスワード</th>
 					<td><s:property value="password" /></td>
 				</tr>
 
