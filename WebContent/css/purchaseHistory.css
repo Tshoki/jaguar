@@ -35,12 +35,12 @@ table.horizontal-list-table td{
 
 .info{
   text-align: center;
-  width: 90%;
-  margin-left: 2%;
-  border: 1px solid blue;
-  background-color: skyblue;
+  margin: auto;
+  width: 85%;
+  border: 1px solid black;
+  background-color: #DDDDDD;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 60px;
-  color: blue;
+  color: black;
 }
