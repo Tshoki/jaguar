@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+/* Jaguar Reset CSS v1.0 2019 */
+html{ margin:0; padding:0; font-size:62.5%; }
+body{ margin:0; padding:0; font-size:1.6em; line-height:1; }
+a{ vertical-align:baseline; background:transparent; }
+table{ border-collapse:collapse; border-spacing:0; }
+ul{ list-style:none; }
+form{ margin:0; padding:0; }
+img{ border:0; }
+
+h1{
+	width: 90%;
+	border-top: solid 5px black;
+	border-bottom: solid 5px black;
+	padding: 0.5em 1em;
+	text-align: center;
+}
+
+.info{
+	width: 85%;
+	border: solid 3px black;
+	padding: ;
+	
+}
+
+table.vertical-table{
+	width: 90%;
+	background-color: gray;
+	border-collapse: separate;
+}
+
+table.vertical-table th td{
+	border-collapse: collapse;
+}
+
+table.vertical-table th{
+	width: 25%;
+	background-color: white;
+	
+}
+
+table.vertical-table td{
+	width: 75%;
+}

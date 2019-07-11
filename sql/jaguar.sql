@@ -71,26 +71,26 @@ foreign key (category_id) references m_category (category_id)
 );
 
 insert into product_info values
-(1,1,"本1","ほん1","本1の詳細",2,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(2,2,"本2","ほん2","本2の詳細",2,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(3,3,"本3","ほん3","本3の詳細",2,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(4,4,"本4","ほん4","本4の詳細",2,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(5,5,"本5","ほん5","本5の詳細",2,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(6,6,"家電・パソコン1","かでん・ぱそこん1","家電・パソコン1の詳細",3,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(7,7,"家電・パソコン2","かでん・ぱそこん2","家電・パソコン2の詳細",3,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(8,8,"家電・パソコン3","かでん・ぱそこん3","家電・パソコン3の詳細",3,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(9,9,"家電・パソコン4","かでん・ぱそこん4","家電・パソコン4の詳細",3,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(10,10,"家電・パソコン5","かでん・ぱそこん5","家電・パソコン5の詳細",3,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(11,11,"おもちゃ・ゲーム1","おもちゃ・げーむ1","おもちゃ・ゲーム1の詳細",4,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(12,12,"おもちゃ・ゲーム2","おもちゃ・げーむ2","おもちゃ・ゲーム2の詳細",4,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(13,13,"おもちゃ・ゲーム3","おもちゃ・げーむ3","おもちゃ・ゲーム3の詳細",4,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(14,14,"おもちゃ・ゲーム4","おもちゃ・げーむ4","おもちゃ・ゲーム4の詳細",4,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(15,15,"おもちゃ・ゲーム5","おもちゃ・げーむ5","おもちゃ・ゲーム5の詳細",4,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(16,16,"CD1","しーでぃー1","CD1の詳細",5,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(17,17,"CD2","しーでぃー2","CD2の詳細",5,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(18,18,"CD3","しーでぃー3","CD3の詳細",5,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(19,19,"CD4","しーでぃー4","CD4の詳細",5,100,"./images","sample.jpg",now(),"発売会社",1,now(),now()),
-(20,20,"CD5","しーでぃー5","CD5の詳細",5,100,"./images","sample.jpg",now(),"発売会社",1,now(),now());
+(1,1,"同人誌","どうじんし","春コミを逃した人たちへ",2,500,"./images","book_1.jpg",now(),"株式会社ゴマ",1,now(),now()),
+(2,2,"法律書","ほうりつしょ","物理的な武器にも使えます",2,1500,"./images","book_2.jpg",now(),"株式会社ゴマ",1,now(),now()),
+(3,3,"名言集","めいげんしゅう","人生に迷った時はコレ",2,650,"./images","book_3.jpg",now(),"株式会社ゴマ",1,now(),now()),
+(4,4,"予言書","よげんしょ","XX年後日本滅亡？",2,300,"./images","book_4.jpg",now(),"株式会社ゴマ",1,now(),now()),
+(5,5,"コミック","こみっく","12月にアニメ化決定！！",2,440,"./images","book_5.jpg",now(),"株式会社ゴマ",1,now(),now()),
+(6,6,"冷蔵庫","れいぞうこ","220L・三人家族用",3,100,"./images","sample.jpg",now(),"株式会社青葉",1,now(),now()),
+(7,7,"テレビ","てれび","白黒テレビ",3,100,"./images","sample.jpg",now(),"株式会社青葉",1,now(),now()),
+(8,8,"家電・パソコン3","かでん・ぱそこん3","家電・パソコン3の詳細",3,100,"./images","sample.jpg",now(),"株式会社青葉",1,now(),now()),
+(9,9,"家電・パソコン4","かでん・ぱそこん4","家電・パソコン4の詳細",3,100,"./images","sample.jpg",now(),"株式会社青葉",1,now(),now()),
+(10,10,"家電・パソコン5","かでん・ぱそこん5","家電・パソコン5の詳細",3,100,"./images","sample.jpg",now(),"株式会社青葉",1,now(),now()),
+(11,11,"おもちゃ・ゲーム1","おもちゃ・げーむ1","おもちゃ・ゲーム1の詳細",4,100,"./images","sample.jpg",now(),"株式会社トマト",1,now(),now()),
+(12,12,"おもちゃ・ゲーム2","おもちゃ・げーむ2","おもちゃ・ゲーム2の詳細",4,100,"./images","sample.jpg",now(),"株式会社トマト",1,now(),now()),
+(13,13,"おもちゃ・ゲーム3","おもちゃ・げーむ3","おもちゃ・ゲーム3の詳細",4,100,"./images","sample.jpg",now(),"株式会社トマト",1,now(),now()),
+(14,14,"おもちゃ・ゲーム4","おもちゃ・げーむ4","おもちゃ・ゲーム4の詳細",4,100,"./images","sample.jpg",now(),"株式会社トマト",1,now(),now()),
+(15,15,"おもちゃ・ゲーム5","おもちゃ・げーむ5","おもちゃ・ゲーム5の詳細",4,100,"./images","sample.jpg",now(),"株式会社トマト",1,now(),now()),
+(16,16,"CD1","しーでぃー1","CD1の詳細",5,100,"./images","sample.jpg",now(),"株式会社NASU",1,now(),now()),
+(17,17,"CD2","しーでぃー2","CD2の詳細",5,100,"./images","sample.jpg",now(),"株式会社NASU",1,now(),now()),
+(18,18,"CD3","しーでぃー3","CD3の詳細",5,100,"./images","sample.jpg",now(),"株式会社NASU",1,now(),now()),
+(19,19,"CD4","しーでぃー4","CD4の詳細",5,100,"./images","sample.jpg",now(),"株式会社NASU",1,now(),now()),
+(20,20,"CD5","しーでぃー5","CD5の詳細",5,100,"./images","sample.jpg",now(),"株式会社NASU",1,now(),now());
 
 create table cart_info(
 id int primary key not null auto_increment,
@@ -130,7 +130,6 @@ destination_id int, /*？外部キー制約？*/
 regist_date datetime,
 update_date datetime,
 foreign key (user_id) references user_info (user_id),
-foreign key (product_id) references product_info (product_id),
-foreign key (destination_id) references destination_info (id)
+foreign key (product_id) references product_info (product_id)
 );
 
