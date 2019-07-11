@@ -23,14 +23,19 @@ table.horizontal-list-table{
 table.horizontal-list-table th{
   text-align: center;
   color: #f8f8ff;
-  background-color: #222222;
-  border: 1px solid #c0c0c0;
+  background-color: #444;
+  border: 1px solid #d3d3d3;
   padding: 8px 14px;
 }
 
 table.horizontal-list-table td{
   padding: 4px 10px 4px;
-  border: 1px solid #c0c0c0;
+  border: 1px solid #d3d3d3;
+}
+
+.submit_btn_box{
+	text-align: center;
+	margin: 20px auto 30px auto;
 }
 
 .info{
