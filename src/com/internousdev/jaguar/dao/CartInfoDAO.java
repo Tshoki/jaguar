@@ -168,7 +168,8 @@ public class CartInfoDAO {
 
 		String sql = "UPDATE"
 						+ " cart_info"
-						+ " SET product_count = (product_count + ?)"
+						+ " SET product_count = (product_count + ?),"
+						+ " update_date = NOW()"
 						+ " WHERE user_id = ? AND product_id = ?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
