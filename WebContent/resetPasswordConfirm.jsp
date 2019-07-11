@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link rel="stylesheet" href="./css/style/css">
 <title>パスワード再設定確認</title>
 </head>
 <body>
