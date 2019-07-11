@@ -16,14 +16,10 @@ input[type="submit"]{
 	color: #fff;
  	font-size: 8px;
  }
-
-
 input[type="submit"]:hover {
 	opacity: 0.5;
 	cursor: pointer;
 }
-
-
 h1 {
     border-bottom: 3px solid black;
     border-top: 3px solid black;
@@ -42,20 +38,30 @@ h1 {
 
 table.vertical-table{
 	width: 90%;
-	background-color: gray;
-	border-collapse: separate;
+	padding: 10px;
+	border-top: solid 1px #d3d3d3;
+	border-left: solid 1px #d3d3d3;
+	margin: 20px auto 30px auto;
 }
 
 table.vertical-table th td{
 	border-collapse: collapse;
+
 }
 
 table.vertical-table th{
 	width: 25%;
-	background-color: white;
-	
+	background-color: #444;
+	color: white;
+	border-right: solid 1px #d3d3d3;
+	border-bottom: solid 1px #d3d3d3;
+	text-align: left;
+	padding: 10px;
 }
 
 table.vertical-table td{
 	width: 75%;
+	border-right: solid 1px #d3d3d3;
+	border-bottom: solid 1px #d3d3d3;
+	padding: 10px;
 }
