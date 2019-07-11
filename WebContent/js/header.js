@@ -16,3 +16,8 @@ function goLogoutAction(){
 function goSearchItemAction(){
 	document.getElementById("form").action="SearchItemAction";
 }
+
+$(function(){
+	var height=$('header').height();
+	$('body').css('margin-top', height + 100);
+});
