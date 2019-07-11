@@ -40,7 +40,7 @@ public class CartInfoDAO {
 						+ " FROM cart_info LEFT JOIN product_info"
 						+ " ON cart_info.product_id = product_info.product_id"
 						+ " WHERE cart_info.user_id = ?"
-						+ "	ORDER BY cart_info.regist_date DESC, cart_info.update_date DESC";
+						+ "	ORDER BY cart_info.update_date DESC, cart_info.regist_date DESC";
 
 		try{
 
