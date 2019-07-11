@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>ユーザー情報入力画面</title>
-<link rel="stylesheet" href="./css/sasaki.css">
+<link rel="stylesheet" href="./css/jaguar.css">
 </head>
 <body>
 
@@ -77,45 +77,50 @@
 				<tr>
 					<th scope="row">姓</th>
 					<td>
-					<s:textfield name="familyName"value="%{#session.familyName}" placeholder="姓"/>
+					<s:textfield name="familyName" value="%{#session.familyName}" placeholder="姓"/>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">名</th>
-					<td><s:textfield name="firstName"
-							value="%{#session.firstName}" placeholder="名"/></td>
+					<td>
+					<s:textfield name="firstName" value="%{#session.firstName}" placeholder="名"/>
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">姓ふりがな</th>
-					<td><s:textfield name="familyNameKana"
-							value="%{#session.familyNameKana}" placeholder="姓ふりがな"
-							/></td>
+					<td>
+					<s:textfield name="familyNameKana" value="%{#session.familyNameKana}" placeholder="姓ふりがな"/>
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">名ふりがな</th>
-					<td><s:textfield name="firstNameKana"
-							value="%{#session.firstNameKana}" placeholder="名ふりがな"/></td>
+					<td>
+					<s:textfield name="firstNameKana" value="%{#session.firstNameKana}" placeholder="名ふりがな"/>
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">性別</th>
-					<td><s:radio name="sex" list="%{#session.sexList}"
-							value="%{#session.sex}" placeholder="性別" /></td>
+					<td>
+					<s:radio name="sex" list="%{#session.sexList}" value="%{#session.sex}" placeholder="性別" />
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">メールアドレス</th>
-					<td><s:textfield name="email" value="%{#session.email}"
-							placeholder="メールアドレス"/></td>
+					<td>
+					<s:textfield name="email" value="%{#session.email}" placeholder="メールアドレス"/>
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">ユーザーID</th>
-					<td><s:textfield name="userId"
-							value="%{#session.userIdForCreateUser}" placeholder="ユーザーID"
-							/></td>
+					<td>
+					<s:textfield name="userId" value="%{#session.userIdForCreateUser}" placeholder="ユーザーID"/>
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">パスワード</th>
-					<td><s:password name="password" value="" placeholder="パスワード"
-							/></td>
+					<td>
+					<s:password name="password" value="%{#session.password}" placeholder="パスワード"/>
+					</td>
 				</tr>
 			</table>
 			<s:submit value="確認" />
