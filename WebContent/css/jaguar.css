@@ -21,3 +21,13 @@ input[type="submit"]:hover {
 	opacity: 0.5;
 	cursor: pointer;
 }
+
+
+h1 {
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    text-align: center;
+    padding: 10px 0px;
+    width: 90%;
+    margin: 20px auto 30px auto;
+}
