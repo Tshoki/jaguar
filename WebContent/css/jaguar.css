@@ -28,25 +28,41 @@ input[type="text"],input[type="password"]{
 
 /* Jaguar Title CSS v1.0 2019 7/11 */
 h1 {
-    border-bottom: 3px solid black;
-    border-top: 3px solid black;
-    text-align: center;
-    padding: 10px 0px;
-    width: 90%;
-    margin: 20px auto 30px auto;
+color: #4d4d4d;
+border-bottom: 3px solid #4d4d4d;
+border-top: 3px solid #4d4d4d;
+text-align: center;
+padding: 15px 0px;
+width: 90%;
+margin: 20px auto 30px auto;
 }
 
 /* Jaguar Message CSS v1.0 2019 7/11 */
+.message {
+text-align: center;
+width: 85%;
+margin: 0px auto;
+}
+
 .bg_blue {
-    color: blue;
-    border: 1px solid #518c51;
-    background-color: #90EE90;
+color: #4d4d4d;
+border: 1px solid #0000EE;
+background-color: #6A6AED;
+padding: 15px 10px;
+
+}
+.bg_green {
+color: blue;
+border: 1px solid #00EE00;
+background-color: #6AED6A;
+padding: 15px 10px;
 }
 
 .bg_red {
-    color: red;
-    border: 1px solid #ff5757;
-    background-color: #ff8c8c;
+color: #4d4d4d;
+border: 1px solid #EE0000;
+background-color: #ED6A6A;
+padding: 15px 10px;
 }
 
 table.row_table{
