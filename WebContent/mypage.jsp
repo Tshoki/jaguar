@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/mypage.css">
+<link rel="stylesheet" href="./css/jaguar.css">
 <title>マイページ</title>
 </head>
 <body>
