@@ -31,3 +31,15 @@ h1 {
     width: 90%;
     margin: 20px auto 30px auto;
 }
+
+.bg_blue {
+    color: blue;
+    border: 1px solid #518c51;
+    background-color: #90EE90;
+}
+
+.bg_red {
+    color: red;
+    border: 1px solid #ff5757;
+    background-color: #ff8c8c;
+}
