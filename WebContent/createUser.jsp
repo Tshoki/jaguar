@@ -74,51 +74,42 @@
 		<s:form action="CreateUserConfirmAction">
 			<table>
 				<tr>
-					<th>姓：</th>
-					<td><s:textfield name="familyName" value="%{#session.familyName}" placeholder="姓"/></td>
+					<th>姓</th>
+					<td><s:textfield name="familyName"
+							value="%{#session.familyName}" placeholder="姓" /></td>
 				</tr>
-
 				<tr>
-					<th>名：</th>
-					<td><s:textfield name="firstName" value="%{session.firstName}" placeholder="名"/>
-					</td>
+					<th>名</th>
+					<td><s:textfield name="firstName"
+							value="%{#session.firstName}" placeholder="名" /></td>
 				</tr>
-
 				<tr>
-					<th>姓ふりがな：</th>
+					<th>姓ふりがな</th>
 					<td><s:textfield name="familyNameKana"
-							value="%{session.familyNameKana}" placeholder="姓ふりがな"/></td>
+							value="%{#session.familyNameKana}" placeholder="姓ふりがな" /></td>
 				</tr>
-
 				<tr>
-					<th>名ふりがな：</th>
+					<th>名ふりがな</th>
 					<td><s:textfield name="firstNameKana"
-							value="%{session.firstNameKana}" placeholder="名ふりがな"/></td>
+							value="%{#session.firstNameKana}" placeholder="名ふりがな" /></td>
 				</tr>
-
 				<tr>
-					<th>性別：</th>
-					<td><s:radio name="sex" list="%{session.sexList}" value="%{session.sex}" placeholder="性別"/></td>
+					<th>住所</th>
+					<td><s:textfield name="userAddress"
+							value="%{#session.userAddress}" placeholder="住所" /></td>
 				</tr>
-
 				<tr>
-					<th>メールアドレス：</th>
-					<td><s:textfield name="email" value="%{session.email}" placeholder="メールアドレス"/></td>
+					<th>電話番号</th>
+					<td><s:textfield name="telNumber"
+							value="%{#session.telNumber}" placeholder="電話番号" /></td>
 				</tr>
-
 				<tr>
-					<th>ユーザーID：</th>
-					<td><s:textfield name="userId"
-							value="%{session.userIdForCreateUser}" placeholder="ユーザーID"/></td>
+					<th>メールアドレス</th>
+					<td><s:textfield name="email" value="%{#session.email}"
+							placeholder="メールアドレス" /></td>
 				</tr>
-
-				<tr>
-					<th>パスワード：</th>
-					<td><s:password name="password" value="%{session.password}" placeholder="パスワード"/>
-					</td>
-				</tr>
-				<s:submit value="確認" />
 			</table>
+			<s:submit value="確認" />
 		</s:form>
 	</div>
 </body>
