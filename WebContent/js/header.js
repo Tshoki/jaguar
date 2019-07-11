@@ -19,5 +19,5 @@ function goSearchItemAction(){
 
 $(function(){
 	var height=$('header').height();
-	$('body').css('margin-top', height + 100);
+	$('body').css('margin-top', height + 14);
 });
