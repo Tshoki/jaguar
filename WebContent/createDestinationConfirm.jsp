@@ -8,34 +8,57 @@
 <title>宛先入力確認画面</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
+<jsp:include page="header.jsp" />
 <h1>宛先入力確認画面</h1>
-<br>
 <s:form id="destinationInfo">
-<p>姓
-	<s:property value="familyName"/>
-</p>
-<p>名
-	<s:property value="firstName"/>
-</p>
-<p>姓ふりがな
-	<s:property value="familyNameKana"/>
-</p>
-<p>名ふりがな
-	<s:property value="firstNameKana"/>
-</p>
-<p>住所
-	<s:property value="userAddress"/>
-</p>
-<p>電話
-	<s:property value="telNumber"/>
-</p>
-<p>メール
-	<s:property value="email"/>
-</p>
-<s:submit value="登録" onclick="GOtoCompleteAction()"/>
-<s:submit value="戻る" onclick="BACKtoAction()"/>
-<s:hidden id="backFlg" name="backFlg" value=""/>
+    <table>
+        <tr>
+            <th>姓</th>
+            <td>
+                <s:property value="familyName" />
+            </td>
+        </tr>
+        <tr>
+            <th>名</th>
+            <td>
+                <s:property value="firstName" />
+            </td>
+        </tr>
+        <tr>
+            <th>姓ふりがな</th>
+            <td>
+                <s:property value="familyNameKana" />
+            </td>
+        </tr>
+        <tr>
+            <th>名ふりがな</th>
+            <td>
+                <s:property value="firstNameKana" />
+            </td>
+        </tr>
+        <tr>
+            <th>住所</th>
+            <td>
+                <s:property value="userAddress" />
+            </td>
+        </tr>
+        <tr>
+            <th>電話番号</th>
+            <td>
+                <s:property value="telNumber" />
+            </td>
+        </tr>
+        <tr>
+            <th>メールアドレス</th>
+            <td>
+                <s:property value="email" />
+            </td>
+        </tr>
+    </table>
+    <s:submit value="登録" onclick="GOtoCompleteAction()" />
+    <s:submit value="戻る" onclick="BACKtoAction()" />
+    <s:hidden id="backFlg" name="backFlg" value="" />
 </s:form>
+
 </body>
 </html>
