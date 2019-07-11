@@ -14,7 +14,7 @@
 	<h1>マイページ画面</h1>
 	<s:if test="userInfoDTO!=null">
 	<s:form action="PurchaseHistoryAction"><!-- 遷移先 -->
-		<table class="vertical-table">
+		<table class="row_table">
 			<tr>
 				<th scope="row"><s:label value="姓"/></th>
 				<td><s:property value="userInfoDTO.familyName"/></td>
