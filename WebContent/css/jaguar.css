@@ -75,3 +75,31 @@ table.row_table td{
 	border-bottom: solid 1px #d3d3d3;
 	padding: 10px;
 }
+
+table.horizontal-list-table{
+  margin : auto;
+  width: 85%;
+}
+
+table.horizontal-list-table th{
+  text-align: center;
+  color: #f8f8ff;
+  background-color: #444;
+  border: 1px solid #d3d3d3;
+  padding: 8px 14px;
+}
+
+
+
+table.horizontal-list-table td{
+  padding: 4px 10px 4px;
+  border: 1px solid #d3d3d3;
+}
+
+table.horizontal-list-table td:last-child{
+	width: 20%;
+}
+
+table.horizontal-list-table td:nth-child(10n-1){
+	width: 15%;
+}
