@@ -16,7 +16,6 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
   private List<DestinationInfoDTO> destinationInfoDTOList;
   private Map<String, Object> session;
 
-
     public String execute() {
     	String result = ERROR;
     	String userId = null;
@@ -49,21 +48,17 @@ public class SettlementConfirmAction extends ActionSupport implements SessionAwa
     	return result;
     }
 
-
 	public List<DestinationInfoDTO> getDestinationInfoDTOList() {
 		return destinationInfoDTOList;
 	}
-
 
 	public void setDestinationInfoDTOList(List<DestinationInfoDTO> destinationInfoDTOList) {
 		this.destinationInfoDTOList = destinationInfoDTOList;
 	}
 
-
 	public Map<String, Object> getSession() {
 		return session;
 	}
-
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;

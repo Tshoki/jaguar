@@ -12,9 +12,9 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-
-<div id="main">
-  <p>決済が完了しました。</p>
-</div>
+  <h1>決済完了画面</h1>
+  <div class="info">
+    決済が完了しました。
+  </div>
 </body>
 </html>
