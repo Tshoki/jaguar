@@ -75,48 +75,46 @@
 			<table>
 				<tr>
 					<th>姓：</th>
-					<td><s:textfield name="familyName"
-							value="%{#session.familyName}" /></td>
+					<td><s:textfield name="familyName" value="%{#session.familyName}" placeholder="姓"/></td>
 				</tr>
 
 				<tr>
 					<th>名：</th>
-					<td><s:textfield name="firstName" value="%{session.firstName}" />
+					<td><s:textfield name="firstName" value="%{session.firstName}" placeholder="名"/>
 					</td>
 				</tr>
 
 				<tr>
 					<th>姓ふりがな：</th>
 					<td><s:textfield name="familyNameKana"
-							value="%{session.familyNameKana}" /></td>
+							value="%{session.familyNameKana}" placeholder="姓ふりがな"/></td>
 				</tr>
 
 				<tr>
 					<th>名ふりがな：</th>
 					<td><s:textfield name="firstNameKana"
-							value="%{session.firstNameKana}" /></td>
+							value="%{session.firstNameKana}" placeholder="名ふりがな"/></td>
 				</tr>
 
 				<tr>
 					<th>性別：</th>
-					<td><s:radio name="sex" list="%{session.sexList}"
-							value="%{session.sex}" /></td>
+					<td><s:radio name="sex" list="%{session.sexList}" value="%{session.sex}" placeholder="性別"/></td>
 				</tr>
 
 				<tr>
 					<th>メールアドレス：</th>
-					<td><s:textfield name="email" value="%{session.email}" /></td>
+					<td><s:textfield name="email" value="%{session.email}" placeholder="メールアドレス"/></td>
 				</tr>
 
 				<tr>
 					<th>ユーザーID：</th>
 					<td><s:textfield name="userId"
-							value="%{session.userIdForCreateUser}" /></td>
+							value="%{session.userIdForCreateUser}" placeholder="ユーザーID"/></td>
 				</tr>
 
 				<tr>
 					<th>パスワード：</th>
-					<td><s:password name="password" value="%{session.password}" />
+					<td><s:password name="password" value="%{session.password}" placeholder="パスワード"/>
 					</td>
 				</tr>
 				<s:submit value="確認" />
