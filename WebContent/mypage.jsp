@@ -36,7 +36,7 @@
 				<td><s:property value="userInfoDTO.email"/></td>
 			</tr>
 		</table>
-			<div>
+			<div class="submit_btn">
 				<s:submit value="購入履歴"/>
 			</div>
 	</s:form>
