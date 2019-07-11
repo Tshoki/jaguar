@@ -10,7 +10,11 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<h1>宛先情報入力完了画面</h1>
-宛先情報入力が完了しました。
+<div id="content">
+        <h1>ユーザー情報入力完了画面</h1>
+        <div class="complete_message bg_green">
+            ユーザー情報入力が完了しました。
+        </div>
+    </div>
 </body>
 </html>
