@@ -55,9 +55,9 @@
 	</s:if>
 
 <s:form action="ResetPasswordConfirmAction">
-	<table class="c_table">
+	<table class="row_table">
 		<tr>
-			<th scope="row"><s:label value="ユーザID"/><th>
+			<th scope="row"><s:label value="ユーザID"/></th>
 			<td><s:textfield name="userId" value="%{#session.userIdForResetPassword}" placeholder="ユーザーID" class="txt"/></td>
 		</tr>
 		<tr>
@@ -73,7 +73,7 @@
 		</tr>
 	</table>
 	<div class="submit_btn_box">
-		<s:submit value="確認" class="submit_btn" />
+		<s:submit value="確認" />
 	</div>
 </s:form>
 </div>
