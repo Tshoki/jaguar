@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/cart.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="./js/cart.js"></script>
 <title>カート画面</title>
@@ -18,7 +19,7 @@
 <s:if test="!cartInfoDTOList.isEmpty()">
 <s:form action="DeleteCartAction">
 <!-- 項目列 -->
-<table>
+<table class="column_table">
 	<thead>
 		<tr>
 			<th>#</th>
@@ -53,7 +54,7 @@
 <!-- /カート内容 -->
 </table>
 
-カート合計金額:<s:property value="totalPrice" /><!-- カート合計金額 -->
+<div class="total_price_box">カート合計金額 : <s:property value="totalPrice" />円</div><!-- カート合計金額 -->
 
 <!-- 決済ボタン -->
 <s:submit value="決済" data-action="SettlementConfirmAction" />
