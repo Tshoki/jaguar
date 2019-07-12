@@ -1,10 +1,10 @@
 
 .submit_btn_box {
 	text-align: center;
-	margin-bottom: 5px;
+	margin-bottom: 8px;
 }
 
-.error {
+/* .error {
 	width: 90%;
 	margin:0px auto 8px;
 	text-align: center;
@@ -14,14 +14,9 @@
 	font-size: 12px;
 	border: 1px solid #FF0000;
 	line-height: 1.8em;
-}
-
-table.row_table input[type="text"], input[type="password"]{
-	width: 97%;
-	font-size: 2rem;
-}
+} */
 
 .box {
 	width: 90%;
-	margin: 0 auto;
+	margin: 0px auto 20px;
 }

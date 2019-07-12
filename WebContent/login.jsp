@@ -15,8 +15,8 @@
 	<h1>ログイン画面</h1>
 
 	<s:if test = "userIdErrorMessageList != null && userIdErrorMessageList.size() > 0">
-		<div class = "error">
-			<div class = "error-message">
+		<div class = "message">
+			<div class = "bg_red">
 				<s:iterator value ="userIdErrorMessageList">
 					<s:property /><br>
 				</s:iterator>
@@ -25,8 +25,8 @@
 	</s:if>
 
 	<s:if test = "passwordErrorMessageList != null && passwordErrorMessageList.size() > 0">
-		<div class = "error">
-			<div class = "error-message">
+		<div class = "message">
+			<div class = "bg_red">
 				<s:iterator value ="passwordErrorMessageList">
 					<s:property /><br>
 				</s:iterator>
@@ -35,8 +35,8 @@
 	</s:if>
 
 	<s:if test = "isNotUserInfoMessage != null && !isNotUserInfoMessage.isEmpty()">
-		<div class = "error">
-			<div class = "error-message">
+		<div class = "message">
+			<div class = "bg_red">
 				<s:property value = "isNotUserInfoMessage" />
 			</div>
 		</div>
