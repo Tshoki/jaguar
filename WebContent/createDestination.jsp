@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/jaguar.css">
 <title>宛先入力画面</title>
 </head>
 <body>
@@ -13,81 +14,105 @@
 	<!-- エラーメッセージ出力 -->
 	<s:if
 		test="familyNameErrorMessageList!= null && familyNameErrorMessageList.size()> 0">
-		<s:iterator value="familyNameErrorMessageList">
-			<s:property />
-		</s:iterator>
+		<div class="message bg_red">
+			<s:iterator value="familyNameErrorMessageList">
+				<br>
+				<s:property />
+			</s:iterator>
+		</div>
 	</s:if>
 	<s:if
 		test="firstNameErrorMessageList!= null && firstNameErrorMessageList.size()> 0">
-		<s:iterator value="firstNameErrorMessageList">
-			<s:property />
-		</s:iterator>
+		<div class="message bg_red">
+			<s:iterator value="firstNameErrorMessageList">
+				<br>
+				<s:property />
+			</s:iterator>
+		</div>
 	</s:if>
 	<s:if
 		test="familyNameKanaErrorMessageList!= null && familyNameKanaErrorMessageList.size()> 0">
-		<s:iterator value="familyNameKanaErrorMessageList">
-			<s:property />
-		</s:iterator>
+		<div class="message bg_red">
+			<s:iterator value="familyNameKanaErrorMessageList">
+				<br>
+				<s:property />
+			</s:iterator>
+		</div>
 	</s:if>
 	<s:if
 		test="firstNameKanaErrorMessageList!= null && firstNameKanaErrorMessageList.size()> 0">
-		<s:iterator value="firstNameKanaErrorMessageList">
-			<s:property />
-		</s:iterator>
+		<div class="message bg_red">
+			<s:iterator value="firstNameKanaErrorMessageList">
+				<br>
+				<s:property />
+			</s:iterator>
+		</div>
 	</s:if>
 	<s:if
 		test="userAddressErrorMessageList!= null && userAddressErrorMessageList.size()> 0">
-		<s:iterator value="userAddressErrorMessageList">
-			<s:property />
-		</s:iterator>
+		<div class="message bg_red">
+			<s:iterator value="userAddressErrorMessageList">
+				<br>
+				<s:property />
+			</s:iterator>
+		</div>
 	</s:if>
 	<s:if
 		test="telNumberErrorMessageList!= null && telNumberErrorMessageList.size()> 0">
-		<s:iterator value="telNumberErrorMessageList">
-			<s:property />
-		</s:iterator>
+		<div class="message bg_red">
+			<s:iterator value="telNumberErrorMessageList">
+				<br>
+				<s:property />
+			</s:iterator>
+		</div>
 	</s:if>
 	<s:if
 		test="emailErrorMessageList!= null && emailErrorMessageList.size()> 0">
-		<s:iterator value="emailErrorMessageList">
-			<s:property />
-		</s:iterator>
+		<div class="message bg_red">
+			<s:iterator value="emailErrorMessageList">
+				<br>
+				<s:property />
+			</s:iterator>
+		</div>
 	</s:if>
 
 	<!-- 宛先情報入力フォーム -->
 	<s:form action="CreateDestinationConfirmAction">
-		<table>
+		<table class="row_table">
 			<tr>
 				<th>姓</th>
 				<td><s:textfield name="familyName"
-						value="%{#session.familyName}" placeholder="姓ふりがな"/></td>
+						value="%{#session.familyName}" placeholder="姓ふりがな" /></td>
 			</tr>
 			<tr>
 				<th>名</th>
-				<td><s:textfield name="firstName" value="%{#session.firstName}" placeholder="名ふりがな"/></td>
+				<td><s:textfield name="firstName" value="%{#session.firstName}"
+						placeholder="名ふりがな" /></td>
 			</tr>
 			<tr>
 				<th>姓ふりがな</th>
 				<td><s:textfield name="familyNameKana"
-						value="%{#session.familyNameKana}" placeholder="姓ふりがな"/></td>
+						value="%{#session.familyNameKana}" placeholder="姓ふりがな" /></td>
 			</tr>
 			<tr>
 				<th>名ふりがな</th>
 				<td><s:textfield name="firstNameKana"
-						value="%{#session.firstNameKana}" placeholder="名ふりがな"/></td>
+						value="%{#session.firstNameKana}" placeholder="名ふりがな" /></td>
 			</tr>
 			<tr>
 				<th>住所</th>
 				<td><s:textfield name="userAddress"
-						value="%{#session.userAddress}" placeholder="住所"/></td>
+						value="%{#session.userAddress}" placeholder="住所" /></td>
 			</tr>
 			<tr>
 				<th>電話番号</th>
-				<td><s:textfield name="telNumber" value="%{#session.telNumber}" placeholder="電話番号"/></td>
+				<td><s:textfield name="telNumber" value="%{#session.telNumber}"
+						placeholder="電話番号" /></td>
 			</tr>
 			<tr>
 				<th>メールアドレス</th>
-				<td><s:textfield name="email" value="%{#session.email}" placeholder="メールアドレス"/></td>
+				<td><s:textfield name="email" value="%{#session.email}"
+						placeholder="メールアドレス" /></td>
 			</tr>
 		</table>
 		<s:submit value="確認" />
