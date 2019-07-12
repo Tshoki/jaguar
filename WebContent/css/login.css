@@ -4,20 +4,12 @@
 	margin-bottom: 8px;
 }
 
-/* .error {
-	width: 90%;
-	margin:0px auto 8px;
-	text-align: center;
-	background-color:#F6CECE;
-	color:#FF0000;
-	padding: 1em 0em;
-	font-size: 12px;
-	border: 1px solid #FF0000;
-	line-height: 1.8em;
-} */
-
-
 .box {
 	width: 90%;
 	margin: 0px auto 20px;
 }
+
+/* table input[type="text"], table input[type="password"]{
+	width: 96%;
+	background-color: #FFFFCC;
+} */

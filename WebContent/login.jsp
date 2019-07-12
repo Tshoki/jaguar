@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/login.css">
 <link rel="stylesheet" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/login.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="./js/login.js"></script>
 <title>ログイン画面</title>
 </head>
@@ -15,31 +16,25 @@
 	<h1>ログイン画面</h1>
 
 	<s:if test = "userIdErrorMessageList != null && userIdErrorMessageList.size() > 0">
-		<div class = "message">
-			<div class = "bg_red">
+			<div class = "message bg_red">
 				<s:iterator value ="userIdErrorMessageList">
 					<s:property /><br>
 				</s:iterator>
 			</div>
-		</div>
 	</s:if>
 
 	<s:if test = "passwordErrorMessageList != null && passwordErrorMessageList.size() > 0">
-		<div class = "message">
-			<div class = "bg_red">
+			<div class = "message bg_red">
 				<s:iterator value ="passwordErrorMessageList">
 					<s:property /><br>
 				</s:iterator>
 			</div>
-		</div>
 	</s:if>
 
 	<s:if test = "isNotUserInfoMessage != null && !isNotUserInfoMessage.isEmpty()">
-		<div class = "message">
-			<div class = "bg_red">
+			<div class = "message bg_red">
 				<s:property value = "isNotUserInfoMessage" />
 			</div>
-		</div>
 	</s:if>
 
 	<s:form id = "loginForm">
