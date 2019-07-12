@@ -11,11 +11,9 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-<div id="contents">
 <h1>商品購入履歴画面</h1>
 <s:if test="purchaseHistoryInfoDTOList!=null && purchaseHistoryInfoDTOList.size()>0">
 <table class="column_table">
-	<thead>
 		<tr>
 			<th><s:label value="商品名"/></th>
 			<th><s:label value="ふりがな"/></th>
@@ -28,7 +26,6 @@
 			<th><s:label value="宛先名前"/></th>
 			<th><s:label value="宛先住所"/></th>
 		</tr>
-	<tbody>
 <s:iterator value="purchaseHistoryInfoDTOList">
 		<tr>
 			<td><s:property value="productName"/></td>
@@ -43,11 +40,10 @@
 			<td><s:property value="userAddress"/></td>
 		</tr>
 </s:iterator>
-	</tbody>
 </table>
-<div class="submit_btn_box">
+<div class="center_btn_box">
 <s:form action="DeletePurchaseHistoryAction">
-	<s:submit value="履歴削除" class="submit_btn"/>
+	<s:submit value="履歴削除"/>
 </s:form>
 </div>
 </s:if>
@@ -56,6 +52,5 @@
 商品購入履歴情報がありません。
 </div>
 </s:else>
-</div>
 </body>
 </html>
