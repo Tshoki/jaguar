@@ -26,10 +26,10 @@
 			</tr>
 		</table>
 		<div class="submit_btn_box">
-			<s:submit value="登録" class="submit_btn" onclick="goResetPasswordCompleteAction()"/>
+			<s:submit id="submit_btn" value="登録" class="submit_btn" onclick="goResetPasswordCompleteAction()"/>
 		</div>
 		<div class="submit_btn_box">
-			<s:submit value="戻る" class="submit_btn" onclick="goResetPasswordAction()"/>
+			<s:submit id="submit_btn2" value="戻る" class="submit_btn" onclick="goResetPasswordAction()"/>
 		</div>
 		<s:hidden id="backFlg" name="backFlg" value=""/>
 	</s:form>

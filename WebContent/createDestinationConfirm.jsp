@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <script src="./js/createDestination.js"></script>
 <link rel="stylesheet" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/createDestinationConfirm.css">
 <title>宛先入力確認画面</title>
 </head>
 <body>
@@ -43,8 +44,8 @@
 				<td><s:property value="email" /></td>
 			</tr>
 		</table>
-		<s:submit value="宛先情報登録" onclick="GOtoCompleteAction()" />
-		<s:submit value="戻る" onclick="BACKtoAction()" />
+		<s:submit id="submit_btn" value="宛先情報登録" onclick="GOtoCompleteAction()" />
+		<s:submit id="submit_btn2" value="戻る" onclick="BACKtoAction()" />
 		<s:hidden id="backFlg" name="backFlg" value="" />
 	</s:form>
 

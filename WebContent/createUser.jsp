@@ -18,58 +18,74 @@
 	<!--  入力にミスがあり、CreateUserConfirmActionから戻された場合に表示するメッセージ一覧-->
 	<s:if
 		test="familyNameErrorMessageList!=null && familyNameErrorMessageList.size()>0">
+		<div class="message bg_red">
 		<s:iterator value="familyNameErrorMessageList">
-			<s:property />
+			<s:property /><br>
 		</s:iterator>
+		</div>
 	</s:if>
 
 	<s:if
 		test="firstNameErrorMessageList!=null && firstNameErrorMessageList.size()>0">
+		<div class="message bg_red">
 		<s:iterator value="firstNameErrorMessageList">
-			<s:property />
+			<s:property /><br>
 		</s:iterator>
+		</div>
 	</s:if>
 
 	<s:if
 		test="familyNameKanaErrorMessageList!=null && familyNameKanaErrorMessageList.size()>0">
+		<div class="message bg_red">
 		<s:iterator value="familyNameKanaErrorMessageList">
-			<s:property />
+			<s:property /><br>
 		</s:iterator>
+		</div>
 	</s:if>
 
 	<s:if
 		test="firstNameKanaErrorMessageList!=null && firstNameKanaErrorMessageList.size()>0">
+		<div class="message bg_red">
 		<s:iterator value="firstNameKanaErrorMessageList">
-			<s:property />
+			<s:property /><br>
 		</s:iterator>
+		</div>
 	</s:if>
 
 	<s:if
 		test="emailErrorMessageList!=null && emailErrorMessageList.size()>0">
+		<div class="message bg_red">
 		<s:iterator value="emailErrorMessageList">
-			<s:property />
+			<s:property /><br>
 		</s:iterator>
+		</div>
 	</s:if>
 
 	<s:if
 		test="userIdErrorMessageList!=null && userIdErrorMessageList.size()>0">
+		<div class="message bg_red">
 		<s:iterator value="userIdErrorMessageList">
-			<s:property />
+			<s:property /><br>
 		</s:iterator>
+		</div>
 	</s:if>
 
 	<s:if
 		test="passwordErrorMessageList!=null && passwordErrorMessageList.size()>0">
+		<div class="message bg_red">
 		<s:iterator value="passwordErrorMessageList">
-			<s:property />
+			<s:property /><br>
 		</s:iterator>
+		</div>
 	</s:if>
 
 	<s:if
 		test="isExistsUserErrorMessage!=null && !isExistsUserErrorMessage.isEmpty()">
+		<div class="message bg_red">
 		<s:iterator value="isExistsUserErrorMessage">
-			<s:property />
+			<s:property /><br>
 		</s:iterator>
+		</div>
 	</s:if>
 
 	<div>

@@ -1,1 +1,17 @@
 @CHARSET "UTF-8";
+
+#destinationInfo{
+	position:relative;
+}
+
+#submit_btn{
+	position:absolute;
+	top:110%;
+	left:50%;
+}
+
+#submit_btn2{
+	position:absolute;
+	top:130%;
+	left:50%;
+}

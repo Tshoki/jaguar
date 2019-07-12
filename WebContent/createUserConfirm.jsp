@@ -60,9 +60,9 @@
 				</tr>
 
 				<!-- 登録ボタン押下で、createUser.jsのgoCreateUserCompleteActionメソッドを実行 -->
-				<s:submit value="登録" onclick="goCreateUserCompleteAction()" />
+				<s:submit id="submit_btn" value="登録" onclick="goCreateUserCompleteAction()" />
 				<!-- 戻るボタン押下で、createUser.jsのgoCreateUserActionメソッドを実行 -->
-				<s:submit value="戻る" onclick="goCreateUserAction()" />
+				<s:submit id="submit_btn2" value="戻る" onclick="goCreateUserAction()" />
 				<s:hidden id="backFlg" name="backFlg" value="" />
 			</table>
 		</s:form>
