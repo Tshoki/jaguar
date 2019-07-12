@@ -1,8 +1,0 @@
-@charset "UTF-8";
-table.column_table td:last-child {
-	width: 20%;
-}
-
-table.column_table td:nth-child(10n-1) {
-	width: 15%;
-}

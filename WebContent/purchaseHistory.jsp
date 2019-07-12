@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
-<link rel="stylesheet" href="./css/purchaseHistory.css">
 <script src="./js/jaguar.js"></script>
 <title> 商品購入履歴 </title>
 </head>
@@ -13,7 +12,7 @@
 <jsp:include page="header.jsp" />
 <h1>商品購入履歴画面</h1>
 <s:if test="purchaseHistoryInfoDTOList!=null && purchaseHistoryInfoDTOList.size()>0">
-<table class="column_table">
+<table class="column_table settlement_w">
 		<tr>
 			<th><s:label value="商品名"/></th>
 			<th><s:label value="ふりがな"/></th>
