@@ -91,6 +91,7 @@ h1.left {
 	color: #4d4d4d;
 	padding: 25px 20px;
 	margin-bottom: 7px;
+	font-weight: bold;
 }
 
 .eleft {
@@ -167,12 +168,4 @@ table.column_table th {
 table.column_table td {
 	padding: 4px 10px 4px;
 	border: 1px solid #d3d3d3;
-}
-
-table.column_table.settlement_w th:last-child {
-	width: 20%;
-}
-
-table.column_table.settlement_w th:nth-child(10n-1) {
-	width: 15%;
 }
