@@ -15,7 +15,6 @@ header{
 	background:#eee;
 	display:flex;
 	align-items:center;
-	flex-wrap:wrap;
 }
 header span{
 	font-weight:bold;
@@ -32,6 +31,7 @@ header ul{
 	width:100%;
 }
 header ul li{padding-right:10px;}
+header ul li:nth-child(3){padding-right:30px;}
 header ul li input[type="text"]{
 	border:none; border-radius:100px;
 	padding:6px 10px 6px 10px;
