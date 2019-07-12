@@ -26,7 +26,7 @@
 			</tr>
 		</table>
 		<div class="submit_btn_box">
-			<s:submit id="submit_btn" value="登録" class="submit_btn" onclick="goResetPasswordCompleteAction()"/>
+			<s:submit id="submit_btn" value="パスワード再設定" class="submit_btn" onclick="goResetPasswordCompleteAction()"/>
 		</div>
 		<div class="submit_btn_box">
 			<s:submit id="submit_btn2" value="戻る" class="submit_btn" onclick="goResetPasswordAction()"/>
