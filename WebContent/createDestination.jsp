@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/createDestination.css">
 <title>宛先入力画面</title>
 </head>
 <body>
@@ -115,7 +116,9 @@
 						placeholder="メールアドレス" /></td>
 			</tr>
 		</table>
+		<div class="submit_btn">
 		<s:submit value="確認" />
+		</div>
 	</s:form>
 </body>
 </html>
