@@ -42,30 +42,25 @@ margin: 20px auto 30px auto;
 text-align: center;
 width: 85%;
 margin: 0px auto;
+color: #4d4d4d;
+padding: 25px 10px;
 }
 
 .bg_blue {
-color: #4d4d4d;
 border: 1px solid #0000EE;
 background-color: #6A6AED;
-padding: 25px 10px;
-
 }
 .bg_green {
-color: #4d4d4d;
 border: 1px solid #00EE00;
 background-color: #6AED6A;
-padding: 25px 10px;
 }
 
 .bg_red {
-color: #4d4d4d;
 border: 1px solid #EE0000;
 background-color: #ED6A6A;
-padding: 25px 10px;
 }
 
-/* Jaguar rowTable CSS v1.2 2019 7/12 */table.row_table{
+table.row_table{
 	width: 90%;
 	padding: 10px;
 	border-top: solid 1px #d3d3d3;
@@ -108,7 +103,6 @@ table.column_table th{
   padding: 8px 14px;
 }
 
-/* Jaguar Message CSS v2.4 2019 7/12 */
 table.column_table td{
   padding: 4px 10px 4px;
   border: 1px solid #d3d3d3;
