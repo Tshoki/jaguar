@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/purchaseHistory.css">
+<link rel="stylesheet" href="./css/jaguar.css">
 <script src="./js/jaguar.js"></script>
 <title> 商品購入履歴 </title>
 </head>
@@ -51,7 +51,7 @@
 </div>
 </s:if>
 <s:else>
-<div class="info">
+<div class="message bg_blue">
 商品購入履歴情報がありません。
 </div>
 </s:else>
