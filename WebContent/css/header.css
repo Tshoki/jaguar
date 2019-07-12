@@ -37,3 +37,14 @@ header ul li input[type="text"]{
 	padding:6px 10px 6px 10px;
 }
 header ul li input[type="text"]:focus{outline:0;}
+/*
+header ul li input[type="submit"]{
+	border:none;
+	border-radius:0;
+	background:none;
+	color:#666;
+	font-size:1.5rem;
+	font-weight:bold;
+	letter-spacing: 0.1em
+}
+*/
