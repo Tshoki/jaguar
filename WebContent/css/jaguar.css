@@ -56,11 +56,12 @@ padding: 25px 10px;
 }
 
 .eleft{
-  text-align: left!important;
-  margin-left: 2%!important;
+  text-align: left;
+  margin-left: 2%!;
   padding-top: 15px!important;
-  padding-bottom: 15px!important;
-  padding-left: 60px!important;
+  padding-bottom: 15px;
+  padding-left: 60px;
+  width: 90%;
 }
 
 .bg_blue {
