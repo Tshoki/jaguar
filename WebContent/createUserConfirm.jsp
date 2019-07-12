@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8" />
 <link rel="stylesheet" href="./css/jaguar.css">
-<link rel="stylesheet" href="./css/createUserConfirm.css">
 <title>ユーザー情報入力確認画面</title>
 </head>
 <body>
