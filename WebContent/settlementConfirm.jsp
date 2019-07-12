@@ -21,7 +21,7 @@
 	宛先情報を選択してください。
 </div>
 	<s:form id="settlementConfirmForm">
-	<table class="horizontal-list-table">
+	<table class="column_table">
 	<thead>
 	<tr>
 	<th><s:label value="#"/></th>
