@@ -61,7 +61,6 @@
 	<li><s:submit value="削除" class="delete_btn" data-action="DeleteCartAction" /></li><!-- 削除ボタン -->
 </ul>
 
-
 </s:form>
 </s:if>
 
