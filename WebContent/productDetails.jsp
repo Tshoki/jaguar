@@ -20,42 +20,44 @@
 				<div class="box">
 					<div class="column-container">
 						<img src='<s:property value="productInfoDTO.imageFilePath"/>/<s:property value="productInfoDTO.imageFileName"/>' class="item-image-box-320"/>
-						<table class="details_table">
-							<tr>
-							<!-- scope="row"は『th（見出し用セル）に対応するtd（データ用セル）はrow行方向（横方向）ですよ』という意味 -->
-							<th scope="row"><s:label value="商品名"/></th>
-							<td><s:property value="productInfoDTO.productName"/></td>
-							</tr>
-							<tr>
-							<th scope="row"><s:label value="商品名ふりがな"/></th>
-							<td><s:property value="productInfoDTO.productNameKana"/></td>
-							</tr>
-							<tr>
-							<th scope="row"><s:label value="値段"/></th>
-							<td><s:property value="productInfoDTO.price"/>円</td>
-							</tr>
-							<tr>
-							<th scope="row"><s:label value="購入個数"/></th>
-							<td><s:select name="productCount" list="%{productCountList}"/>個</td> <!-- productCountListは購入個数。Integer型の配列 -->
-							</tr>
-							<tr>
-							<th scope="row"><s:label value="発売会社名"/></th>
-							<td><s:property value="productInfoDTO.releaseCompany"/></td>
-							</tr>
-							<tr>
-							<th scope="row"><s:label value="発売年月日"/></th>
-							<td><s:property value="productInfoDTO.releaseDate"/></td>
-							</tr>
-							<tr>
-							<th scope="row"><s:label value="商品詳細情報"/></th>
-							<td><s:property value="productInfoDTO.productDescription"/></td>
-							</tr>
-						</table>
+						<div class="taku">
+							<table class="details_table">
+								<tr>
+								<!-- scope="row"は『th（見出し用セル）に対応するtd（データ用セル）はrow行方向（横方向）ですよ』という意味 -->
+								<th scope="row"><s:label value="商品名"/></th>
+								<td><s:property value="productInfoDTO.productName"/></td>
+								</tr>
+								<tr>
+								<th scope="row"><s:label value="商品名ふりがな"/></th>
+								<td><s:property value="productInfoDTO.productNameKana"/></td>
+								</tr>
+								<tr>
+								<th scope="row"><s:label value="値段"/></th>
+								<td><s:property value="productInfoDTO.price"/>円</td>
+								</tr>
+								<tr>
+								<th scope="row"><s:label value="購入個数"/></th>
+								<td><s:select name="productCount" list="%{productCountList}"/>個</td> <!-- productCountListは購入個数。Integer型の配列 -->
+								</tr>
+								<tr>
+								<th scope="row"><s:label value="発売会社名"/></th>
+								<td><s:property value="productInfoDTO.releaseCompany"/></td>
+								</tr>
+								<tr>
+								<th scope="row"><s:label value="発売年月日"/></th>
+								<td><s:property value="productInfoDTO.releaseDate"/></td>
+								</tr>
+								<tr>
+								<th scope="row"><s:label value="商品詳細情報"/></th>
+								<td><s:property value="productInfoDTO.productDescription"/></td>
+								</tr>
+							</table>
+							<s:hidden name="productId" value="%{productInfoDTO.productId}"/> <!-- hiddenで選択されている商品IDを渡す -->
+							<div class="btn">
+								<s:submit value="カートに追加" class="submit_btn" />
+							</div>
+						</div>
 					</div>
-					<s:hidden name="productId" value="%{productInfoDTO.productId}"/> <!-- hiddenで選択されている商品IDを渡す -->
-				</div>
-				<div class="btn">
-					<s:submit value="カートに追加" class="submit_btn" />
 				</div>
 			</s:form>
 
@@ -63,7 +65,7 @@
 			<s:if test="relatedProductList!=null && relatedProductList.size()>0">
 				<div class="box">
 				<h2>【関連商品】</h2>
-					<div class="product-details-recomｍend-box">
+					<div class="product-details-recommend-box">
 					<s:iterator value="relatedProductList">
 						<div class="recommend-box">
 							<a href='<s:url action="ProductDetailsAction">
