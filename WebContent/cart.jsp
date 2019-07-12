@@ -56,11 +56,11 @@
 
 <div class="total_price_box">カート合計金額 : <s:property value="totalPrice" />円</div><!-- カート合計金額 -->
 
-<!-- 決済ボタン -->
-<s:submit value="決済" data-action="SettlementConfirmAction" />
+<ul class="cart_btn_list">
+	<li><s:submit value="決済" data-action="SettlementConfirmAction" /></li><!-- 決済ボタン -->
+	<li><s:submit value="削除" class="delete_btn" data-action="DeleteCartAction" /></li><!-- 削除ボタン -->
+</ul>
 
-<!-- 削除ボタン -->
-<s:submit value="削除" class="delete_btn" data-action="DeleteCartAction" />
 
 </s:form>
 </s:if>
