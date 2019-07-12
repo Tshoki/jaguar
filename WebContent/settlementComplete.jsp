@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="header.jsp"/>
   <h1>決済完了画面</h1>
-  <div class="info">
+  <div class="message bg_green">
     決済が完了しました。
   </div>
 </body>
