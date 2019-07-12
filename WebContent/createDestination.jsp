@@ -17,8 +17,7 @@
 		test="familyNameErrorMessageList!= null && familyNameErrorMessageList.size()> 0">
 		<div class="message bg_red">
 			<s:iterator value="familyNameErrorMessageList">
-				<br>
-				<s:property />
+				<s:property /><br>
 			</s:iterator>
 		</div>
 	</s:if>
@@ -26,8 +25,7 @@
 		test="firstNameErrorMessageList!= null && firstNameErrorMessageList.size()> 0">
 		<div class="message bg_red">
 			<s:iterator value="firstNameErrorMessageList">
-				<br>
-				<s:property />
+				<s:property /><br>
 			</s:iterator>
 		</div>
 	</s:if>
@@ -35,8 +33,7 @@
 		test="familyNameKanaErrorMessageList!= null && familyNameKanaErrorMessageList.size()> 0">
 		<div class="message bg_red">
 			<s:iterator value="familyNameKanaErrorMessageList">
-				<br>
-				<s:property />
+				<s:property /><br>
 			</s:iterator>
 		</div>
 	</s:if>
@@ -44,8 +41,7 @@
 		test="firstNameKanaErrorMessageList!= null && firstNameKanaErrorMessageList.size()> 0">
 		<div class="message bg_red">
 			<s:iterator value="firstNameKanaErrorMessageList">
-				<br>
-				<s:property />
+				<s:property /><br>
 			</s:iterator>
 		</div>
 	</s:if>
@@ -53,8 +49,7 @@
 		test="userAddressErrorMessageList!= null && userAddressErrorMessageList.size()> 0">
 		<div class="message bg_red">
 			<s:iterator value="userAddressErrorMessageList">
-				<br>
-				<s:property />
+				<s:property /><br>
 			</s:iterator>
 		</div>
 	</s:if>
@@ -62,8 +57,7 @@
 		test="telNumberErrorMessageList!= null && telNumberErrorMessageList.size()> 0">
 		<div class="message bg_red">
 			<s:iterator value="telNumberErrorMessageList">
-				<br>
-				<s:property />
+				<s:property /><br>
 			</s:iterator>
 		</div>
 	</s:if>
@@ -71,8 +65,7 @@
 		test="emailErrorMessageList!= null && emailErrorMessageList.size()> 0">
 		<div class="message bg_red">
 			<s:iterator value="emailErrorMessageList">
-				<br>
-				<s:property />
+				<s:property /><br>
 			</s:iterator>
 		</div>
 	</s:if>
