@@ -16,25 +16,25 @@
 	<h1>ログイン画面</h1>
 
 	<s:if test = "userIdErrorMessageList != null && userIdErrorMessageList.size() > 0">
-			<div class = "message bg_red">
-				<s:iterator value ="userIdErrorMessageList">
-					<s:property /><br>
-				</s:iterator>
-			</div>
+		<div class = "message bg_red">
+			<s:iterator value ="userIdErrorMessageList">
+				<s:property /><br>
+			</s:iterator>
+		</div>
 	</s:if>
 
 	<s:if test = "passwordErrorMessageList != null && passwordErrorMessageList.size() > 0">
-			<div class = "message bg_red">
-				<s:iterator value ="passwordErrorMessageList">
-					<s:property /><br>
-				</s:iterator>
-			</div>
+		<div class = "message bg_red">
+			<s:iterator value ="passwordErrorMessageList">
+				<s:property /><br>
+			</s:iterator>
+		</div>
 	</s:if>
 
 	<s:if test = "isNotUserInfoMessage != null && !isNotUserInfoMessage.isEmpty()">
-			<div class = "message bg_red">
-				<s:property value = "isNotUserInfoMessage" />
-			</div>
+		<div class = "message bg_red">
+			<s:property value = "isNotUserInfoMessage" />
+		</div>
 	</s:if>
 
 	<s:form id = "loginForm">
@@ -69,15 +69,15 @@
 			<s:label>ユーザーID保存</s:label>
 		</div>
 
-		<div class="submit_btn_box">
+		<div class="center_btn_box">
 			<s:submit value = "ログイン" onclick = "goLoginAction()" />
 		</div>
 
-		<div class = "submit_btn_box">
+		<div class = "center_btn_box">
 			<s:submit value = "新規ユーザー登録" onclick = "goCreateUserAction()" />
 		</div>
 
-		<div class = "submit_btn_box">
+		<div class = "center_btn_box">
 			<s:submit value = "パスワード再設定" onclick = "goResetPasswordAction()" />
 		</div>
 
