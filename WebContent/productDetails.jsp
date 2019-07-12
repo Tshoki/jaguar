@@ -3,6 +3,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="./css/productDetails.css">
+<link rel="stylesheet" href="./css/jaguar.css">
 <head>
 <meta charset="UTF-8">
 <title>商品詳細</title>
@@ -16,12 +18,9 @@
 
 			<s:form action="AddCartAction">
 				<div class="box">
-					<div class="2column-container">
-						<div class="right">
-							<img src='<s:property value="productInfoDTO.imageFilePath"/>/<s:property value="productInfoDTO.imageFileName"/>' class="item-image-box-320"/><br>
-						</div>
-						<div class="left">
-						<table class="vertical-list-table-mini">
+					<div class="column-container">
+						<img src='<s:property value="productInfoDTO.imageFilePath"/>/<s:property value="productInfoDTO.imageFileName"/>' class="item-image-box-320"/>
+						<table class="details_table">
 							<tr>
 							<!-- scope="row"は『th（見出し用セル）に対応するtd（データ用セル）はrow行方向（横方向）ですよ』という意味 -->
 							<th scope="row"><s:label value="商品名"/></th>
@@ -51,12 +50,11 @@
 							<th scope="row"><s:label value="商品詳細情報"/></th>
 							<td><s:property value="productInfoDTO.productDescription"/></td>
 							</tr>
-							</table>
-						</div>
+						</table>
 					</div>
 					<s:hidden name="productId" value="%{productInfoDTO.productId}"/> <!-- hiddenで選択されている商品IDを渡す -->
 				</div>
-				<div class="submit_btn_box">
+				<div class="btn">
 					<s:submit value="カートに追加" class="submit_btn" />
 				</div>
 			</s:form>
@@ -64,8 +62,8 @@
 			<!-- 関連商品のListがあれば表示。 商品IDをparamで渡す -->
 			<s:if test="relatedProductList!=null && relatedProductList.size()>0">
 				<div class="box">
+				<h2>【関連商品】</h2>
 					<div class="product-details-recomｍend-box">
-					<h2>【関連商品】</h2>
 					<s:iterator value="relatedProductList">
 						<div class="recommend-box">
 							<a href='<s:url action="ProductDetailsAction">
