@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/resetPassword.css">
 <link rel="stylesheet" href="./css/jaguar.css">
 <title>パスワード再設定</title>
 </head>
@@ -14,42 +13,42 @@
 <h1>パスワード再設定画面</h1>
 
 	<s:if test="userIdErrorMessageList!=null && userIdErrorMessageList.size()>0">
-	<div class="error_message">
+	<div class="message bg_red">
 		<s:iterator value="userIdErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
 	</s:if>
 
 	<s:if test="passwordErrorMessageList!=null && passwordErrorMessageList.size()>0">
-	<div class="error_message">
+	<div class="message bg_red">
 		<s:iterator value="passwordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
 	</s:if>
 
 	<s:if test="newPasswordErrorMessageList!=null && newPasswordErrorMessageList.size()>0">
-	<div class="error_message">
+	<div class="message bg_red">
 		<s:iterator value="newPasswordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
 	</s:if>
 
 	<s:if test="reConfirmationNewPasswordErrorMessageList!=null && reConfirmationNewPasswordErrorMessageList.size()>0">
-	<div class="error_message">
+	<div class="message bg_red">
 		<s:iterator value="reConfirmationNewPasswordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
 	</s:if>
 
 	<s:if test="passwordIncorrectErrorMessage!=null && !passwordIncorrectErrorMessage.isEmpty()">
-	<div class="error_message">
+	<div class="message bg_red">
 		<s:property value="passwordIncorrectErrorMessage"/>
 		<br>
 	</div>
 	</s:if>
 
 	<s:if test="newPasswordIncorrectErrorMessage!=null && !newPasswordIncorrectErrorMessage.isEmpty()">
-	<div class="error_message">
+	<div class="message bg_red">
 		<s:property value="newPasswordIncorrectErrorMessage"/>
 		<br>
 	</div>
@@ -59,18 +58,18 @@
 	<table class="row_table">
 		<tr>
 			<th scope="row"><s:label value="ユーザID"/></th>
-			<td><s:textfield name="userId" value="%{#session.userIdForResetPassword}" placeholder="ユーザーID" class="txt"/></td>
+			<td><s:textfield name="userId" value="%{#session.userIdForResetPassword}" placeholder="ユーザーID"/></td>
 		</tr>
 		<tr>
 			<th scope="row"><s:label value="現在のパスワード"/></th>
-			<td><s:password name="password" value="" placeholder="現在のパスワード" class="txt"/></td>
+			<td><s:password name="password" value="" placeholder="現在のパスワード"/></td>
 		</tr>
 		<tr>
 			<th scope="row"><s:label value="新しいパスワード"/></th>
-			<td><s:password name="newPassword" value="" placeholder="新しいパスワード" class="txt"/>
+			<td><s:password name="newPassword" value="" placeholder="新しいパスワード"/>
 		<tr>
 			<th scope="row"><s:label value="新しいパスワード（再確認）"/></th>
-			<td><s:password name="reConfirmationPassword" value="" placeholder="新しいパスワード（再確認）" class="txt"/></td>
+			<td><s:password name="reConfirmationPassword" value="" placeholder="新しいパスワード（再確認)"/></td>
 		</tr>
 	</table>
 	<div class="center_btn_box">

@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
-<link rel="stylesheet" href="./css/createDestination.css">
 <title>宛先入力画面</title>
 </head>
 <body>
