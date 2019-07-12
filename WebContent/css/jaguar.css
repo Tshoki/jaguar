@@ -37,6 +37,15 @@ width: 90%;
 margin: 20px auto 30px auto;
 }
 
+h1.left{
+  border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    text-align: left;
+    padding: 10px 0px;
+    width: 90%;
+    margin: 20px auto 30px auto;
+}
+
 /* Jaguar Message CSS v3.7 2019 7/12 */
 .message {
 text-align: center;
@@ -44,6 +53,14 @@ width: 85%;
 margin: 0px auto;
 color: #4d4d4d;
 padding: 25px 10px;
+}
+
+.eleft{
+  text-align: left!important;
+  margin-left: 2%!important;
+  padding-top: 15px!important;
+  padding-bottom: 15px!important;
+  padding-left: 60px!important;
 }
 
 .bg_blue {
