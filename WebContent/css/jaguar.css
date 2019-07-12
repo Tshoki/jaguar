@@ -26,7 +26,7 @@ input[type="text"],input[type="password"]{
 	width:100%;
 }
 
-/* Jaguar Title CSS v1.0 2019 7/11 */
+/* Jaguar Title CSS v1.4 2019 7/11 */
 h1 {
 color: #4d4d4d;
 border-bottom: 3px solid #4d4d4d;
@@ -37,7 +37,7 @@ width: 90%;
 margin: 20px auto 30px auto;
 }
 
-/* Jaguar Message CSS v1.0 2019 7/11 */
+/* Jaguar Message CSS v3.7 2019 7/11 */
 .message {
 text-align: center;
 width: 85%;
@@ -48,21 +48,21 @@ margin: 0px auto;
 color: #4d4d4d;
 border: 1px solid #0000EE;
 background-color: #6A6AED;
-padding: 15px 10px;
+padding: 25px 10px;
 
 }
 .bg_green {
-color: blue;
+color: #4d4d4d;
 border: 1px solid #00EE00;
 background-color: #6AED6A;
-padding: 15px 10px;
+padding: 25px 10px;
 }
 
 .bg_red {
 color: #4d4d4d;
 border: 1px solid #EE0000;
 background-color: #ED6A6A;
-padding: 15px 10px;
+padding: 25px 10px;
 }
 
 table.row_table{
