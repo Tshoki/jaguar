@@ -73,7 +73,7 @@
 			<td><s:password name="reConfirmationPassword" value="" placeholder="新しいパスワード（再確認）" class="txt"/></td>
 		</tr>
 	</table>
-	<div class="submit_btn">
+	<div class="center_btn_box">
 		<s:submit value="確認" />
 	</div>
 </s:form>
