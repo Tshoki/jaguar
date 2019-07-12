@@ -1,7 +1,7 @@
 /* Jaguar Reset CSS v1.0 2019 */
 html{ margin:0; padding:0; font-size:62.5%; }
 body{ margin:0; padding:0; font-size:1.6em; line-height:1; }
-a{ vertical-align:baseline; background:transparent; }
+a{ vertical-align:baseline; background:transparent; text-decoration: none; color: black;}
 table{ border-collapse:collapse; border-spacing:0; }
 ul{ list-style:none; }
 form{ margin:0; padding:0; }
@@ -14,11 +14,12 @@ input[type="submit"]{
 	background-image: linear-gradient(#ccc 0%, #444 100%);
 	color: #fff;
  	font-size: 8px;
+ 	transition:0.15s;
  }
 
 
 input[type="submit"]:hover {
-	opacity: 0.5;
+	opacity: 0.8;
 	cursor: pointer;
 }
 
@@ -66,17 +67,17 @@ margin-bottom: 7px;
 }
 
 .bg_blue {
-border: 1px solid #0000EE;
-background-color: #6A6AED;
+border: 1px solid #6A6AED;
+background-color: #A6A6ED;
 }
 .bg_green {
-border: 1px solid #00EE00;
-background-color: #6AED6A;
+border: 1px solid #6AED6A;
+background-color: #8EED8E;
 }
 
 .bg_red {
-border: 1px solid #EE0000;
-background-color: #ED6A6A;
+border: 1px solid #ED6A6A;
+background-color: #ED8E8E;
 }
 
 /* Jaguar rowTable CSS v1.2 2019 7/12 */
