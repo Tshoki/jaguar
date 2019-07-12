@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+
+/* 初期化設定 */
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.6em;
+    line-height: 1;
+}
+
+a {
+    vertical-align: baseline;
+    background: transparent;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+}
+
+#content {}
+
+h1 {
+    color: #4d4d4d;
+    border-bottom: 3px solid #4d4d4d;
+    border-top: 3px solid #4d4d4d;
+    text-align: center;
+    padding: 15px 0px;
+    width: 90%;
+    margin: 20px auto 30px auto;
+}
+
+.message {
+    text-align: center;
+    width: 85%;
+    margin: 0px auto;
+}
+
+.bg_green {
+    color: blue;
+    border: 1px solid #00EE00;
+    background-color: #6AED6A;
+    padding: 15px 10px;
+}

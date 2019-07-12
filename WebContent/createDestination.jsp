@@ -60,34 +60,34 @@
 			<tr>
 				<th>姓</th>
 				<td><s:textfield name="familyName"
-						value="%{#session.familyName}" /></td>
+						value="%{#session.familyName}" placeholder="姓ふりがな"/></td>
 			</tr>
 			<tr>
 				<th>名</th>
-				<td><s:textfield name="firstName" value="%{#session.firstName}" /></td>
+				<td><s:textfield name="firstName" value="%{#session.firstName}" placeholder="名ふりがな"/></td>
 			</tr>
 			<tr>
 				<th>姓ふりがな</th>
 				<td><s:textfield name="familyNameKana"
-						value="%{#session.familyNameKana}" /></td>
+						value="%{#session.familyNameKana}" placeholder="姓ふりがな"/></td>
 			</tr>
 			<tr>
 				<th>名ふりがな</th>
 				<td><s:textfield name="firstNameKana"
-						value="%{#session.firstNameKana}" /></td>
+						value="%{#session.firstNameKana}" placeholder="名ふりがな"/></td>
 			</tr>
 			<tr>
 				<th>住所</th>
 				<td><s:textfield name="userAddress"
-						value="%{#session.userAddress}" /></td>
+						value="%{#session.userAddress}" placeholder="住所"/></td>
 			</tr>
 			<tr>
 				<th>電話番号</th>
-				<td><s:textfield name="telNumber" value="%{#session.telNumber}" /></td>
+				<td><s:textfield name="telNumber" value="%{#session.telNumber}" placeholder="電話番号"/></td>
 			</tr>
 			<tr>
 				<th>メールアドレス</th>
-				<td><s:textfield name="email" value="%{#session.email}" /></td>
+				<td><s:textfield name="email" value="%{#session.email}" placeholder="メールアドレス"/></td>
 			</tr>
 		</table>
 		<s:submit value="確認" />
