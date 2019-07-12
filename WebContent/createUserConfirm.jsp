@@ -65,7 +65,7 @@
 				</div>
 				<!-- 戻るボタン押下で、createUser.jsのgoCreateUserActionメソッドを実行 -->
 				<div class="center_btn_box">
-				<s:submit id="submit_btn2" value="戻る" onclick="goCreateUserAction()" />
+				<s:submit value="戻る" onclick="goCreateUserAction()" />
 				</div>
 				<s:hidden id="backFlg" name="backFlg" value="" />
 		</s:form>

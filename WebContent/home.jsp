@@ -6,7 +6,7 @@
 <head>
 <link rel="stylesheet" href="./css/jaguer.css">
 <meta charset="UTF-8">
-<title>home画面</title>
+<title>ホーム画面</title>
 </head>
 <body>
 <jsp:include page="header.jsp"/>

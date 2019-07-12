@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="./css/jaguar.css">
 <meta http-equiv="refresh" content="3;URL='SettlementConfirmAction'">
 <!-- 3秒後決済確認画面遷移 -->
-<title>宛先入力完了画面</title>
+<title>宛先情報入力完了画面</title>
 </head>
 <body>
 	<jsp:include page="header.jsp" />

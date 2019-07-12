@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="refresh" content="0; url='HomeAction'">
-<title>Home画面に遷移します</title>
+<title>ホーム画面に遷移します</title>
 </head>
 <body>
 </body>

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
-<title>宛先入力画面</title>
+<title>宛先情報入力画面</title>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
