@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/purchaseHistory.css">
 <script src="./js/jaguar.js"></script>
 <title> 商品購入履歴 </title>
 </head>
@@ -13,7 +14,7 @@
 <div id="contents">
 <h1>商品購入履歴画面</h1>
 <s:if test="purchaseHistoryInfoDTOList!=null && purchaseHistoryInfoDTOList.size()>0">
-<table class="horizontal-list-table">
+<table class="column_table">
 	<thead>
 		<tr>
 			<th><s:label value="商品名"/></th>
