@@ -15,6 +15,7 @@ input[type="submit"]{
 	color: #fff;
  	font-size: 8px;
  	transition:0.15s;
+ 	outline: 0;
  }
 
 
