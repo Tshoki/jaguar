@@ -7,18 +7,19 @@ a{
 
 .product_list_container{
 	display: flex;
-	margin:0 5% 0 5%;
-	text-align : center;
+	width: 90%;
+	margin: 0 5% 0 5%;
+	text-align: center;
 	flex-wrap: wrap;
 }
 
 .product_list_box{
-	width:33%;
-	line-height:150%;
+	width: 33%;
+	line-height: 150%;
 }
 
 .product_list_box img{
-	width:70%;
-	height:70%;
+	width: 50%;
+	height: 50%;
 }
 

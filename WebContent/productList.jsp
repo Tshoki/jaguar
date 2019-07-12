@@ -30,7 +30,7 @@
 					</s:url>'><img src='<s:property value="imageFilePath"/>/<s:property value="imageFileName"/>' class="product_list_img"/><br>
 					<s:property value="productName"/><br>
 					<s:property value="productNameKana"/><br>
-					<s:property value="price"/>円<br>
+					<s:property value="price"/>円
 				</a>
 			</div>
 			</s:iterator>
