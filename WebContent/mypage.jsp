@@ -43,7 +43,7 @@
 	</s:form>
 	</s:if>
 	<s:else>
-		<div class="info">
+		<div class="bg_blue">
 			ユーザー情報がありません。
 		</div>
 	</s:else>
