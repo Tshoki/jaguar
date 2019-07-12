@@ -40,6 +40,16 @@ header ul li input[type="text"]:focus{outline:0;}
 header ul li select:focus{outline:0;}
 /*
 header ul li input[type="submit"]{
+	background:#666;
+	border:none;
+	filter:drop-shadow(3px 3px 5px rgba(0,0,0,0.2));
+}
+header ul li input[type="submit"]:hover{
+	opacity:0.85;
+	filter:drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+}
+/*
+header ul li input[type="submit"]{
 	border:none;
 	border-radius:0;
 	background:none;

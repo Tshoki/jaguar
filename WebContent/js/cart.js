@@ -9,12 +9,12 @@ $(function(){
 
 });
 
+// checkbox に 対応し 削除ボタン 操作
 $(function(){
 
 	$('.delete_btn').prop('disabled', true);
 	$('.delete_btn').css('opacity', 0.1);
 	$('.delete_btn').css('cursor', 'default');
-
 
 	$('input[type="checkbox"]').click(function() {
 		var check_count = $('input[type="checkbox"]:checked').length;
