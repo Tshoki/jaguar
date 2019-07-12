@@ -20,7 +20,7 @@
 				<div class="box">
 					<div class="column-container">
 						<img src='<s:property value="productInfoDTO.imageFilePath"/>/<s:property value="productInfoDTO.imageFileName"/>' class="item-image-box-320"/>
-						<div class="taku">
+						<div class="main_info">
 							<table class="row_table">
 								<tr>
 								<!-- scope="row"は『th（見出し用セル）に対応するtd（データ用セル）はrow行方向（横方向）ですよ』という意味 -->

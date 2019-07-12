@@ -15,7 +15,6 @@
 }
 
 table{
-	margin-left: 40px !important;
 	margin-bottom: 30px !important;
 }
 
@@ -29,11 +28,8 @@ td{
 	white-space: nowrap;
 }
 
-.taku {
+.main_info {
 	text-align: center;
-}
-
-.btn {
 	margin-left: 40px;
 }
 
@@ -49,17 +45,18 @@ h2 {
 }
 
 .recommend-box {
-	width: 40%;
-	heght: 40%;
+	width: 30%;
+	heght: 30%;
 	text-align: center;
 }
 
 .item-image-box-100 {
 	width: 30%;
-	heght: 40%;
-	min-width: 130px;
+	heght: 30%;
+	min-width: 70px;
 }
 
 a {
 	white-space: nowrap;
+	display: inline
 }
