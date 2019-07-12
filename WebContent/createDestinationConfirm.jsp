@@ -57,7 +57,7 @@
             </td>
         </tr>
     </table>
-    <s:submit value="登録" onclick="GOtoCompleteAction()" />
+    <s:submit value="宛先情報登録" onclick="GOtoCompleteAction()" />
     <s:submit value="戻る" onclick="BACKtoAction()" />
     <s:hidden id="backFlg" name="backFlg" value="" />
 </s:form>
