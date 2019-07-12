@@ -49,9 +49,8 @@
 	<td>
 		<s:property value="firstName"/><br>
 	</td>
-
 	<td>
-		<s:property value="familyNameKana" /><span>　</span><s:property value="firstNameKana" /><br>
+		<s:property value="familyNameKana" /> <s:property value="firstNameKana" /><br>
 	</td>
 	<td>
 		<s:property value="userAddress" />
