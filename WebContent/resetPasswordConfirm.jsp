@@ -25,11 +25,11 @@
 				<td><s:property value="concealedPassword"/></td>
 			</tr>
 		</table>
-		<div class="submit_btn_box">
-			<s:submit id="submit_btn" value="パスワード再設定" class="submit_btn" onclick="goResetPasswordCompleteAction()"/>
+		<div class="center_btn_box">
+			<s:submit value="登録" class="submit_btn" onclick="goResetPasswordCompleteAction()"/>
 		</div>
-		<div class="submit_btn_box">
-			<s:submit id="submit_btn2" value="戻る" class="submit_btn" onclick="goResetPasswordAction()"/>
+		<div class="center_btn_box">
+			<s:submit value="戻る" class="submit_btn" onclick="goResetPasswordAction()"/>
 		</div>
 		<s:hidden id="backFlg" name="backFlg" value=""/>
 	</s:form>

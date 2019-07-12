@@ -44,8 +44,12 @@
 				<td><s:property value="email" /></td>
 			</tr>
 		</table>
-		<s:submit id="submit_btn" value="宛先情報登録" onclick="GOtoCompleteAction()" />
-		<s:submit id="submit_btn2" value="戻る" onclick="BACKtoAction()" />
+		<div  class="center_btn_box">
+		<s:submit value="宛先情報登録" onclick="GOtoCompleteAction()" />
+		</div>
+		<div  class="center_btn_box">
+		<s:submit value="戻る" onclick="BACKtoAction()" />
+		</div>
 		<s:hidden id="backFlg" name="backFlg" value="" />
 	</s:form>
 

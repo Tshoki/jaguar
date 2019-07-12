@@ -58,13 +58,16 @@
 					<th scope="row">パスワード</th>
 					<td><s:property value="password" /></td>
 				</tr>
-
-				<!-- 登録ボタン押下で、createUser.jsのgoCreateUserCompleteActionメソッドを実行 -->
-				<s:submit id="submit_btn" value="登録" onclick="goCreateUserCompleteAction()" />
-				<!-- 戻るボタン押下で、createUser.jsのgoCreateUserActionメソッドを実行 -->
-				<s:submit id="submit_btn2" value="戻る" onclick="goCreateUserAction()" />
-				<s:hidden id="backFlg" name="backFlg" value="" />
 			</table>
+				<!-- 登録ボタン押下で、createUser.jsのgoCreateUserCompleteActionメソッドを実行 -->
+				<div class="center_btn_box">
+				<s:submit value="登録" onclick="goCreateUserCompleteAction()" />
+				</div>
+				<!-- 戻るボタン押下で、createUser.jsのgoCreateUserActionメソッドを実行 -->
+				<div class="center_btn_box">
+				<s:submit id="submit_btn2" value="戻る" onclick="goCreateUserAction()" />
+				</div>
+				<s:hidden id="backFlg" name="backFlg" value="" />
 		</s:form>
 	</div>
 </body>

@@ -17,7 +17,7 @@
 <h1>決済確認画面</h1>
 <s:if test="destinationInfoDTOList!=null && destinationInfoDTOList.size()>0">
 
-<div class="info">
+<div class="message bg_blue">
 	宛先情報を選択してください。
 </div>
 	<s:form id="settlementConfirmForm">
@@ -66,10 +66,10 @@
 	</tbody>
 	</table>
 
-	<div class="submit_btn_box">
+	<div class="center_btn_box">
 	<s:submit value="決済" class="submit_btn" onclick="goSettlementCompleteAction()" />
 	</div>
-	<div class="submit_btn_box">
+	<div class="center_btn_box">
 	<s:submit value="削除" class="submit_btn" onclick="goDeleteDestinationAction()" />
 	</div>
 	</s:form>
@@ -82,7 +82,7 @@
 <!-- 新規宛先登録ボタンは宛先情報の有無で表示切替はないが、
 	決済ボタンは宛先情報の有の場合のみ表示するため、コードの可読性を考慮してformを2つにする -->
 
-<div class="submit_btn_box">
+<div class="center_btn_box">
 	<s:form action="CreateDestinationAction">
 		<s:submit value="新規宛先登録" class="submit_btn" />
 	</s:form>

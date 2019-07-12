@@ -140,7 +140,7 @@
 					</td>
 				</tr>
 			</table>
-			<div id="submit_btn">
+			<div class="center_btn_box">
 			<s:submit value="確認"/>
 			</div>
 		</s:form>
