@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/resetPassword.css">
+<link rel="stylesheet" href="./css/jaguar.css">
 <title>パスワード再設定</title>
 </head>
 <body>
@@ -13,42 +14,42 @@
 <h1>パスワード再設定画面</h1>
 
 	<s:if test="userIdErrorMessageList!=null && userIdErrorMessageList.size()>0">
-	<div class="error-message">
+	<div class="error_message">
 		<s:iterator value="userIdErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
 	</s:if>
 
 	<s:if test="passwordErrorMessageList!=null && passwordErrorMessageList.size()>0">
-	<div class="error-message">
+	<div class="error_message">
 		<s:iterator value="passwordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
 	</s:if>
 
 	<s:if test="newPasswordErrorMessageList!=null && newPasswordErrorMessageList.size()>0">
-	<div class="error-message">
+	<div class="error_message">
 		<s:iterator value="newPasswordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
 	</s:if>
 
 	<s:if test="reConfirmationNewPasswordErrorMessageList!=null && reConfirmationNewPasswordErrorMessageList.size()>0">
-	<div class="error-message">
+	<div class="error_message">
 		<s:iterator value="reConfirmationNewPasswordErrorMessageList"><s:property/>
 		<br></s:iterator>
 		</div>
 	</s:if>
 
 	<s:if test="passwordIncorrectErrorMessage!=null && !passwordIncorrectErrorMessage.isEmpty()">
-	<div class="error-message">
+	<div class="error_message">
 		<s:property value="passwordIncorrectErrorMessage"/>
 		<br>
 	</div>
 	</s:if>
 
 	<s:if test="newPasswordIncorrectErrorMessage!=null && !newPasswordIncorrectErrorMessage.isEmpty()">
-	<div class="error-message">
+	<div class="error_message">
 		<s:property value="newPasswordIncorrectErrorMessage"/>
 		<br>
 	</div>
