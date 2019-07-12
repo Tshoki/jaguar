@@ -38,6 +38,9 @@ header ul li input[type="text"]{
 }
 header ul li input[type="text"]:focus{outline:0;}
 header ul li select:focus{outline:0;}
+header ul li input[type="submit"]{
+	transition:0.15s;
+}
 /*
 header ul li input[type="submit"]{
 	border:none;
