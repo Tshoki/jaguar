@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="refresh" content="30;URL='HomeAction'">
 <link rel="stylesheet" href="./css/jaguar.css">
-<title>SessionError画面</title>
+<title>セッションエラー画面</title>
 
 </head>
 <body>

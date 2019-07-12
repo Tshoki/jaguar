@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
-<title>マイページ</title>
+<title>マイページ画面</title>
 </head>
 <body>
 <jsp:include page="header.jsp"/>

@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
 <link rel="stylesheet" href="./css/settlementConfirm.css">
-<title>決済確認</title>
+<title>決済確認画面</title>
 
 </head>
 <body>
@@ -66,10 +66,10 @@
 	</table>
 
 	<div class="center_btn_box">
-	<s:submit value="決済" class="submit_btn" onclick="goSettlementCompleteAction()" />
+	<s:submit value="決済" onclick="goSettlementCompleteAction()" />
 	</div>
 	<div class="center_btn_box">
-	<s:submit value="削除" class="submit_btn" onclick="goDeleteDestinationAction()" />
+	<s:submit value="削除" onclick="goDeleteDestinationAction()" />
 	</div>
 	</s:form>
 </s:if>
@@ -83,7 +83,7 @@
 
 <div class="center_btn_box">
 	<s:form action="CreateDestinationAction">
-		<s:submit value="新規宛先登録" class="submit_btn" />
+		<s:submit value="新規宛先登録"/>
 	</s:form>
 </div>
 </div>

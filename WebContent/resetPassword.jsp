@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
-<title>パスワード再設定</title>
+<title>パスワード再設定画面</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />

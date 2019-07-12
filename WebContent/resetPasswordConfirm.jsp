@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
 <link rel="stylesheet" href="./css/resetPasswordConfirm.css">
-<title>パスワード再設定確認</title>
+<title>パスワード再設定確認確認</title>
 </head>
 <body>
 <script src="./js/resetPassword.js"></script>
@@ -26,10 +26,10 @@
 			</tr>
 		</table>
 		<div class="center_btn_box">
-			<s:submit value="登録" class="submit_btn" onclick="goResetPasswordCompleteAction()"/>
+			<s:submit value="登録" onclick="goResetPasswordCompleteAction()"/>
 		</div>
 		<div class="center_btn_box">
-			<s:submit value="戻る" class="submit_btn" onclick="goResetPasswordAction()"/>
+			<s:submit value="戻る" onclick="goResetPasswordAction()"/>
 		</div>
 		<s:hidden id="backFlg" name="backFlg" value=""/>
 	</s:form>

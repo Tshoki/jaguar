@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <!-- 〜秒後に画面遷移の記述 -->
 <meta http-equiv="refresh" content=" 3; url='HomeAction'">
-<link rel="stylesheet" href="./css/style.css">
-<title>SettlementComplete画面</title>
+<link rel="stylesheet" href="./css/jaguar.css">
+<title>決済完了画面</title>
 </head>
 <body>
 <jsp:include page="header.jsp"/>

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="./css/jaguar.css">
 <head>
 <meta charset="UTF-8">
-<title>商品詳細</title>
+<title>商品詳細画面</title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
@@ -82,7 +82,7 @@
 		</s:if>
 		<!-- 選択された商品の詳細がなかった場合 -->
 		<s:else>
-			<div class="info">
+			<div class="message bg_blue">
 				商品の詳細情報がありません。
 			</div>
 		</s:else>

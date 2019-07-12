@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/jaguar.css">
 <script src="./js/jaguar.js"></script>
-<title> 商品購入履歴 </title>
+<title> 商品購入履歴画面 </title>
 </head>
 <body>
 <jsp:include page="header.jsp" />
