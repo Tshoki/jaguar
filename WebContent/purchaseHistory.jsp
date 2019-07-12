@@ -45,7 +45,7 @@
 </s:iterator>
 	</tbody>
 </table>
-<div class="submit_btn_box">
+<div class="center_btn_box">
 <s:form action="DeletePurchaseHistoryAction">
 	<s:submit value="履歴削除" class="submit_btn"/>
 </s:form>
