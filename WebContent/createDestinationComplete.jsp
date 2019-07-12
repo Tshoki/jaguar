@@ -11,9 +11,9 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div id="content">
-        <h1>ユーザー情報入力完了画面</h1>
+        <h1>宛先情報入力完了画面</h1>
         <div class="complete bg_green">
-            ユーザー情報入力が完了しました。
+            宛先情報の登録が完了しました。
         </div>
     </div>
 </body>
