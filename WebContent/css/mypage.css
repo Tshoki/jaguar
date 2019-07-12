@@ -8,15 +8,15 @@ ul{ list-style:none; }
 form{ margin:0; padding:0; }
 img{ border:0; }
 
-.info{
-	width: 85%;
-    color: black;
-    border: 1px solid black;
-    background-color: #DDDDDD;
-    padding: 15px 15px;
-    text-align: center;
-    margin: 25px auto 35px auto;
-}
+/* .info{ */
+/* 	width: 85%; */
+/*     color: black; */
+/*     border: 1px solid black; */
+/*     background-color: #DDDDDD; */
+/*     padding: 15px 15px; */
+/*     text-align: center; */
+/*     margin: 25px auto 35px auto; */
+/* } */
 
 .submit_btn{
 	text-align: center;

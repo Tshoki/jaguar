@@ -37,6 +37,7 @@ header ul li input[type="text"]{
 	padding:6px 10px 6px 10px;
 }
 header ul li input[type="text"]:focus{outline:0;}
+header ul li select:focus{outline:0;}
 /*
 header ul li input[type="submit"]{
 	border:none;

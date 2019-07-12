@@ -13,7 +13,7 @@
 		<h1>商品一覧画面</h1>
 		<!-- エラーがあるとき -->
 		<s:if test="keywordsErrorMessageList!=null && keywordsErrorMessageList.size()>0">
-			<div class="error_message">
+			<div class="message bg_red">
 				<s:iterator value="keywordsErrorMessageList">
 					<s:property /><br>
 				</s:iterator>
@@ -39,7 +39,7 @@
 		</s:elseif>
 
 		<s:else><!-- 商品情報が存在しない場合 -->
-			<div class="info">
+			<div class="message bg_blue">
 			検索結果がありません。<!--- 指定メッセージ --->
 			</div>
 		</s:else>
