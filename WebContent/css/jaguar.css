@@ -103,18 +103,21 @@ h1.left {
 }
 
 .bg_blue {
-	border: 1px solid #6A6AED;
-	background-color: #A6A6ED;
+	color: #0066CC;
+    border: 1px solid #0066CC;
+    background-color: #99CCFF;
 }
 
 .bg_green {
-	border: 1px solid #6AED6A;
-	background-color: #8EED8E;
+	color: #00CC00;
+    border: 1px solid #00CC00;
+    background-color: #CCFFCC;
 }
 
 .bg_red {
-	border: 1px solid #ED6A6A;
-	background-color: #ED8E8E;
+	color: #CC0000;
+    border: 1px solid #CC0000;
+    background-color: #FFEBE8;
 }
 
 /* Jaguar rowTable CSS v1.5 2019 7/12 */
