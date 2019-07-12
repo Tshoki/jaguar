@@ -54,17 +54,17 @@ text-align: center;
 width: 85%;
 margin: 0px auto;
 color: #4d4d4d;
-padding: 25px 10px;
+padding: 25px 20px;
 margin-bottom: 7px;
 }
 
 .eleft{
   text-align: left;
-  margin-left: 2%!;
+  margin-left: 5%;
   padding-top: 15px!important;
   padding-bottom: 15px;
   padding-left: 60px;
-  width: 90%;
+  width: 85%;
 }
 
 .bg_blue {
