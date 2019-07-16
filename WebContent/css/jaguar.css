@@ -96,10 +96,6 @@ table.row_table th {
 	text-align: left;
 }
 
-table.row_table td {
-	width: 75%;
-}
-
 /* Jaguar columnTable CSS v2.5 2019 7/12 */
 table.column_table {
 	width: 85%;
