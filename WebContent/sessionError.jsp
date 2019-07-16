@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="30;URL='HomeAction'">
+<meta http-equiv="refresh" content="3;URL='HomeAction'">
 <link rel="stylesheet" href="./css/jaguar.css">
 <title>セッションエラー画面</title>
 
