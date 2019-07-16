@@ -66,9 +66,9 @@ public class ProductInfoDTOTest {
 	@Test
 	public void testGetCategoryId_max() {
 		ProductInfoDTO dto = new ProductInfoDTO();
-		int expected = 2147483648;
-		dto.setPrice(expected);
-		int actual = dto.getPrice();
+		int expected = 2147483647;
+		dto.setCategoryId(expected);
+		int actual = dto.getCategoryId();
 		assertEquals(expected, actual);
 	}
 
@@ -76,8 +76,8 @@ public class ProductInfoDTOTest {
 	public void testGetCategoryId_min() {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		int expected = -2147483648;
-		dto.setPrice(expected);
-		int actual = dto.getPrice();
+		dto.setCategoryId(expected);
+		int actual = dto.getCategoryId();
 		assertEquals(expected, actual);
 	}
 
@@ -85,8 +85,8 @@ public class ProductInfoDTOTest {
 	public void testGetCategoryId_0() {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		int expected = 0;
-		dto.setPrice(expected);
-		int actual = dto.getPrice();
+		dto.setCategoryId(expected);
+		int actual = dto.getCategoryId();
 		assertEquals(expected, actual);
 	}
 
@@ -95,16 +95,16 @@ public class ProductInfoDTOTest {
 	public void testSetCategoryId_max() {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		int expected = 2147483647;
-		dto.setPrice(expected);
-		int actual = dto.getPrice();
+		dto.setCategoryId(expected);
+		int actual = dto.getCategoryId();
 		assertEquals(expected, actual);
 	}
 
 	public void testSetCategoryId_min() {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		int expected = -2147483648;
-		dto.setPrice(expected);
-		int actual = dto.getPrice();
+		dto.setCategoryId(expected);
+		int actual = dto.getCategoryId();
 		assertEquals(expected, actual);
 	}
 
@@ -112,8 +112,8 @@ public class ProductInfoDTOTest {
 	public void testSetCategoryId_0() {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		int expected = 0;
-		dto.setPrice(expected);
-		int actual = dto.getPrice();
+		dto.setCategoryId(expected);
+		int actual = dto.getCategoryId();
 		assertEquals(expected, actual);
 	}
 
