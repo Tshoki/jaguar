@@ -11,7 +11,7 @@
 </head>
 <body>
 		<h1 class="left">セッションエラー画面</h1>
-		<div class="bg_blue eleft">
+		<div class="message bg_blue eleft">
 			ログインしていないか、タイムアウトしました。
 		</div>
 </body>
