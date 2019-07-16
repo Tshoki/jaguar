@@ -1,6 +1,7 @@
 package com.internousdev.jaguar.dto.test;
 
 import static org.junit.Assert.*;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
