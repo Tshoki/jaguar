@@ -24,7 +24,7 @@ public class MCategoryDTO {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-	public String getCategoryDetails() {
+	public String getCategoryDescription() {
 		return categoryDescription;
 	}
 	public void setCategoryDescription(String categoryDescription) {
