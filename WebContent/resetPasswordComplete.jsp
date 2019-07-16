@@ -11,11 +11,9 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div id="contents">
 <h1>パスワード再設定完了画面</h1>
-<div class="success">
+<div class="message bg_green">
 	パスワード再設定が完了しました。
-</div>
 </div>
 </body>
 </html>
