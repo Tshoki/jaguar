@@ -1,42 +1,13 @@
 /* Jaguar Reset CSS v1.0 2019 */
-html {
-	margin: 0;
-	padding: 0;
-	font-size: 62.5%;
-}
+html { margin: 0; padding: 0; font-size: 62.5%; }
+body { margin: 0; padding: 0; font-size: 1.6em; line-height: 1; }
+a { vertical-align: baseline; background: transparent; text-decoration: none; color: black; }
+table { border-collapse: collapse; border-spacing: 0; }
+ul { list-style: none; }
+form { margin: 0; padding: 0; }
+img { border: 0; }
 
-body {
-	margin: 0;
-	padding: 0;
-	font-size: 1.6em;
-	line-height: 1;
-}
-
-a {
-	vertical-align: baseline;
-	background: transparent;
-	text-decoration: none;
-	color: black;
-}
-
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-ul {
-	list-style: none;
-}
-
-form {
-	margin: 0;
-	padding: 0;
-}
-
-img {
-	border: 0;
-}
-
+/* Jaguar btn CSS v2.0 2019 7/12 */
 input[type="submit"] {
 	width: 100px;
 	padding: 1em 0.5em;
@@ -48,7 +19,6 @@ input[type="submit"] {
 	outline: 0;
 }
 
-/* Jaguar btn CSS v2.0 2019 7/12 */
 input[type="submit"]:hover {
 	opacity: 0.8;
 	cursor: pointer;
@@ -169,3 +139,14 @@ table.column_table td {
 	padding: 4px 10px 4px;
 	border: 1px solid #d3d3d3;
 }
+
+/* ここ
+createDestination.jsp -> placeholder -> 姓名
+productList.css -> a -> color は jaguar.css で color: inherit;
+jaguar.css -> .eleft -> padding を ショートハンドで
+jaguar.css -> h1 & h1.left 共有可部分考察（ width, border, margin, padding要相談 ）
+jaguar.css -> message & .eleft 共有可部分考察
+jaguar.css -> table & row_table & column_table 共有可部分考察
+jaguar.css -> table & row_table & column_table の th -> color, background-color 共有可部分考察
+jaguar.css -> border-collapse を 共通化
+*/
