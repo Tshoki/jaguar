@@ -94,49 +94,49 @@
 				<tr>
 					<th scope="row">姓</th>
 					<td>
-					<s:textfield name="familyName" value="%{#session.familyName}" placeholder="姓"/>
+					<s:textfield name="familyName" value="%{#session.familyName}" placeholder="姓" onfocus="this.placeholder=''" onblur="this.placeholder='姓'"/>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">名</th>
 					<td>
-					<s:textfield name="firstName" value="%{#session.firstName}" placeholder="名"/>
+					<s:textfield name="firstName" value="%{#session.firstName}" placeholder="名" onfocus="this.placeholder=''" onblur="this.placeholder='名'"/>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">姓ふりがな</th>
 					<td>
-					<s:textfield name="familyNameKana" value="%{#session.familyNameKana}" placeholder="姓ふりがな"/>
+					<s:textfield name="familyNameKana" value="%{#session.familyNameKana}" placeholder="姓ふりがな" onfocus="this.placeholder=''" onblur="this.placeholder='姓ふりがな'"/>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">名ふりがな</th>
 					<td>
-					<s:textfield name="firstNameKana" value="%{#session.firstNameKana}" placeholder="名ふりがな"/>
+					<s:textfield name="firstNameKana" value="%{#session.firstNameKana}" placeholder="名ふりがな" onfocus="this.placeholder=''" onblur="this.placeholder='名ふりがな'"/>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">性別</th>
 					<td>
-					<s:radio name="sex" list="%{#session.sexList}" value="%{#session.sex}" placeholder="性別" />
+					<s:radio name="sex" list="%{#session.sexList}" value="%{#session.sex}" placeholder="性別" onfocus="this.placeholder=''" onblur="this.placeholder='性別'"/>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">メールアドレス</th>
 					<td>
-					<s:textfield name="email" value="%{#session.email}" placeholder="メールアドレス"/>
+					<s:textfield name="email" value="%{#session.email}" placeholder="メールアドレス" onfocus="this.placeholder=''" onblur="this.placeholder='メールアドレス'"/>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">ユーザーID</th>
 					<td>
-					<s:textfield name="userId" value="%{#session.userIdForCreateUser}" placeholder="ユーザーID"/>
+					<s:textfield name="userId" value="%{#session.userIdForCreateUser}" placeholder="ユーザーID" onfocus="this.placeholder=''" onblur="this.placeholder='ユーザーID'"/>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">パスワード</th>
 					<td>
-					<s:password name="password" value="%{#session.password}" placeholder="パスワード"/>
+					<s:password name="password" value="%{#session.password}" placeholder="パスワード" onfocus="this.placeholder=''" onblur="this.placeholder='パスワード'"/>
 					</td>
 				</tr>
 			</table>

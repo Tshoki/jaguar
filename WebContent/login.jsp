@@ -43,17 +43,17 @@
 				<th><s:label>ユーザーID</s:label></th>
 
 				<s:if test = "#session.savedUserIdFlg == true">
-					<td><s:textfield name = "userId" value = "%{session.savedUserId}" placeholder = "ユーザーID" /></td>
+					<td><s:textfield name = "userId" value = "%{session.savedUserId}" placeholder = "ユーザーID" onfocus="this.placeholder=''" onblur="this.placeholder='ユーザーID'"/></td>
 				</s:if>
 
 				<s:else>
-					<td><s:textfield name = "userId" value = "%{userId}" placeholder = "ユーザーID" /></td>
+					<td><s:textfield name = "userId" value = "%{userId}" placeholder = "ユーザーID" onfocus="this.placeholder=''" onblur="this.placeholder='ユーザーID'"/></td>
 				</s:else>
 			</tr>
 
 			<tr>
 				<th><s:label>パスワード</s:label></th>
-				<td><s:password name = "password" placeholder = "パスワード"/></td>
+				<td><s:password name = "password" placeholder = "パスワード" onfocus="this.placeholder=''" onblur="this.placeholder='パスワード'"/></td>
 			</tr>
 		</table>
 

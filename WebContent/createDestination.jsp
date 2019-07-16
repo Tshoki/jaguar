@@ -75,36 +75,36 @@
 			<tr>
 				<th>姓</th>
 				<td><s:textfield name="familyName"
-						value="%{#session.familyName}" placeholder="姓" /></td>
+						value="%{#session.familyName}" placeholder="姓" onfocus="this.placeholder=''" onblur="this.placeholder='姓'"/></td>
 			</tr>
 			<tr>
 				<th>名</th>
-				<td><s:textfield name="firstName" value="%{#session.firstName}" placeholder="名" /></td>
+				<td><s:textfield name="firstName" value="%{#session.firstName}" placeholder="名" onfocus="this.placeholder=''" onblur="this.placeholder='名'"/></td>
 			</tr>
 			<tr>
 				<th>姓ふりがな</th>
 				<td><s:textfield name="familyNameKana"
-						value="%{#session.familyNameKana}" placeholder="姓ふりがな" /></td>
+						value="%{#session.familyNameKana}" placeholder="姓ふりがな" onfocus="this.placeholder=''" onblur="this.placeholder='姓ふりがな'"/></td>
 			</tr>
 			<tr>
 				<th>名ふりがな</th>
 				<td><s:textfield name="firstNameKana"
-						value="%{#session.firstNameKana}" placeholder="名ふりがな" /></td>
+						value="%{#session.firstNameKana}" placeholder="名ふりがな" onfocus="this.placeholder=''" onblur="this.placeholder='名ふりがな'"/></td>
 			</tr>
 			<tr>
 				<th>住所</th>
 				<td><s:textfield name="userAddress"
-						value="%{#session.userAddress}" placeholder="住所" /></td>
+						value="%{#session.userAddress}" placeholder="住所" onfocus="this.placeholder=''" onblur="this.placeholder='住所'"/></td>
 			</tr>
 			<tr>
 				<th>電話番号</th>
 				<td><s:textfield name="telNumber" value="%{#session.telNumber}"
-						placeholder="電話番号" /></td>
+						placeholder="電話番号" onfocus="this.placeholder=''" onblur="this.placeholder='電話番号'"/></td>
 			</tr>
 			<tr>
 				<th>メールアドレス</th>
 				<td><s:textfield name="email" value="%{#session.email}"
-						placeholder="メールアドレス" /></td>
+						placeholder="メールアドレス" onfocus="this.placeholder=''" onblur="this.placeholder='メールアドレス'"/></td>
 			</tr>
 		</table>
 		<div class="center_btn_box">

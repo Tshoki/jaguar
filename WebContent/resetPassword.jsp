@@ -58,18 +58,18 @@
 	<table class="row_table">
 		<tr>
 			<th scope="row"><s:label value="ユーザID"/></th>
-			<td><s:textfield name="userId" value="%{#session.userIdForResetPassword}" placeholder="ユーザーID"/></td>
+			<td><s:textfield name="userId" value="%{#session.userIdForResetPassword}" placeholder="ユーザーID" onfocus="this.placeholder=''" onblur="this.placeholder='ユーザーID'"/></td>
 		</tr>
 		<tr>
 			<th scope="row"><s:label value="現在のパスワード"/></th>
-			<td><s:password name="password" value="" placeholder="現在のパスワード"/></td>
+			<td><s:password name="password" value="" placeholder="現在のパスワード" onfocus="this.placeholder=''" onblur="this.placeholder='現在のパスワード'"/></td>
 		</tr>
 		<tr>
 			<th scope="row"><s:label value="新しいパスワード"/></th>
-			<td><s:password name="newPassword" value="" placeholder="新しいパスワード"/>
+			<td><s:password name="newPassword" value="" placeholder="新しいパスワード" onfocus="this.placeholder=''" onblur="this.placeholder='新しいパスワード'"/>
 		<tr>
 			<th scope="row"><s:label value="新しいパスワード（再確認）"/></th>
-			<td><s:password name="reConfirmationPassword" value="" placeholder="新しいパスワード（再確認)"/></td>
+			<td><s:password name="reConfirmationPassword" value="" placeholder="新しいパスワード（再確認)" onfocus="this.placeholder=''" onblur="this.placeholder='新しいパスワード（再確認)'"/></td>
 		</tr>
 	</table>
 	<div class="center_btn_box">

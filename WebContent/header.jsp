@@ -13,7 +13,7 @@
 		<s:if test='#session.mCategoryDTOList!=null && #session.mCategoryDTOList.size()>0'>
 		<li><s:select name="categoryId" list="#session.mCategoryDTOList" listValue="categoryName" listKey="categoryId" id="categoryId"/></li>
 		</s:if>
-		<li><s:textfield name="keywords" placeholder="検索ワード" autocomplete="off" /></li>
+		<li><s:textfield name="keywords" placeholder="検索ワード" onfocus="this.placeholder=''" onblur="this.placeholder='検索ワード'"/></li>
 		<li><s:submit value="商品検索" onclick="goSearchItemAction();"/></li>
 		<s:if test="#session.logined==1">
 		<li><s:submit value="ログアウト" onclick="goLogoutAction();"/></li>
