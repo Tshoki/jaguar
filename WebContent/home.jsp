@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="./css/jaguer.css">
+<link rel="stylesheet" href="./css/jaguar.css">
 <meta charset="UTF-8">
 <title>ホーム画面</title>
 </head>
