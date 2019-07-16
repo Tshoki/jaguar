@@ -25,7 +25,8 @@ input[type="submit"] {
 	transition: 0.15s;
 	outline: 0;
 }
-input[type="submit"][value="決済"],
+input[type="submit"].bgds_green
+[value="決済"],
 input[type="submit"][value="確認"],
 input[type="submit"][onclick="goLoginAction()"],
 input[type="submit"][value="宛先情報登録"],
@@ -34,12 +35,14 @@ input[type="submit"][value="カートに追加"]{
 	background: #38CE72;
 	filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.1));
 }
-input[type="submit"][value="削除"],
+input[type="submit"].bgds_red
+[value="削除"],
 input[type="submit"][value="履歴削除"]{
 	background: #CB3236;
 	filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.1));
 }
-input[type="submit"][value="新規ユーザー登録"],
+input[type="submit"].bgds_blue
+[value="新規ユーザー登録"],
 input[type="submit"][value="パスワード再設定"],
 input[type="submit"][value="戻る"],
 input[type="submit"][value="新規宛先登録"]{
