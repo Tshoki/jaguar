@@ -24,7 +24,7 @@
 		<li><s:submit value="カート" onclick="goCartAction();"/></li>
 		<li><s:submit value="商品一覧" onclick="goProductListAction();"/></li>
 		<s:if test="#session.logined==1">
-		<s:submit value="マイページ" onclick="goMyPageAction();"/>
+		<li><s:submit value="マイページ" onclick="goMyPageAction();"/></li>
 		</s:if>
 	</ul>
 	</s:form>
