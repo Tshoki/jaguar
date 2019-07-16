@@ -66,11 +66,8 @@ h1.left {
 
 .eleft {
 	text-align: left;
-	margin-left: 2%!;
-	padding-top: 15px !important;
-	padding-bottom: 15px;
-	padding-left: 60px;
-	width: 90%;
+	margin-left: 5%;
+	padding:15px 0 15px 60px!important;
 }
 
 .bg_blue {
@@ -141,9 +138,7 @@ table.column_table td {
 }
 
 /* ここ
-createDestination.jsp -> placeholder -> 姓名
 productList.css -> a -> color は jaguar.css で color: inherit;
-jaguar.css -> .eleft -> padding を ショートハンドで
 jaguar.css -> h1 & h1.left 共有可部分考察（ width, border, margin, padding要相談 ）
 jaguar.css -> message & .eleft 共有可部分考察
 jaguar.css -> table & row_table & column_table 共有可部分考察
