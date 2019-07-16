@@ -1,14 +1,18 @@
 package com.internousdev.jaguar.dto.test;
 
 import static org.junit.Assert.*;
-
+import com.internousdev.jaguar.dto.DestinationInfoDTO;
 import org.junit.Test;
 
 public class DestinationInfoDTOTest {
 
 	@Test
-	public void testGetId() {
-		fail("まだ実装されていません");
+	public void test_GetId_max() {
+		DestinationInfoDTO dto=new DestinationInfoDTO();
+		int expected=2147483647;
+		dto.setId(expected);
+		int actual=dto.getId();
+		assertEquals(expected,actual);
 	}
 
 	@Test
