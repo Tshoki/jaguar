@@ -74,7 +74,7 @@
 	</s:form>
 </s:if>
 <s:else>
-<div class="info">
+<div class="message bg_blue">
 宛先情報がありません。
 </div>
 </s:else>

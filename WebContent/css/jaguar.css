@@ -1,8 +1,9 @@
 /* Jaguar Reset CSS v1.0 2019 */
 html { margin: 0; padding: 0; font-size: 62.5%; }
 body { margin: 0; padding: 0; font-size: 1.6em; line-height: 1; }
-a { vertical-align: baseline; background: transparent; text-decoration: none; color: black; }
+a { vertical-align: baseline; background: transparent; text-decoration: none; color: inherit; white-space: nowrap; }
 table { border-collapse: collapse; border-spacing: 0; }
+th{ background: #444; border: solid 1px #d3d3d3; color: #f8f8ff; padding: 10px; }
 ul { list-style: none; }
 form { margin: 0; padding: 0; }
 img { border: 0; }
@@ -45,12 +46,7 @@ h1 {
 }
 
 h1.left {
-	border-bottom: 3px solid black;
-	border-top: 3px solid black;
 	text-align: left;
-	padding: 10px 0px;
-	width: 90%;
-	margin: 20px auto 30px auto;
 }
 
 /* Jaguar Message CSS v3.7 2019 7/12 */
@@ -95,17 +91,9 @@ table.row_table {
 	margin: 20px auto 30px auto;
 }
 
-table.row_table th td {
-	border-collapse: collapse;
-}
-
 table.row_table th {
 	width: 25%;
-	background-color: #444;
-	color: white;
-	border: solid 1px #d3d3d3;
 	text-align: left;
-	padding: 10px;
 }
 
 table.row_table td {
@@ -120,16 +108,8 @@ table.column_table {
 	width: 85%;
 }
 
-table.column_table th td {
-	border-collapse: collapse;
-}
-
 table.column_table th {
 	text-align: center;
-	color: #f8f8ff;
-	background-color: #444;
-	border: 1px solid #d3d3d3;
-	padding: 8px 14px;
 }
 
 table.column_table td {
@@ -138,10 +118,5 @@ table.column_table td {
 }
 
 /* ここ
-productList.css -> a -> color は jaguar.css で color: inherit;
-jaguar.css -> h1 & h1.left 共有可部分考察（ width, border, margin, padding要相談 ）
-jaguar.css -> message & .eleft 共有可部分考察
 jaguar.css -> table & row_table & column_table 共有可部分考察
-jaguar.css -> table & row_table & column_table の th -> color, background-color 共有可部分考察
-jaguar.css -> border-collapse を 共通化
 */
