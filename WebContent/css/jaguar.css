@@ -3,11 +3,14 @@ html { margin: 0; padding: 0; font-size: 62.5%; }
 body { margin: 0; padding: 0; font-size: 1.6em; line-height: 1; }
 a { vertical-align: baseline; background: transparent; text-decoration: none; color: inherit; white-space: nowrap; }
 table { border-collapse: collapse; border-spacing: 0; }
-th{ background: #444; border: solid 1px #d3d3d3; color: #f8f8ff; padding: 10px; }
 ul { list-style: none; }
 form { margin: 0; padding: 0; }
 img { border: 0; }
 
+
+table{ margin: 20px auto 30px auto; }
+th{ background: #444; border: solid 1px #d3d3d3; color: #f8f8ff; padding: 10px; }
+td{ border: solid 1px #d3d3d3; padding: 10px; }
 /* Jaguar btn CSS v2.0 2019 7/12 */
 input[type="submit"] {
 	width: 100px;
@@ -53,10 +56,8 @@ h1.left {
 .message {
 	text-align: center;
 	width: 85%;
-	margin: 0px auto;
-	color: #4d4d4d;
+	margin: 3px auto;
 	padding: 25px 20px;
-	margin-bottom: 7px;
 	font-weight: bold;
 }
 
@@ -88,7 +89,6 @@ h1.left {
 table.row_table {
 	width: 90%;
 	padding: 10px;
-	margin: 20px auto 30px auto;
 }
 
 table.row_table th {
@@ -96,15 +96,8 @@ table.row_table th {
 	text-align: left;
 }
 
-table.row_table td {
-	width: 75%;
-	border: solid 1px #d3d3d3;
-	padding: 10px;
-}
-
 /* Jaguar columnTable CSS v2.5 2019 7/12 */
 table.column_table {
-	margin: 20px auto 30px auto;
 	width: 85%;
 }
 
@@ -112,10 +105,7 @@ table.column_table th {
 	text-align: center;
 }
 
-table.column_table td {
-	padding: 4px 10px 4px;
-	border: 1px solid #d3d3d3;
-}
+/*table.column_table td {}*/
 
 /* ‚±‚±
 jaguar.css -> table & row_table & column_table ‹¤—L‰Â•”•ªl@
