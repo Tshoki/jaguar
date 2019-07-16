@@ -75,12 +75,12 @@
 			<tr>
 				<th>姓</th>
 				<td><s:textfield name="familyName"
-						value="%{#session.familyName}" placeholder="姓ふりがな" /></td>
+						value="%{#session.familyName}" placeholder="姓" /></td>
 			</tr>
 			<tr>
 				<th>名</th>
 				<td><s:textfield name="firstName" value="%{#session.firstName}"
-						placeholder="名ふりがな" /></td>
+						placeholder="名" /></td>
 			</tr>
 			<tr>
 				<th>姓ふりがな</th>
