@@ -35,7 +35,7 @@ input[type="submit"].btn_red /*削除,履歴削除 ボタン*/
 	background: #CB3236;
 	filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.1));
 }
-input[type="submit"].btn_blue /*新規ユーザー登録,パスワード再設定,戻る,新規宛先登録*/
+input[type="submit"].btn_blue /*新規ユーザー登録,パスワード再設定,戻る,新規宛先登録 ボタン*/
 {
 	background: #3D6FC5;
 	filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.1));
