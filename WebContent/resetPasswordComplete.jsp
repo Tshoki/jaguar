@@ -10,10 +10,10 @@
 <title>パスワード再設定完了画面</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
-<h1>パスワード再設定完了画面</h1>
-<div class="message bg_green">
-	パスワード再設定が完了しました。
-</div>
+	<jsp:include page="header.jsp"/>
+	<h1>パスワード再設定完了画面</h1>
+	<div class="message bg_green">
+		パスワード再設定が完了しました。
+	</div>
 </body>
 </html>

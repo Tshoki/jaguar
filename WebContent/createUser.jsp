@@ -7,10 +7,8 @@
 <meta charset="UTF-8" />
 <title>ユーザー情報入力画面</title>
 <link rel="stylesheet" href="./css/jaguar.css">
-<link rel="stylesheet" href="./css/createUser.css">
 </head>
 <body>
-
 	<jsp:include page="header.jsp" />
 
 	<h1>ユーザー情報入力画面</h1>
@@ -25,8 +23,7 @@
 		</div>
 	</s:if>
 
-	<s:if
-		test="firstNameErrorMessageList!=null && firstNameErrorMessageList.size()>0">
+	<s:if test="firstNameErrorMessageList!=null && firstNameErrorMessageList.size()>0">
 		<div class="message bg_red">
 		<s:iterator value="firstNameErrorMessageList">
 			<s:property /><br>
@@ -34,8 +31,7 @@
 		</div>
 	</s:if>
 
-	<s:if
-		test="familyNameKanaErrorMessageList!=null && familyNameKanaErrorMessageList.size()>0">
+	<s:if test="familyNameKanaErrorMessageList!=null && familyNameKanaErrorMessageList.size()>0">
 		<div class="message bg_red">
 		<s:iterator value="familyNameKanaErrorMessageList">
 			<s:property /><br>
@@ -43,8 +39,7 @@
 		</div>
 	</s:if>
 
-	<s:if
-		test="firstNameKanaErrorMessageList!=null && firstNameKanaErrorMessageList.size()>0">
+	<s:if test="firstNameKanaErrorMessageList!=null && firstNameKanaErrorMessageList.size()>0">
 		<div class="message bg_red">
 		<s:iterator value="firstNameKanaErrorMessageList">
 			<s:property /><br>
@@ -52,8 +47,7 @@
 		</div>
 	</s:if>
 
-	<s:if
-		test="emailErrorMessageList!=null && emailErrorMessageList.size()>0">
+	<s:if test="emailErrorMessageList!=null && emailErrorMessageList.size()>0">
 		<div class="message bg_red">
 		<s:iterator value="emailErrorMessageList">
 			<s:property /><br>
@@ -61,8 +55,7 @@
 		</div>
 	</s:if>
 
-	<s:if
-		test="userIdErrorMessageList!=null && userIdErrorMessageList.size()>0">
+	<s:if test="userIdErrorMessageList!=null && userIdErrorMessageList.size()>0">
 		<div class="message bg_red">
 		<s:iterator value="userIdErrorMessageList">
 			<s:property /><br>
@@ -70,8 +63,7 @@
 		</div>
 	</s:if>
 
-	<s:if
-		test="passwordErrorMessageList!=null && passwordErrorMessageList.size()>0">
+	<s:if test="passwordErrorMessageList!=null && passwordErrorMessageList.size()>0">
 		<div class="message bg_red">
 		<s:iterator value="passwordErrorMessageList">
 			<s:property /><br>
@@ -79,8 +71,7 @@
 		</div>
 	</s:if>
 
-	<s:if
-		test="isExistsUserErrorMessage!=null && !isExistsUserErrorMessage.isEmpty()">
+	<s:if test="isExistsUserErrorMessage!=null && !isExistsUserErrorMessage.isEmpty()">
 		<div class="message bg_red">
 		<s:iterator value="isExistsUserErrorMessage">
 			<s:property /><br>
@@ -141,7 +132,7 @@
 				</tr>
 			</table>
 			<div class="center_btn_box">
-			<s:submit value="確認"/>
+			<s:submit class="btn_green" value="確認"/>
 			</div>
 		</s:form>
 	</div>

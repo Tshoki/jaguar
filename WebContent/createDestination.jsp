@@ -108,7 +108,7 @@
 			</tr>
 		</table>
 		<div class="center_btn_box">
-		<s:submit value="確認" />
+		<s:submit class="btn_green" value="確認" />
 		</div>
 	</s:form>
 </body>

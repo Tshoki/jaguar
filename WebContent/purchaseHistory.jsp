@@ -42,7 +42,7 @@
 </table>
 <div class="center_btn_box">
 <s:form action="DeletePurchaseHistoryAction">
-	<s:submit value="履歴削除"/>
+	<s:submit class="btn_red" value="履歴削除"/>
 </s:form>
 </div>
 </s:if>

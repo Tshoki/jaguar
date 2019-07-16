@@ -9,8 +9,7 @@
 <title>マイページ画面</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
-<div id="contents">
+	<jsp:include page="header.jsp"/>
 	<h1>マイページ画面</h1>
 	<s:if test="userInfoDTO!=null">
 	<s:form action="PurchaseHistoryAction"><!-- 遷移先 -->
@@ -37,7 +36,7 @@
 			</tr>
 		</table>
 			<div class="center_btn_box">
-				<s:submit value="購入履歴"/>
+				<s:submit class="btn_blue" value="購入履歴"/>
 			</div>
 	</s:form>
 	</s:if>
@@ -46,6 +45,5 @@
 			ユーザー情報がありません。
 		</div>
 	</s:else>
-</div>
 </body>
 </html>

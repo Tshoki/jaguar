@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="./css/jaguar.css">
 <link rel="stylesheet" href="./css/cart.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="./js/cart.js"></script>
@@ -57,8 +58,8 @@
 <div class="total_price_box">カート合計金額 : <s:property value="totalPrice" />円</div><!-- カート合計金額 -->
 
 <ul class="cart_btn_list">
-	<li><s:submit value="決済" data-action="SettlementConfirmAction" /></li><!-- 決済ボタン -->
-	<li><s:submit value="削除" class="delete_btn" data-action="DeleteCartAction" /></li><!-- 削除ボタン -->
+	<li><s:submit value="決済" class="delete_btn btn_green" data-action="SettlementConfirmAction" /></li><!-- 決済ボタン -->
+	<li><s:submit value="削除" class="delete_btn btn_red" data-action="DeleteCartAction" /></li><!-- 削除ボタン -->
 </ul>
 
 </s:form>

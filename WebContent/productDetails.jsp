@@ -10,8 +10,7 @@
 <title>商品詳細画面</title>
 </head>
 <body>
-<jsp:include page="header.jsp" />
-	<div id="contents">
+	<jsp:include page="header.jsp" />
 	<h1>商品詳細画面</h1>
 	<!-- DTO型の 選択された商品の詳細 があれば表示 -->
 		<s:if test="productInfoDTO!=null">
@@ -53,9 +52,7 @@
 								</tr>
 							</table>
 							<s:hidden name="productId" value="%{productInfoDTO.productId}"/> <!-- hiddenで選択されている商品IDを渡す -->
-							<div class="btn">
-								<s:submit value="カートに追加" class="submit_btn" />
-							</div>
+							<s:submit value="カートに追加" class="btn_green" />
 						</div>
 					</div>
 				</div>
@@ -86,6 +83,5 @@
 				商品の詳細情報がありません。
 			</div>
 		</s:else>
-	</div>
 </body>
 </html>

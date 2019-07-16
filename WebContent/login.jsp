@@ -70,15 +70,15 @@
 		</div>
 
 		<div class="center_btn_box">
-			<s:submit value = "ログイン" onclick = "goLoginAction()" />
+			<s:submit value = "ログイン" class="btn_green" onclick = "goLoginAction()" />
 		</div>
 
 		<div class = "center_btn_box">
-			<s:submit value = "新規ユーザー登録" onclick = "goCreateUserAction()" />
+			<s:submit value = "新規ユーザー登録" class="btn_blue" onclick = "goCreateUserAction()" />
 		</div>
 
 		<div class = "center_btn_box">
-			<s:submit value = "パスワード再設定" onclick = "goResetPasswordAction()" />
+			<s:submit value = "パスワード再設定" class="btn_blue" onclick = "goResetPasswordAction()" />
 		</div>
 
 	</s:form>
