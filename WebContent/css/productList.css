@@ -10,11 +10,10 @@
 .product_list_box{
 	width: 33%;
 	line-height: 150%;
-	margin-bottom: 5%;
 }
 
 .product_list_box img{
-	width: 33%;
-	height: 60%;
+	width: 50%;
+	height: 70%;
 }
 
