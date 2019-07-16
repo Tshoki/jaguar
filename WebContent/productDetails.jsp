@@ -3,8 +3,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="./css/productDetails.css">
 <link rel="stylesheet" href="./css/jaguar.css">
+<link rel="stylesheet" href="./css/productDetails.css">
 <head>
 <meta charset="UTF-8">
 <title>商品詳細画面</title>

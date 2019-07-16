@@ -19,7 +19,6 @@ table{
 }
 
 th{
-	text-align: center !important;
 	white-space: nowrap;
 }
 
@@ -46,7 +45,6 @@ h2 {
 
 .recommend-box {
 	width: 30%;
-	heght: 30%;
 	text-align: center;
 }
 
