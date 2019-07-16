@@ -1,6 +1,6 @@
 package com.internousdev.jaguar.dto;
 
-import java.sql.Date;
+import java.util.Date; // sql を util に 変更しました 2019 07 16
 
 public class CartInfoDTO {
 
