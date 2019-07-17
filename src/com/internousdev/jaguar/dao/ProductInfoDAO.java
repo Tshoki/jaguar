@@ -224,8 +224,9 @@ public class ProductInfoDAO {
 				} else {
 					sql += " or (product_name like '%" + keyword + "%' or product_name_kana like '%" + keyword + "%')";
 				}
-				sql += ")"; //検索ワードが有る時のみ、andの始まりの ( を閉じる
+
 			}
+			sql += ")"; //検索ワードが有る時のみ、andの始まりの ( を閉じる
 		}
 
 		try {
