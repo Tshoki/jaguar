@@ -29,7 +29,7 @@ public class DeleteCartAction extends ActionSupport implements SessionAware{
 
 		// タイムアウト確認
 		if(!session.containsKey("tempUserId") && !session.containsKey("userId")){
-			ret = "sessionTimeout";
+			return "sessionTimeout";
 		}
 
 		// ログインフラグを参照 に userId の 値 を 設定
