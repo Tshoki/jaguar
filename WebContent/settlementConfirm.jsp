@@ -81,7 +81,7 @@
 
 <div class="center_btn_box">
 	<s:form action="CreateDestinationAction">
-		<s:submit value="新規宛先登録"/>
+		<s:submit class="btn_blue" value="新規宛先登録"/>
 	</s:form>
 </div>
 </body>
