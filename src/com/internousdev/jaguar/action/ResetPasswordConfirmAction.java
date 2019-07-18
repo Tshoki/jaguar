@@ -28,14 +28,14 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 
 		String result=ERROR;
 
-		InputChecker inputChecker=new InputChecker();
+		InputChecker ic=new InputChecker();
 		//sessionにuserIdを格納
 		session.put("userIdForResetPassword", userId);
 
-		userIdErrorMessageList=inputChecker.doCheck("ユーザーID",userId, 1, 8, true, false, false, true, false, false);
-		passwordErrorMessageList=inputChecker.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false);
-		newPasswordErrorMessageList=inputChecker.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false);
-		reConfirmationNewPasswordErrorMessageList=inputChecker.doCheck("新しいパスワード(再確認)", reConfirmationPassword, 1, 16, true, false, false, true, false, false);
+		userIdErrorMessageList=ic.doCheck("ユーザーID",userId, 1, 8, true, false, false, true, false, false);
+		passwordErrorMessageList=ic.doCheck("現在のパスワード", password, 1, 16, true, false, false, true, false, false);
+		newPasswordErrorMessageList=ic.doCheck("新しいパスワード", newPassword, 1, 16, true, false, false, true, false, false);
+		reConfirmationNewPasswordErrorMessageList=ic.doCheck("新しいパスワード(再確認)", reConfirmationPassword, 1, 16, true, false, false, true, false, false);
 		//それぞれ入力された値が正規表現にマッチするか
 
 		if(userIdErrorMessageList.size()>0
@@ -54,7 +54,7 @@ public class ResetPasswordConfirmAction extends ActionSupport implements Session
 		//ユーザーの存在確認、存在しないときにif文を実行
 		//戻り値としてresult(ERROR)を返す
 
-		newPasswordIncorrectErrorMessage=inputChecker.doPasswordCheck(newPassword, reConfirmationPassword);
+		newPasswordIncorrectErrorMessage=ic.doPasswordCheck(newPassword, reConfirmationPassword);
 		//一度目のパスワードと二度目のパスワードが同じか検証
 
 		if(newPasswordIncorrectErrorMessage==null){
