@@ -44,7 +44,7 @@
 			</tr>
 		</table>
 		<div  class="center_btn_box">
-		<s:submit class="btn_green" value="宛先情報登録" onclick="GOtoCompleteAction()" />
+		<s:submit class="btn_green" value="登録" onclick="GOtoCompleteAction()" />
 		</div>
 		<div  class="center_btn_box">
 		<s:submit class="btn_blue" value="戻る" onclick="BACKtoAction()" />
