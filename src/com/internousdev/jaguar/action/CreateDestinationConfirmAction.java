@@ -2,9 +2,11 @@ package com.internousdev.jaguar.action;
 
 import java.util.List;
 import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.internousdev.jaguar.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.interceptor.SessionAware;
 
 public class CreateDestinationConfirmAction extends ActionSupport implements SessionAware{
 private String familyName;
@@ -44,7 +46,7 @@ public String execute(){
 	familyNameKanaErrorMessageList=ic.doCheck("姓ふりがな", familyNameKana, 1, 16, false, false, true, false, false, false);
 	firstNameKanaErrorMessageList=ic.doCheck("名ふりがな", firstNameKana, 1, 16, false, false, true, false, false, false);
 	userAddressErrorMessageList=ic.doCheck("住所", userAddress, 10, 50, true, true, true, true, true, false);
-	telNumberErrorMessageList=ic.doCheck("電話", telNumber, 10, 13, false, false, false, true, false, false);
+	telNumberErrorMessageList=ic.doCheck("電話番号", telNumber, 10, 13, false, false, false, true, false, false);
 	//（項目名、値、最小文字数、最大文字数）
 	emailErrorMessageList=ic.doCheckForEmail("メールアドレス", email, 10, 32);
 
