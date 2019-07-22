@@ -546,7 +546,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = null;
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -556,7 +556,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -566,7 +566,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = " ";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -576,7 +576,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "　";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -586,7 +586,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "abc";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -596,7 +596,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "123";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -606,7 +606,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "てすと";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -616,7 +616,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "テスト";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -626,7 +626,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "漢字";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -636,7 +636,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "漢字 テスト　てすと123abc";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -647,7 +647,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = null;
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -657,7 +657,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -667,7 +667,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = " ";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -677,7 +677,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "　";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -687,7 +687,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "abc";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -697,7 +697,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "123";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -707,7 +707,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "てすと";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -717,7 +717,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "テスト";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -727,7 +727,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "漢字";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
@@ -737,7 +737,7 @@ public class ProductInfoDTOTest {
 		ProductInfoDTO dto = new ProductInfoDTO();
 		String expected = "漢字 テスト　てすと123abc";
 
-		dto.setProductNameKana(expected);
+		dto.setProductDescription(expected);
 		String actual = dto.getProductNameKana();
 		assertEquals(expected, actual);
 	}
